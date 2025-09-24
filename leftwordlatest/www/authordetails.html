@@ -1,0 +1,275 @@
+{% extends "templates/subbase.html" %}
+{% block content %}
+  <main>
+
+
+   <!-- banner-section -->
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12">
+               <div class="le-pagehead">
+                   <!-- <h3>Categories</h3> -->
+                   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                       <ol class="breadcrumb">
+                         <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                         <li class="breadcrumb-item" aria-current="page">Books</li>
+                         <li class="breadcrumb-item active" aria-current="page">Author</li>
+                       </ol>
+                   </nav>
+               </div>
+           </div>
+       </div>
+   </div>
+   <!-- banner section end -->
+<!-- <div class="container filter-bar">
+   <div class="row">
+       <div class="col-md-12">
+           <div class="lw-pageFilter">
+               <ul>
+                   <li>
+                       <div>Sort by:</div>
+                   </li>
+                   <li>
+                       <select class="form-select arrows" aria-label="Default select example">
+                           <option selected="">Default sorting</option>
+                           <option value="1">Alphabetically, A-Z</option>
+                           <option value="2">Alphabetically, A-Z</option>
+                       </select>
+                   </li>
+                   <li>
+                       <div>
+                           <span>Show:</span>
+                       </div>
+                   </li>
+                   <li>
+                       <div>
+                           <select class="form-select arrows" aria-label="Default select example">
+                               <option selected="">20</option>
+                               <option value="1">30</option>
+                               <option value="2">40</option>
+                           </select>
+                       </div>
+                   </li>
+                   <li>
+                       <a href="#" class="btn btn-default">Clear</a>
+                   </li>
+               </ul>
+               <ul>
+                   <li>
+                       <p>Showing 1 - 12 of <span class="bold">200 result</span></p>
+                   </li>
+               </ul>
+           </div>
+       </div>
+   </div>
+</div> -->
+<section class="lw-author lw-authordetails">
+   <div class="container">
+       <!-- <div class="row">
+           <div class="col-md-12">
+               <div class="lwpagehead">
+                   <h5>Related Books</h5>
+               </div>
+           </div>
+       </div> -->
+       <div class="row row-cols-12 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mt-4">
+           <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
+               <div class="itemauthor card card-item">
+                   <a href="" class="card-item-img">
+                       <img src="{{ author_image or '/src/img/blankImg.png' }}" alt="{{ author_name }}" class="img-fluid">
+                   </a>
+               </div>
+           </div>
+           <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-9">
+               <div class="itemDetailshead">
+                   <h6>{{ author_name }}</h6>
+                   {% if author_description %}
+                   <p>{{ author_description }}</p>
+               {% endif %}
+               </div>
+           </div>
+       </div>
+       <div class="row">
+            <div class="col-md-12">
+                <div class="lwpagehead">
+                    <h5>Related Books</h5>
+                </div>
+            </div>
+      </div>
+      <div class="row row-cols-12 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mt-4">
+        {% for item in items %}
+            <div class="col mb-4">
+                <div class="itembooks card card-item">
+                    <a href="/productdetailspage?id={{ item.item_code }}" class="card-item-img">
+                        
+                        <img src="{{ item.item_image or item.custom_website_image or item.website_image or item.custom_image1 or item.custom_image2 or item.custom_image3 or '/src/img/blankImg.png' }}" class="">
+
+                    </a>
+                    <div class="card-content">
+                        <div class="itemDetails">
+                            <!-- Display the item name -->
+                            <a href="/productdetailspage?id={{ item.item_code }}"> <h6 class="text-limit2">{{ item.item_name }}</h6></a>
+                            <p>{{ item.custom_publisher if item.custom_publisher else "" }}</p>
+                        </div>
+                        <div class="cart-hover-sec">
+                            <div class="price-amount">
+                                <!-- <span>INR</span>{{ _(item.price_list_rate_inr) }} -->
+                                <div class="price-amount currency_inr">
+                                    {% if item.price_list_rate_inr > 0 %}
+                                    <span >INR</span>{{_(item.price_list_rate_inr)}}
+                                    {% else %}
+                                    <span style="color: red;">Not Available In INR</span>
+                                {% endif %}</div>
+                                <div class="price-amount currency_usd">
+                                    {% if item.price_list_rate_usd > 0 %}
+                                    <span >USD</span>{{_(item.price_list_rate_usd)}}
+                                    {% else %}
+                                    <span style="color: red;">Not Available In USD</span>
+                                {% endif %}</div>
+                            </div>
+                            <div class="add-cart-btn">
+                                {% if frappe.session.user == "Guest" %}
+                                <a href="#" class="btn-primary btn-style btn-icon-left" 
+                                   data-bs-toggle="modal" data-bs-target="#lwsignIn">
+                                   ADD TO CART
+                                </a>
+                            {% else %}
+                                <a href="#" class="btn-primary btn-style btn-icon-left add-to-cart-btn" 
+                                   data-item-code="{{ item.item_code }}" 
+                                   data-qty="1">
+                                   ADD TO CART
+                                </a>
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+     </div>
+
+
+      
+   </div>
+   
+ 
+       <!-- row end -->
+
+
+       <!-- <div class="row">
+           <div class="col-lg-12">
+             <div class="lw-pagination">
+               <nav aria-label="Page navigation example">
+                 <ul class="pagination">
+                   <li class="page-item">
+                     <a class="page-link" href="#" aria-label="Previous">
+                       <span aria-hidden="true">«</span>
+                     </a>
+                   </li>
+                   <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                   <li class="page-item"><a class="page-link" href="#">2</a></li>
+                   <li class="page-item"><a class="page-link" href="#">3</a></li>
+                   <li class="page-item"><a class="page-link" href="#">4</a></li>
+                   <li class="page-item"><a class="page-link" href="#">5</a></li>
+                   <li class="page-item"><a class="page-link border-none" href="#">...</a></li>
+                   <li class="page-item"><a class="page-link" href="#">20</a></li>
+                   <li class="page-item">
+                     <a class="page-link" href="#" aria-label="Next">
+                       <span aria-hidden="true">»</span>
+                     </a>
+                   </li>
+                 </ul>
+               </nav>
+             </div>
+           </div>
+       </div>     -->
+   </div>
+</section>
+<div class="container">
+<div class="row">
+   <div class="row">
+       <div class="col-md-12">
+           <div class="lwpagehead">
+               <h5>Authors</h5>
+           </div>
+       </div>
+   </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="owl-carousel owl-theme">
+            {% for author in other_authors %}
+                <div class="item">
+                    <div class="list-item">
+                        <div class="card card-item ">
+                            <a href="/authordetails?author_name={{ author.author_name }}" class="card-item-img">
+                                <img src="{{ author.author_image or '/src/img/blankImg.png' }}" class="author-image responsive-img">
+                            </a>
+                            <div class="card-content">
+                                <div class="autherCard-Details">
+                                    <h6 class="text-limit2">{{ author.author_name }}</h6>
+                                 
+                                </div>
+                                <div class="autherCard-btn">
+                                    <div class="add-cart-btn">
+                                        <a href="/authordetails?author_name={{ author.author_name }}" class="btn btn-primary btn100">View More</a>
+                                        <a href="/authordetails?author_name={{ author.author_name }}" class="btn btn-secondary btn-icon btn-icon-left btn-icon-book">{{ author.get("items")|length  }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+ </div>
+
+
+
+
+   <!-- -----------------------End----------------- -->
+</main>
+<!-- <style>
+  .card-item-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 175px; 
+    height: 200px; 
+    overflow: hidden;
+    text-align: center;
+    background-color: #ccc; 
+    position: relative;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.card-item-img img {
+    width: 175px; 
+    height: auto; 
+    object-fit: cover; 
+    object-position: center; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+
+.card-item-img img {
+    width: auto;
+    height: 100%;
+    margin: 0 auto; 
+}
+
+@media (max-width: 768px) {
+    .card-item-img {
+        height: 200px;
+    }
+}
+</style> -->
+{%endblock%}
+
+
+
+
+

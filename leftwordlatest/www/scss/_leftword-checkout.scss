@@ -1,0 +1,252 @@
+.lw-checkoutHolder{
+    .lw-checkout{
+        margin: 30px auto;
+    .lw-cart-action{
+        position: relative;
+        .item-text{
+            background-color: $lwbg-primary;
+            padding: 0px 15px;
+        }
+        &:before{
+            content: "";
+            border-bottom: 1px dotted $lwborder-primary2;
+            position: absolute;
+            left: 0px;
+            top:22px;
+            right: 50px;
+            border-width: 2px;
+
+        }
+        .nav-pills{
+            justify-content: space-between;
+}
+        .nav-link{ 
+            background: none;
+            border-radius: 0px;
+            color: #b1b5c3;
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 600;
+            position: relative;
+            padding-left: 30px;
+            padding-bottom: 18px;
+            &.active{
+                 color:  $text-primary;
+                 path{
+                    stroke:$bg-secondary-light; 
+                 }
+                 
+                .breadcrumb-step {
+                    background-color: $text-primary;
+                  }
+            }
+        .breadcrumb-step {
+            background-color: #ccc;
+            border-radius: 99px;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+            height: 45px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            text-align: center;
+            width: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    }
+}
+}}
+}
+
+.lw-checkoutitem{
+    .checkoutitemGrid{
+        margin-bottom: 20px;
+        border: 1px solid $border-secondary;
+        .row-flex{
+            align-items: center;
+        }
+        .checkoutItmecnt{
+            padding: 20px;
+            h6{
+                font-size: 18px;
+                color: $text-primary;
+                font-weight: 500;
+                line-height: 22px; 
+                margin-bottom: 5px;
+            }
+            p{
+                font-size: 15px;
+                font-weight: 400;
+                color: $text-secondary;
+                margin-bottom: 0px;
+                line-height: 28px;
+            }
+        }
+        .checkoutItmeAction{
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .btn{
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            h2{
+                font-size: 22px;
+                color: $text-primary;
+                font-weight: 500;
+                line-height: 22px; 
+                margin-bottom: 0px;
+                margin-left: 15px;
+            }
+        }
+   
+        .checkoutImg{
+            text-align: center;
+            background-color:$bg-secondary;
+            padding: 20px;
+            .checkoutImgLink{
+                max-width: 100px;
+                display: inline-block;
+            }
+        }
+    }
+    .checkoutPrice{
+        .card{
+            background-color:$bg-secondary;
+            border: 1px solid $border-secondary;
+            .card-body{
+                padding: 25px;
+            }
+        }
+        .card-header{
+            background:none ;
+            padding:0px 0px 20px 0px;
+            h2{
+                font-size: 18px;
+                color: $text-primary;
+                font-weight: 500;
+                line-height: 22px;
+                margin: 0px;
+            }
+        }
+        .cart-pricelist{
+            ul{
+                margin: 0px;
+                padding: 0px;
+                li{
+                    padding: 10px 0px;
+                    &:nth-child(n+2) {
+                        border-top: 1px solid $border-secondary;
+                      }
+                    .price-ctr{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .input-group{
+                            border: 1px solid $border-secondary;
+                            margin: 15px 0px;
+                            .form-control, .btn{
+                                border: none;
+                                box-shadow: none;
+                            }
+                        }
+                        &.cart-total{
+                            margin-top: 15px;
+                            p{
+                                font-weight: 600;
+                                font-size: 19px
+                            };
+                        }
+                        p{
+                            font-size: 16px;
+                            line-height: 37px;
+                            font-weight: 400;
+                            margin: 0px;
+                            a{
+                                color: $hover-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+.lwCheckout{
+    &.lwCheckout-shipping{
+        .lwCheckoutForm{
+            .wbForm{
+                margin: 20px 0px;
+                label{
+                    font-size: 15px;
+                    line-height: 37px;
+                    font-weight: 400;
+                    color: $text-primary;
+                    margin-bottom: 2px;
+                    span{
+                        color:$lwbghover-primary;
+                    }
+                }
+                textarea{
+                    height: 150px;
+                }
+            }
+        }
+    }
+    &.lwCheckout-payment{
+        .lw-paymentMethord{
+            background-color: $bg-secondary;
+            padding: 20px;
+            .lw-flex{
+                display: flex;
+                align-items: center;
+            }
+            .lw-cm-radio{
+                label{
+                    margin-left: 20px;
+                }
+            }
+            p{
+                margin-bottom: 0px;
+                font-size: 16px;
+                line-height: 22px;
+                font-weight: 500;
+            }
+        }
+        .lw-paymentads{
+            margin: 30px 0px;
+            p{
+                margin-bottom: 5px;
+                font-size: 16px;
+                line-height: 22px;
+                font-weight: 400;
+                color: $text-light;   
+            }
+        }
+        .lw-paymentAddress{
+            margin: 30px 0px;
+            .card{
+                background-color: $bg-secondary;
+                .card-footer{
+                    background-color: $bg-secondary;
+                    text-align: right; 
+                }
+            }
+            p{
+                margin-bottom: 8px;
+                font-size: 16px;
+                line-height: 22px;
+                font-weight: 400;
+                color: $text-primary;  
+            }  
+        }
+    }
+}
+

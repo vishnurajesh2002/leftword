@@ -1,0 +1,355 @@
+.lwpagehead{
+    margin: 20px 0px;
+    position: relative;
+    &:before{
+        content: "";
+        border-bottom: 1px solid $border-light;
+        position: absolute;
+        width: 100%;
+        top: 15px;
+        z-index: -1;
+    }
+    h5{
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        padding-right: 15px;
+        color: $lwfcolor-primary;
+        display: inline-block;
+        background-color: $lwbgwhite;
+    }
+}
+
+.btn-icon{
+    position: relative;
+    padding-left: 50px;
+    &:before{
+        content: url("../src/img/signupgoogle.svg");
+        margin-right: 5px;
+        position: absolute;
+        left: 88px;
+    }
+}
+
+
+
+.alert{
+font-size: 15px;
+&.alert-primary{
+    color: $text-primary;
+    background-color: $bg-secondary-light;
+    border:1px solid $border-secondary;
+    padding: 7px 36px 7px 8px;
+    &:hover{
+        border:1px solid $hover-color;
+        color: $hover-color;
+        }
+    &.alert-dismissible{
+        .btn-close{
+            font-size: 12px;
+            padding: 13px 10px;
+        &:hover{
+         color: $hover-color !important;
+        }
+        }
+    }
+}
+}
+// btn star
+
+.btn{
+    font-size: 15px;
+    padding: 10px;
+    font-size: 15px;
+    &:hover{
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    }
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+}
+.btn100{
+    width: 100%;
+}
+.btn-default{
+    background-color:$lwbg-primary;
+    border: none;
+    border-radius: 0px;
+    border: 1px solid $border-secondary;
+    &:hover{
+        border: 1px solid  $hover-color;
+        color: $hover-primary;
+        background-color: $lwbg-primary
+    }
+}
+
+.btn-secondary{
+    background-color:$lwbg-secondary;
+    border: 1px solid $lwborder-secondary;
+    color: $text-white;
+    border-radius: 0px;
+    &:hover{
+        background-color:$lwborderhover-secondary;
+        border: 1px solid $lwborderhover-secondary;  
+    }
+}
+.btn-primary{
+    background-color:$lwbg-primary;
+    border: 1px solid $lwborder-primary;
+    color: $lwfcolor-primary;
+    border-radius: 0px;
+    &:hover{
+        color: $lwfcolorhover-primary;
+        border: 1px solid $lwborderhover-primary;  
+    }
+}
+.btn-secondary2{
+    background-color:$lwborderhover-secondary;
+    border: 1px solid $lwborderhover-secondary;
+    color: $text-white;
+    border-radius: 0px;
+    &:hover{
+        background-color:$lwbg-secondary;  
+        border: 1px solid $lwbg-secondary; 
+        color: $text-white; 
+    }
+}
+
+// Content limit
+.owl-carousel{
+    .owl-stage-outer {
+        .owl-stage{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+    }
+}
+#lwmessage {
+    background-color: #FFFFFF;
+     border: none;
+     border: 1px solid #cccccc;
+     color: $text-primary;
+     .btn-close{
+        color: #EB5E37;
+     }
+    p{
+        font-size: 13px;
+        line-height: 20px;
+        margin-bottom: 5px;
+        }
+        .arrow-highlight{
+            font-size: 15px;
+            line-height: 27px;
+            margin: 0px;
+            position: relative;
+            color: $text-white;
+                &:before {
+                    content: "";
+                    z-index: -1;
+                    left: -.1em;
+                    top: .1em;
+                    border-width: 13.8px;
+                    border-style: solid;
+                    border-color: #EB5E37;
+                    position: absolute;
+                    width: calc(50%);
+                    border-right-color: transparent;
+                }
+
+        }
+   
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 99999;
+    width: 300px;
+}
+// #lwinner-message {
+//     margin: 0 auto;
+// }
+
+.lwpolycyDetails{
+    p{
+        font-size: 16px;
+        color: $text-primary;
+        line-height: 24px;
+        margin: 15px 0px;
+    }
+    h2{
+        font-size: 22px;
+        color: $text-primary;
+        line-height: 26px;
+        margin: 15px 0px;
+        font-weight: 600;
+        text-transform: uppercase;  
+    }
+    a{
+        color: $hover-primary !important;
+    }
+    .lwaddress{
+        p{
+            font-size: 18px;
+            color: $text-primary;
+            line-height: 24px;
+            margin: 8px 0px;
+            font-weight: 500;    
+        }
+    }
+    .lw-policywrap{
+        .lw-spcnt{
+            padding-left: 30px;
+        }
+    }
+}
+
+// 404 Error
+#layoutError{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    #layoutError_content{
+        min-width: 0;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p{
+            font-size: 28px;
+            line-height: 15px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+
+.lw-accounts{
+    .card{
+        border: none;
+        .card-header{
+            padding: 11px 19px;
+            border: none;
+            h3{
+                font-size: 19px;
+                color: $text-primary;
+                line-height: 26px;
+                margin: 0px;
+            }
+            &.card-flex{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .btn{
+                height: 33px;
+                padding: 5px 15px;
+            }
+        }
+        .card-body{
+            padding: 20px;
+        }
+    }
+    .lw-accounts-item{
+        .lw-account-edit{
+            label{
+                span{
+                    color: $hover-primary;
+                    margin-left: 5px;
+                }
+            }
+            .lw-error{
+                font-size: 14px;
+                line-height: 27px;
+                font-weight: 400;
+                color: $hover-primary;
+            }
+            .lw-account-editBtn{
+                text-align: right;
+            }
+        }
+        .lw-accounts-item-divider{
+            margin-bottom: 15px;
+        }
+        label{
+            font-size: 14px;
+            line-height: 26px;
+            color: $text-primary;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        h2{
+            font-size: 22px;
+            color: $text-primary;
+            line-height: 26px; 
+        }
+        p{
+            font-size: 16px;
+            line-height: 24px;
+            margin: 2px 0px; 
+        }
+    }
+    &.lwmyOrder{
+        .table-seperate {
+        table {
+            border: none;
+            border-collapse: separate;
+            border-spacing: 0em 0.5em;
+            &.tableBlod{
+                td{
+                    font-weight: 600;
+                }
+            }
+            .btn-md{
+                padding: 8px 10px;
+            }
+            thead{
+                th{
+                    background-color: $bg-primary;
+                    font-size: 15px;
+                    line-height: 24px;
+                    color: $text-white;
+                    font-weight: 500;
+                    border: none;
+                    padding: 15px 20px;
+                }
+               
+            }
+            tbody{
+                td{
+                    background-color: $text-secondary1;
+                    font-size: 15px;
+                    line-height: 24px;
+                    color: $text-primary;
+                    font-weight: 400;
+                    border: none;
+                    padding: 20px;
+                    vertical-align: middle;
+                }
+            }
+          }
+        }
+    }
+}
+
+// conctat us
+.lw-contact-us{
+    .contact-box{
+        margin-bottom: 20px;
+        p{
+            font-size: 16px;
+            color: $text-primary;
+            line-height: 24px;
+            margin: 8px 0px;
+            font-weight: 400;
+            .text-bold{
+                font-weight: 600;
+            }
+            a{
+                &:hover{
+                    color: $hover-primary;
+                }
+            }
+        }
+    }
+}

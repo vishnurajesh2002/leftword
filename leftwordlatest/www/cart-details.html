@@ -1,0 +1,81 @@
+{% extends "templates/mainbase.html" %}
+{% block content %}
+<main>
+<!-- page layout width Start -->
+<section class="lw-cart-details">
+    <div class="container-fluid lw-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="lw-pghd-text">
+                        <h3>My Account</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid lw-login-holder">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7">
+                    <div class="lw-login-leftimg">
+                        <img src="src/img/login-left-img.jpg" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="cart-box">
+                        <div class="card  card-border-0">
+                            <div class="card-header card-h-p-l0 card-h-bg-0 border-0 mb-4">My Account</div>
+                            <div class="lw-login-blk">
+                                <div class="lw-login-head mb-4">
+                                    <h3>Login</h3>
+                                </div>
+                                <div class="lw-login-form">
+                                    <input type="text" class="form-control mb-2 form-border-light"
+                                        placeholder="Username or email address*">
+                                    <input type="text" class="form-control mb-2 form-border-light"
+                                        placeholder="Password*">
+                                </div>
+                                <div class="lw-login-forgot">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                    <a href="#" class="lw-forgot">Lost your password?</a>
+                                </div>
+                                <div class="lw-login-btn">
+                                    <button type="button"
+                                        class="btn btn-secondary btn-caps mb-2 w-100 btn-lg">Login</button>
+                                </div>
+                            </div>
+                            <div class="lw-login-blk mb-4">
+                                <div class="lw-login-head">
+                                    <h3>Register</h3>
+                                </div>
+                                <div class="lw-login-form">
+                                    <input type="text" class="form-control mb-2 form-border-light"
+                                        placeholder="Username or email address*">
+                                    <input type="text" class="form-control mb-2 form-border-light"
+                                        placeholder="Password*">
+                                </div>
+                                <div class="lw-login-form mb-2">
+                                    <p>Anti-spam</p>
+                                    <input type="text" class="form-control mb-2 form-border-light" placeholder="">
+                                </div>
+                                <div class="lw-login-btn">
+                                    <button type="button"
+                                        class="btn btn-secondary btn-caps mb-2 w-100 btn-lg">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- page layout width End -->
+</main>
+{% endblock %}

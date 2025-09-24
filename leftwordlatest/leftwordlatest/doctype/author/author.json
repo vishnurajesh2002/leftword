@@ -1,0 +1,38 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-18 11:30:06.886730",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "type",
+  "custom_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nAuthor\nForeword\nIntroduction\nContributor\nTranslator\nIllustrator\nEditor\nPreface\nAfterword"
+  },
+  {
+   "fieldname": "custom_name",
+   "fieldtype": "Link",
+   "label": "Name",
+   "options": "Writer"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-19 17:17:47.525675",
+ "modified_by": "Administrator",
+ "module": "leftwordlatest",
+ "name": "Author",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

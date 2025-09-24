@@ -1,0 +1,106 @@
+.form-check {
+    .form-check-input {
+        width: 1.1em;
+        height: 1.1em;
+        margin-top: 4px;
+        &:checked {
+            background-color: $checkbox-border;
+            border-color: $checkbox-border;
+        }
+        &:focus {
+            border-color: $checkbox-border;
+            outline: 0;
+            box-shadow: none;
+        }
+    }
+}
+
+// .custom-checkbox{
+//     position: relative;
+//     .custom-control-input {
+//       left: 0px;
+//         &:checked {
+//           & ~ .custom-control-label {
+//             &:before {
+//               background-color:  $bg-primary;
+//                border: 1px solid  $border-primary;
+//               box-shadow: none;
+//             }
+//           }
+//         }
+//         &:active{
+//           & ~ .custom-control-label {
+//             &:before {
+//             background-color: #f9f9f9;
+//             }
+//           }
+//         }
+//     }
+//     .custom-control-label{
+//       padding-left: 31px;
+//       cursor: pointer;
+//       &.checkbox-primary{
+//         &:before{
+//               background-color:#ffff;
+//               border: 1px solid $border-primary;
+//         }
+//       }
+//       &:before{ 
+//           width: 1.3rem;
+//           height: 1.3rem;
+//           border: 1px solid $border-primary;
+//         border-radius: 2px !important;
+//         background-color: #ffff;
+//         top: 2px;
+//         left: 0px;
+//         }
+//         &:after{
+//           width: 1.3rem;
+//           height: 1.3rem;
+//           top: 2px;
+//           background-size: 53% 52%;
+//           left: 0px;
+//       }
+//     }
+//   }
+//   .custom-control{
+//     padding-left: 1.8rem;
+//       &.custom-radio{
+//         .custom-control-label{
+//           letter-spacing: 0px;
+//           color: #756F86;
+//           opacity: 1;
+//           font-size: 15px;
+//           line-height: 26px;
+//           font-weight: 500;
+//           &:before{
+//             background: #ffffff 0% 0% no-repeat padding-box;
+//             box-shadow: 0px 4px 8px #2C273814;
+//             border: 1px solid #DBE2EA;
+//             width: 1.5rem;
+//             height: 1.5rem;
+//             top: 0.08rem;
+//           }
+//         }
+//         .custom-control-input{
+//           &:checked{
+//             &~ .custom-control-label{
+//               &:before{
+//                 background: #f7f7f7 0% 0% no-repeat padding-box;
+//                 box-shadow: 0px 4px 8px #2c27380a;
+//                 border: 2px solid #0880AE;
+//               }
+//               &:after{
+//                   top: 7px;
+//                   left: 6px;
+//                   width: 12px;
+//                   height: 12px;
+//                   border-radius: 50px;
+//                   background-color: #0880AE;
+//                   background-image: none;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }

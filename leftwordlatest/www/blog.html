@@ -1,0 +1,61 @@
+{% extends "templates/mainbase.html" %}
+{% block content %}
+
+<main>
+<!-- page layout width Start -->
+<section class="lw-blog-details">
+    <div class="container-fluid lw-page-header border-none">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="lw-pghd-text">
+                        <h3>BLOG DETAILS</h3>
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% for blog in blogs %}
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 m-auto">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="lw-blog-qts blog-blk">
+              <h3>{{ blog.title or '' }}</h3>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="blog-blk">
+              <p>{{ blog.blog_intro or '' }}</p>
+              <div class="blog-content">
+                {{ blog.content | safe  or ''}}
+              </div>
+              <p>Blogger: {{ blog.blogger or '' }}</p>
+              <p>Published on <span>{{ blog.published_on.strftime('%d %B %Y') or '' }}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+{% endfor %}
+
+     
+
+</section>
+
+</main>
+
+
+
+{% endblock %}

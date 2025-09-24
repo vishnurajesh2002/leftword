@@ -1,0 +1,88 @@
+{% extends 'templates/subbase.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="le-pagehead">
+                <h3>Author</h3>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/authors">Authors</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Browse all</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="line">
+<div class="container">
+    <div class="alphabet-nav" id="alphabet-nav">
+        {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+            <a href="javascript:void(0);" class="letter-link">{{ letter }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="authors-grid" id="authors-grid">
+       
+    </div>
+</div>
+
+
+
+<style>
+   
+    .author-link {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .author-link:hover {
+        color: red;
+        text-decoration: underline;
+    }
+
+    .line {
+        color: red;
+    }
+
+    .alphabet-nav {
+        margin-bottom: 20px;
+    }
+
+    .alphabet-nav a {
+        text-decoration: none;
+        margin-right: 10px;
+        color: black;
+        font-weight: bold;
+    }
+
+    .alphabet-nav a:hover {
+        color: red;
+    }
+
+    .authors-grid {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .author-section {
+        width: 30%;
+        padding: 10px;
+    }
+
+    .author-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .author-section li {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+</style>
+
+{% endblock %}

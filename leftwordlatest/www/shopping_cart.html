@@ -1,0 +1,612 @@
+{% extends "templates/subbase.html" %}
+{% block content %}
+    <!-- Check if cart_items is empty -->
+    {% if cart_items %}
+    <div class="container-fluid lw-checkoutHolder cart_class" id="cart-items-view">  
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 m-auto">
+                    <div class="lw-checkout">
+                        <div class="lw-cart-action">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link active" data-bs-toggle="pill" type="button">
+                                        <span class="breadcrumb-step hide-for-small">
+                                            <svg width="23" height="20" viewBox="0 0 23 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.87355 16.2058C7.75755 16.2058 8.47416 16.8866 8.47416 17.7264C8.47416 18.5661 7.75755 19.247 6.87355 19.247C5.98956 19.247 5.27295 18.5661 5.27295 17.7264C5.27295 16.8866 5.98956 16.2058 6.87355 16.2058Z"
+                                                stroke="white" stroke-width="1.5" />
+                                            <path
+                                                d="M16.4773 16.2058C17.3613 16.2058 18.0779 16.8865 18.0779 17.7264C18.0779 18.5661 17.3613 19.247 16.4773 19.247C15.5934 19.247 14.8767 18.5661 14.8767 17.7264C14.8767 16.8865 15.5934 16.2058 16.4773 16.2058Z"
+                                                stroke="white" stroke-width="1.5" />
+                                            <path d="M9.00293 7.08081L9.56656 10.2415" stroke="white" stroke-width="1.5"
+                                                stroke-linecap="round" />
+                                            <path d="M15.4403 7.08081L14.8767 10.2415" stroke="white" stroke-width="1.5"
+                                                stroke-linecap="round" />
+                                            <path
+                                                d="M1 1L1.27873 1.0931C2.66762 1.55699 3.36207 1.78893 3.75927 2.34113C4.15648 2.89333 4.15648 3.6268 4.15648 5.09375V7.85272C4.15648 10.8347 4.22396 11.8187 5.14847 12.7451C6.07298 13.6715 7.56095 13.6715 10.5369 13.6715H11.6707M16.1955 13.6715C17.8612 13.6715 18.694 13.6715 19.2827 13.2157C19.8715 12.7599 20.0396 11.985 20.3759 10.4352L20.9092 7.97716C21.2796 6.21424 21.4647 5.3328 20.991 4.74779C20.5173 4.1628 18.8988 4.1628 17.1008 4.1628H10.6287M4.15648 4.1628H6.33535"
+                                                stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                                        </svg>
+                                    </span>
+                                    <span class="item-text">Cart</span>
+                                </a>
+                            </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link" data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-checkout" aria-selected="true">
+                                        <span class="breadcrumb-step hide-for-small">
+                                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <!-- SVG paths here -->
+                                                xmlns="http://www.w3.org/2000/svg">
+                                           <path
+                                               d="M16.8936 1L3.68969 1C2.20422 1 1 2.20423 1 3.6897V16.8936C1 18.3791 2.20422 19.5833 3.68969 19.5833H16.8936C18.3791 19.5833 19.5833 18.3791 19.5833 16.8936V3.6897C19.5833 2.20423 18.3791 1 16.8936 1Z"
+                                               stroke="#6E6E6E" stroke-width="1.5" />
+                                           <path
+                                               d="M19.092 6.37476H1.48669M16.1577 10.0425H4.4209M16.1577 12.9767H4.4209M16.1577 15.9109H4.4209"
+                                               stroke="#6E6E6E" stroke-width="1.5" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                        <span class="item-text">Shipping</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link" data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-ordertracking" aria-selected="false">
+                                        <span class="breadcrumb-step hide-for-small">
+                                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <!-- SVG paths here -->
+                                                xmlns="http://www.w3.org/2000/svg">
+                                           <path
+                                               d="M3.64114 20.9143H17.2663C18.2338 20.9143 19.1617 20.5299 19.8458 19.8458C20.5299 19.1617 20.9143 18.2338 20.9143 17.2663V3.64114C20.9125 2.67482 20.5273 1.7487 19.8434 1.06605C19.1595 0.383399 18.2326 -1.70713e-06 17.2663 0H3.64114C3.16298 0 2.6895 0.0941809 2.24774 0.277165C1.80597 0.46015 1.40458 0.728355 1.06647 1.06647C0.728355 1.40458 0.460151 1.80597 0.277167 2.24774C0.0941822 2.6895 0 3.16298 0 3.64114V17.2663C-1.70714e-06 18.2326 0.383399 19.1595 1.06605 19.8434C1.7487 20.5273 2.67482 20.9125 3.64114 20.9143ZM17.2663 1.71429C17.5199 1.71338 17.7712 1.76256 18.0058 1.85899C18.2403 1.95542 18.4536 2.0972 18.6332 2.27622C18.8129 2.45523 18.9554 2.66795 19.0527 2.90218C19.1499 3.1364 19.2 3.38753 19.2 3.64114V17.2663C19.2 17.7791 18.9963 18.271 18.6336 18.6336C18.271 18.9963 17.7791 19.2 17.2663 19.2H3.64114C3.38753 19.2 3.1364 19.1499 2.90218 19.0527C2.66795 18.9554 2.45523 18.8129 2.27622 18.6332C2.0972 18.4536 1.95542 18.2403 1.85899 18.0058C1.76256 17.7712 1.71338 17.5199 1.71429 17.2663V3.64114C1.71429 3.13011 1.91729 2.64 2.27865 2.27865C2.64001 1.91729 3.13011 1.71429 3.64114 1.71429H17.2663Z"
+                                               fill="#6E6E6E" />
+                                           <path
+                                               d="M13.1825 11.3143C13.4192 11.3135 13.653 11.262 13.8682 11.1634C14.1692 11.0267 14.424 10.8055 14.6017 10.5268C14.7794 10.248 14.8724 9.92371 14.8693 9.59314V0.857143C14.8693 0.629814 14.779 0.411797 14.6183 0.251051C14.4576 0.0903058 14.2395 0 14.0122 0C13.7849 0 13.5669 0.0903058 13.4061 0.251051C13.2454 0.411797 13.1551 0.629814 13.1551 0.857143V9.59314L11.5436 8.16686C11.2408 7.89649 10.849 7.74706 10.4431 7.74706C10.0371 7.74706 9.64533 7.89649 9.34249 8.16686L7.68992 9.6L7.74477 0.857143C7.74477 0.629814 7.65447 0.411797 7.49372 0.251051C7.33298 0.0903058 7.11496 0 6.88763 0C6.6603 0 6.44229 0.0903058 6.28154 0.251051C6.1208 0.411797 6.03049 0.629814 6.03049 0.857143V9.59314C6.02744 9.92371 6.12042 10.248 6.29813 10.5268C6.47585 10.8055 6.73066 11.0267 7.03163 11.1634C7.32364 11.2977 7.64847 11.3439 7.96635 11.2964C8.28422 11.2489 8.58135 11.1098 8.82135 10.896L10.4533 9.48343L12.0853 10.9029C12.3885 11.1694 12.7788 11.3158 13.1825 11.3143ZM9.42478 16.6766H15.5962C15.8235 16.6766 16.0415 16.5863 16.2023 16.4255C16.363 16.2648 16.4533 16.0468 16.4533 15.8194C16.4533 15.5921 16.363 15.3741 16.2023 15.2133C16.0415 15.0526 15.8235 14.9623 15.5962 14.9623H9.42478C9.19745 14.9623 8.97943 15.0526 8.81868 15.2133C8.65794 15.3741 8.56763 15.5921 8.56763 15.8194C8.56763 16.0468 8.65794 16.2648 8.81868 16.4255C8.97943 16.5863 9.19745 16.6766 9.42478 16.6766Z"
+                                               fill="#6E6E6E" />
+                                            </svg>
+                                        </span>
+                                        <span class="item-text">Payment Method</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid lw-checkoutitem">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="checkoutitemGrid">
+                        {% for item in cart_items %}
+                            <div class="row row-flex" id="row-{{ item.item_code }}">
+                                <div class="col-lg-3">
+                                    <div class="checkoutImg">
+                                        <a href="/productdetailspage?id={{ item.item_code }}" class="checkoutImgLink">
+                                            {% if item.image %}
+                                                <img src="{{ item.image }}" class="img-fluid" alt="{{ item.item_name }}"
+                                                     onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+                                            {% elif item.website_image %}
+                                                <img src="{{ item.website_image }}" class="img-fluid" alt="{{ item.item_name }}"
+                                                     onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+                                            {% elif item.custom_website_image %}
+                                                <img src="{{ item.custom_website_image }}" class="img-fluid" alt="{{ item.item_name }}"
+                                                     onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+                                                     {% elif item.custom_image1 %}
+                                                 <img src="{{ item.custom_image1 }}" class="img-fluid" alt="{{ item.item_name }}"
+                                                 onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+                    
+                                                {% elif item.custom_image2 %}
+                                                <img src="{{ item.custom_image2 }}" class="img-fluid" alt="{{ item.item_name }}"
+                                                onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+
+                                            
+                                                {% elif item.custom_image3 %}
+                                                <img src="{{ item.custom_image3 }}" class="img-fluid" alt="{{ item.item_name }}"
+                                                onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+
+                                    
+                                            {% else %}
+                                                <img src="/src/img/blankImg.png" class="img-fluid" alt="Default Image">
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="checkoutItmecnt">
+                                        <h6 class="text-limit2">{{ item.item_name }}</h6>
+                                        <p>{{ item.brand or "" }}</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="checkoutItmeAction">
+                                        <button type="button" class="fa fa-trash" data-item-code="{{item.item_code}}" data-quotation-name="{{item.quotation_name}}" title="Remove" style="font-size: 24px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; color: #333;">
+                                        </button>
+                                        <h2 class="hidden-until-load">
+                                            <span class="item-price currency_inr" id="base-rate-{{ item.item_code }}">INR {{ item.base_rate }}</span>
+                                            <span class="item-price currency_usd" id="rate-{{ item.item_code }}">USD {{ item.rate }}</span>
+                                        </h2>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+         
+
+                <!-- Order Summary Column -->
+                <div class="col-md-4">
+                    <div class="checkoutPrice">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h2>Order Summary</h2>
+                                </div>
+                                <div class="cart-pricelist">
+                                    <ul>
+                                        <li>
+                                            <div class="price-ctr">
+                                                <p>Total Amount</p>
+                                                <p class="hidden-until-load">
+                                                    <span id="base-total-amount" class="item-price currency_inr">INR {{ base_net_total or "" }}</span>
+                                                    <span id="total-amount" class="item-price currency_usd">USD {{ net_total or "" }}</span>
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="price-ctr">
+                                                <p>
+                                                    Shipping <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Know More</a>
+                                                </p>
+                                                <p class="hidden-until-load">
+                                                    <span id="shipping-charge" class="item-price currency_inr">INR 0.00</span>
+                                                    <span id="shipping-charge-usd" class="item-price currency_usd" style="display: none;">USD 0.00</span>
+                                                </p>
+                                            </div>
+                                        </li>
+                                        
+                                        <li>
+                                            <div class="price-ctr cart-total">
+                                                <p>Total</p>
+                                                <p class="hidden-until-load">
+                                                    <span id="total-amount-inr" class="item-price currency_inr">INR {{ base_net_total or "0.00" }}</span>
+                                                    <span id="total-amount-usd" class="item-price currency_usd">USD {{ grand_total or "0.00" }}</span>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <button id="place-order" type="button" class="btn btn-secondary2 btn100 checkout">PROCEED TO CHECKOUT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Order Summary Column End -->
+            </div>
+        </div>
+    </div>
+
+   
+
+   <!-- Modal Popup for Shipping -->
+   <div class="modal fadeIn" data-easein="fadeIn" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Shipping Calculation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <!-- INR Table -->
+                    <table id="shipping-table-inr" class="table table-bordered align-middle cart-list-table currency_inr">
+                        <tr>
+                            <td>1 Book</td>
+                            <td align="right">INR 79</td>
+                        </tr>
+                        <tr>
+                            <td>2 Books</td>
+                            <td align="right">INR 99</td>
+                        </tr>
+                        <tr>
+                            <td>3 Books</td>
+                            <td align="right">INR 119</td>
+                        </tr>
+                    </table>
+
+
+                    <!-- USD Table -->
+                    <table id="shipping-table-usd" class="table table-bordered align-middle cart-list-table currency_usd" style="display: none;">
+                        <tr>
+                            <td>1 Book</td>
+                            <td align="right">USD 12.5</td>
+                        </tr>
+                        <tr>
+                            <td>2 Books</td>
+                            <td align="right">USD 18</td>
+                        </tr>
+                        <tr>
+                            <td>3 Books</td>
+                            <td align="right">USD 20</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .hidden-until-load {
+display: none;
+}
+</style>
+<script>
+        window.addEventListener("load", function () {
+document.querySelectorAll(".hidden-until-load").forEach(el => {
+el.style.display = "block";
+});
+});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const currencyDropdown = document.getElementById('transaction-currency');
+        const inrTable = document.getElementById('shipping-table-inr');
+        const usdTable = document.getElementById('shipping-table-usd');
+
+        if (currencyDropdown && inrTable && usdTable) {
+            function toggleModalCurrency(currency) {
+                if (currency === 'USD') {
+                    inrTable.style.display = '';
+                    usdTable.style.display = 'none';
+                } else if (currency === 'INR') {
+                    inrTable.style.display = 'none';
+                    usdTable.style.display = '';
+                }
+            }
+
+            // Event listener for currency change
+            currencyDropdown.addEventListener('change', (e) => {
+                toggleModalCurrency(e.target.value);
+            });
+
+            // Initialize display based on default currency
+            toggleModalCurrency(currencyDropdown.value);
+        } else {
+            console.error("Required elements for currency functionality are not present in the DOM.");
+        }
+    });
+</script>
+
+<script>
+    async function fetchShippingCharge() {
+        try {
+            const response = await fetch('/api/method/leftwordlatest.web_api.items.get_shipping_charge');
+            const data = await response.json();
+
+            console.log(data); // Debugging: Check the API response
+
+            const baseTotalAmountElement = document.getElementById('base-total-amount');
+            const baseTotalAmount = parseFloat(
+                baseTotalAmountElement.textContent.replace(/INR |USD /, '').replace(/,/g, '')
+            );
+
+            if (data.message && data.message.currency) {
+                const currency = data.message.currency;
+                let shippingCharge;
+
+                // Determine which value to use for the shipping charge
+                if (currency === 'INR') {
+                    shippingCharge = parseFloat(data.message.total_taxes_and_charges);
+                    document.getElementById('shipping-charge').textContent = `INR ${shippingCharge.toFixed(2)}`;
+                    document.getElementById('shipping-charge').style.display = 'inline';
+                    document.getElementById('shipping-charge-usd').style.display = 'none';
+                } else if (currency === 'USD') {
+                    shippingCharge = parseFloat(data.message.total_taxes_and_charges); // USD value
+                    document.getElementById('shipping-charge-usd').textContent = `USD ${shippingCharge.toFixed(2)}`;
+                    document.getElementById('shipping-charge').style.display = 'none';
+                    document.getElementById('shipping-charge-usd').style.display = 'inline';
+                }
+
+                const total = baseTotalAmount + shippingCharge;
+                document.getElementById('total-amount-inr').textContent = `${currency} ${total.toFixed(2)}`;
+            } else {
+                // Default fallback in case shipping charge is missing
+                document.getElementById('shipping-charge').textContent = 'INR 0.00';
+                document.getElementById('shipping-charge-usd').textContent = 'USD 0.00';
+                document.getElementById('total-amount-inr').textContent = `INR ${baseTotalAmount.toFixed(2)}`;
+            }
+        } catch (error) {
+            console.error('Error fetching shipping charge:', error);
+            document.getElementById('shipping-charge').textContent = 'Error fetching shipping charge.';
+            document.getElementById('total-amount-inr').textContent = `INR ${baseTotalAmount.toFixed(2)}`;
+        }
+    }
+
+    // Fetch the shipping charge when the page loads
+    fetchShippingCharge();
+</script>
+
+    {% else %}
+        <div class="container-fluid lw-checkoutHolder cart_class" id="cart-items-view">  
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 m-auto">
+                        <div class="lw-checkout">
+                            <div class="lw-cart-action">
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link active" data-bs-toggle="pill" type="button">
+                                            <span class="breadcrumb-step hide-for-small">
+                                                <svg width="23" height="20" viewBox="0 0 23 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M6.87355 16.2058C7.75755 16.2058 8.47416 16.8866 8.47416 17.7264C8.47416 18.5661 7.75755 19.247 6.87355 19.247C5.98956 19.247 5.27295 18.5661 5.27295 17.7264C5.27295 16.8866 5.98956 16.2058 6.87355 16.2058Z"
+                                                    stroke="white" stroke-width="1.5" />
+                                                <path
+                                                    d="M16.4773 16.2058C17.3613 16.2058 18.0779 16.8865 18.0779 17.7264C18.0779 18.5661 17.3613 19.247 16.4773 19.247C15.5934 19.247 14.8767 18.5661 14.8767 17.7264C14.8767 16.8865 15.5934 16.2058 16.4773 16.2058Z"
+                                                    stroke="white" stroke-width="1.5" />
+                                                <path d="M9.00293 7.08081L9.56656 10.2415" stroke="white" stroke-width="1.5"
+                                                    stroke-linecap="round" />
+                                                <path d="M15.4403 7.08081L14.8767 10.2415" stroke="white" stroke-width="1.5"
+                                                    stroke-linecap="round" />
+                                                <path
+                                                    d="M1 1L1.27873 1.0931C2.66762 1.55699 3.36207 1.78893 3.75927 2.34113C4.15648 2.89333 4.15648 3.6268 4.15648 5.09375V7.85272C4.15648 10.8347 4.22396 11.8187 5.14847 12.7451C6.07298 13.6715 7.56095 13.6715 10.5369 13.6715H11.6707M16.1955 13.6715C17.8612 13.6715 18.694 13.6715 19.2827 13.2157C19.8715 12.7599 20.0396 11.985 20.3759 10.4352L20.9092 7.97716C21.2796 6.21424 21.4647 5.3328 20.991 4.74779C20.5173 4.1628 18.8988 4.1628 17.1008 4.1628H10.6287M4.15648 4.1628H6.33535"
+                                                    stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                        <span class="item-text">Cart</span>
+                                    </a>
+                                </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-checkout" aria-selected="true">
+                                            <span class="breadcrumb-step hide-for-small">
+                                                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <!-- SVG paths here -->
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                               <path
+                                                   d="M16.8936 1L3.68969 1C2.20422 1 1 2.20423 1 3.6897V16.8936C1 18.3791 2.20422 19.5833 3.68969 19.5833H16.8936C18.3791 19.5833 19.5833 18.3791 19.5833 16.8936V3.6897C19.5833 2.20423 18.3791 1 16.8936 1Z"
+                                                   stroke="#6E6E6E" stroke-width="1.5" />
+                                               <path
+                                                   d="M19.092 6.37476H1.48669M16.1577 10.0425H4.4209M16.1577 12.9767H4.4209M16.1577 15.9109H4.4209"
+                                                   stroke="#6E6E6E" stroke-width="1.5" stroke-linecap="round" />
+                                                </svg>
+                                            </span>
+                                            <span class="item-text">Shopping</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-ordertracking" aria-selected="false">
+                                            <span class="breadcrumb-step hide-for-small">
+                                                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <!-- SVG paths here -->
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                               <path
+                                                   d="M3.64114 20.9143H17.2663C18.2338 20.9143 19.1617 20.5299 19.8458 19.8458C20.5299 19.1617 20.9143 18.2338 20.9143 17.2663V3.64114C20.9125 2.67482 20.5273 1.7487 19.8434 1.06605C19.1595 0.383399 18.2326 -1.70713e-06 17.2663 0H3.64114C3.16298 0 2.6895 0.0941809 2.24774 0.277165C1.80597 0.46015 1.40458 0.728355 1.06647 1.06647C0.728355 1.40458 0.460151 1.80597 0.277167 2.24774C0.0941822 2.6895 0 3.16298 0 3.64114V17.2663C-1.70714e-06 18.2326 0.383399 19.1595 1.06605 19.8434C1.7487 20.5273 2.67482 20.9125 3.64114 20.9143ZM17.2663 1.71429C17.5199 1.71338 17.7712 1.76256 18.0058 1.85899C18.2403 1.95542 18.4536 2.0972 18.6332 2.27622C18.8129 2.45523 18.9554 2.66795 19.0527 2.90218C19.1499 3.1364 19.2 3.38753 19.2 3.64114V17.2663C19.2 17.7791 18.9963 18.271 18.6336 18.6336C18.271 18.9963 17.7791 19.2 17.2663 19.2H3.64114C3.38753 19.2 3.1364 19.1499 2.90218 19.0527C2.66795 18.9554 2.45523 18.8129 2.27622 18.6332C2.0972 18.4536 1.95542 18.2403 1.85899 18.0058C1.76256 17.7712 1.71338 17.5199 1.71429 17.2663V3.64114C1.71429 3.13011 1.91729 2.64 2.27865 2.27865C2.64001 1.91729 3.13011 1.71429 3.64114 1.71429H17.2663Z"
+                                                   fill="#6E6E6E" />
+                                               <path
+                                                   d="M13.1825 11.3143C13.4192 11.3135 13.653 11.262 13.8682 11.1634C14.1692 11.0267 14.424 10.8055 14.6017 10.5268C14.7794 10.248 14.8724 9.92371 14.8693 9.59314V0.857143C14.8693 0.629814 14.779 0.411797 14.6183 0.251051C14.4576 0.0903058 14.2395 0 14.0122 0C13.7849 0 13.5669 0.0903058 13.4061 0.251051C13.2454 0.411797 13.1551 0.629814 13.1551 0.857143V9.59314L11.5436 8.16686C11.2408 7.89649 10.849 7.74706 10.4431 7.74706C10.0371 7.74706 9.64533 7.89649 9.34249 8.16686L7.68992 9.6L7.74477 0.857143C7.74477 0.629814 7.65447 0.411797 7.49372 0.251051C7.33298 0.0903058 7.11496 0 6.88763 0C6.6603 0 6.44229 0.0903058 6.28154 0.251051C6.1208 0.411797 6.03049 0.629814 6.03049 0.857143V9.59314C6.02744 9.92371 6.12042 10.248 6.29813 10.5268C6.47585 10.8055 6.73066 11.0267 7.03163 11.1634C7.32364 11.2977 7.64847 11.3439 7.96635 11.2964C8.28422 11.2489 8.58135 11.1098 8.82135 10.896L10.4533 9.48343L12.0853 10.9029C12.3885 11.1694 12.7788 11.3158 13.1825 11.3143ZM9.42478 16.6766H15.5962C15.8235 16.6766 16.0415 16.5863 16.2023 16.4255C16.363 16.2648 16.4533 16.0468 16.4533 15.8194C16.4533 15.5921 16.363 15.3741 16.2023 15.2133C16.0415 15.0526 15.8235 14.9623 15.5962 14.9623H9.42478C9.19745 14.9623 8.97943 15.0526 8.81868 15.2133C8.65794 15.3741 8.56763 15.5921 8.56763 15.8194C8.56763 16.0468 8.65794 16.2648 8.81868 16.4255C8.97943 16.5863 9.19745 16.6766 9.42478 16.6766Z"
+                                                   fill="#6E6E6E" />
+                                                </svg>
+                                            </span>
+                                            <span class="item-text">Payment Method</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <div class="container-fluid lw-checkoutitem">
+    <div class="container">
+        <div class="row">
+            {% if cart_items %}
+                <!-- Cart Items Section -->
+                <div class="col-md-8" id="checkout-section">
+                    <div class="checkoutitemGrid">
+                        {% for item in cart_items %}
+                            <div class="row row-flex" id="row-{{ item.item_code }}">
+                                <div class="col-lg-3">
+                                    <div class="checkoutImg">
+                                        <a href="/productdetailspage?id={{ item.item_code }}" class="checkoutImgLink">
+                                            {% if item.custom_website_image %}
+                                                <img src="{{ item.custom_website_image }}" class="img-fluid" alt="{{ item.item_name }}"
+                                                     onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+                                            {% elif item.website_image %}
+                                                <img src="{{ item.website_image }}" class="img-fluid" alt="{{ item.item_name }}"
+                                                     onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+                                            {% else %}
+                                                <img src="/src/img/blankImg.png" class="img-fluid" alt="Default Image">
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="checkoutItmecnt">
+                                        <h6 class="text-limit2">{{ item.item_name }}</h6>
+                                        <p>{{ item.brand or "" }}</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="checkoutItmeAction">
+                                        <button type="button" class="fa fa-trash" data-item-code="{{item.item_code}}" data-quotation-name="{{item.quotation_name}}" title="Remove" style="font-size: 24px; width: 40px; height: 40px; background: none; border: none; cursor: pointer; color: #333;"></button>
+                                        <h2>
+                                            <span class="item-price currency_inr" id="base-rate-{{ item.item_code }}">INR {{ item.base_rate }}</span>
+                                            <span class="item-price currency_usd" id="rate-{{ item.item_code }}">USD {{ item.rate }}</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Order Summary Column -->
+                <div class="col-md-4">
+                    <div class="checkoutPrice">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header">
+                                    <h2>Order Summary</h2>
+                                </div>
+                                <div class="cart-pricelist">
+                                    <ul>
+                                        <li>
+                                            <div class="price-ctr">
+                                                <p>Total Amount</p>
+                                                <p>
+                                                    <span id="base-total-amount" class="item-price currency_inr">INR {{ base_net_total or "" }}</span>
+                                                    <span id="total-amount" class="item-price currency_usd">USD {{ net_total or "" }}</span>
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="price-ctr">
+                                                <p>Shipping <a href="#" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">Know More</a></p>
+                                                <p>
+                                                    <span id="shipping-charge" class="item-price currency_inr">INR 0.00</span>
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="price-ctr cart-total">
+                                                <p>Total</p>
+                                                <p>
+                                                    <span id="total-amount-inr" class="item-price currency_inr">INR {{ base_net_total or "0.00" }}</span>
+                                                    <span id="total-amount-usd" class="item-price currency_usd">USD {{ net_total or "0.00" }}</span>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <button id="place-order" type="button" class="btn btn-secondary2 btn100 checkout">PROCEED TO CHECKOUT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Order Summary Column End -->
+
+            {% else %}
+                <!-- No Items Message -->
+                <div class="col-12 text-center" style="margin: 100px 0;">
+                    <h2 style="color: red;">No items in cart</h2>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+       
+
+   <!-- Modal Popup for Shipping -->
+   <div class="modal fadeIn" data-easein="fadeIn" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Shipping Calculation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <!-- INR Table -->
+                    <table id="shipping-table-inr" class="table table-bordered align-middle cart-list-table currency_inr">
+                        <tr>
+                            <td>1 Book</td>
+                            <td align="right">INR 79</td>
+                        </tr>
+                        <tr>
+                            <td>2 Books</td>
+                            <td align="right">INR 99</td>
+                        </tr>
+                        <tr>
+                            <td>3 Books</td>
+                            <td align="right">INR 119</td>
+                        </tr>
+                    </table>
+
+
+                    <!-- USD Table -->
+                    <table id="shipping-table-usd" class="table table-bordered align-middle cart-list-table currency_usd" style="display: none;">
+                        <tr>
+                            <td>1 Book</td>
+                            <td align="right">USD 12.5</td>
+                        </tr>
+                        <tr>
+                            <td>2 Books</td>
+                            <td align="right">USD 18</td>
+                        </tr>
+                        <tr>
+                            <td>3 Books</td>
+                            <td align="right">USD 20</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const currencyDropdown = document.getElementById('transaction-currency');
+        const inrTable = document.getElementById('shipping-table-inr');
+        const usdTable = document.getElementById('shipping-table-usd');
+
+        function toggleModalCurrency(currency) {
+            if (currency === 'USD') {
+                inrTable.style.display = '';
+                usdTable.style.display = 'none';
+            } else if (currency === 'INR') {
+                inrTable.style.display = 'none';
+                usdTable.style.display = '';
+            }
+        }
+
+        if (currencyDropdown) {
+            // Event listener for currency change
+            currencyDropdown.addEventListener('change', (e) => {
+                toggleModalCurrency(e.target.value);
+            });
+
+            // Initialize display based on default currency
+            toggleModalCurrency(currencyDropdown.value);
+        } else {
+            console.error('currencyDropdown is null');
+        }
+    });
+</script>
+
+
+        <script>
+            frappe.call({
+    method: "leftwordlatest.web_api.items.get_shipping_charge",
+    args: {},
+    callback: function(response) {
+        if (response.message) {
+            var shippingCharge = response.message.shipping_charge;
+
+            // Format the shipping charge as INR
+            var formattedShippingCharge = "INR " + shippingCharge.toFixed(2);
+
+            // Update the #shipping-charge span with the new value
+            $("#shipping-charge").text(formattedShippingCharge);
+        } else {
+            console.log("Error: No shipping charge returned.");
+        }
+    }
+});
+        </script>
+    {% endif %}
+{% endblock %}

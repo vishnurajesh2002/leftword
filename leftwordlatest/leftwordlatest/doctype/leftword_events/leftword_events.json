@@ -1,0 +1,94 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-16 18:52:34.529837",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "event_date",
+  "image",
+  "link",
+  "status",
+  "section_break_zenz7",
+  "venue_details",
+  "event_details",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "event_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Event Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach",
+   "label": "Image"
+  },
+  {
+   "fieldname": "link",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Link",
+   "reqd": 1
+  },
+  {
+   "default": "Upcoming",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_zenz7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "venue_details",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Venue Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "event_details",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Event Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-19 17:17:47.945052",
+ "modified_by": "Administrator",
+ "module": "leftwordlatest",
+ "name": "Leftword Events",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

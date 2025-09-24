@@ -1,0 +1,210 @@
+{% extends 'templates/subbase.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="le-pagehead">
+                <h3>All categories</h3>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Books</li>
+                        <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+    <ul class="alphabet-pagination">
+    {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+        <li class="alphabet-letter" data-letter="{{ letter }}">{{ letter }}</li>
+    {% endfor %}
+</ul>
+<div class="button-container">
+    <button id="done-button" class="done-button" >Search</button>
+    <button id="clear-button" class="clear-button">Clear</button>
+</div>
+</div>
+<div class="container catecontainer">
+    <div id="categories" class="categories"></div>
+   
+</div>
+
+</div>
+</div>
+
+<style>
+.alphabet-pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.alphabet-letter {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 5px 8px;
+}
+
+.alphabet-letter:hover,
+.alphabet-letter.active {
+    color: red;
+    border-bottom: 2px solid red;
+}
+.button-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 20px 0; 
+   
+    gap: 10px; 
+}
+
+.done-button,
+.clear-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ff4d4d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+}
+
+.done-button:disabled,
+.clear-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.done-button:hover:not(:disabled),
+.clear-button:hover:not(:disabled) {
+    background-color: #e60000;
+}
+.catecontainer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; 
+    max-height: 450px; 
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    scrollbar-width: thin; 
+    scrollbar-color: #ff4d4d #f0f0f0; 
+}
+
+
+.catecontainer::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.catecontainer::-webkit-scrollbar-track {
+    background: #f0f0f0; 
+    border-radius: 8px;
+}
+
+.catecontainer::-webkit-scrollbar-thumb {
+    background-color: #ff4d4d; 
+    border-radius: 8px;
+    border: 2px solid #f0f0f0;
+}
+
+.catecontainer::-webkit-scrollbar-thumb:hover {
+    background-color: #e60000;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+}
+
+
+.category-item {
+    height: 100px;
+    width: 200px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: left;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.category-item:hover {
+    background-color: #ff4d4d;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.no-categories {
+    font-size: 18px;
+    color: #888888;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .alphabet-letter {
+        font-size: 14px; 
+        padding: 3px 6px; 
+    }
+
+    .categories {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .category-item {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .categories {
+        gap: 10px;
+    }
+
+    .category-item {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .done-button,
+    .clear-button {
+        width: 150px; 
+        font-size: 14px; 
+    }
+}
+
+
+</style>
+
+
+{% endblock %}

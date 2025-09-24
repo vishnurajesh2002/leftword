@@ -1,0 +1,483 @@
+{% extends "templates/mainbase.html" %}
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="le-pagehead">
+                    <h3>Address List</h3>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                          <li class="breadcrumb-item"><a href="/checkout">Checkout</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">My Address</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner section end -->
+
+<section class="lw-accounts">
+    <div class="container">
+        <div class="row row-flex row-cols-12 row-cols-sm-12 row-cols-md-2 row-cols-lg-2 row-cols-xl-2">
+            {% if frappe.session.user != 'Guest' %}
+          
+            <!-- col-12 end -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+                <div class="card">
+                
+                    <div class="card-body">
+                        <div class="lw-accounts-item">
+                            <div class="row">
+                 
+                            
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+    <div class="lw-accounts-item-divider">
+        <div class="d-flex justify-content-between align-items-center">
+            <h5><b>All Addresses</b></h5>
+            <button class="btn btn-danger" onclick="goBackAndRefresh()" style="font-size: 14px;">
+                Back
+            </button>
+            
+            <script>
+                function goBackAndRefresh() {
+                    sessionStorage.setItem("refreshBack", "true");
+                    history.back();
+                }
+            </script>
+            
+             
+        </div>
+        <hr>
+        {% if all_addresses and all_addresses|length > 0 %}
+            {% for address in all_addresses %}
+          
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                    
+                        <div class="d-flex align-items-center mb-2">
+                         
+                            <div class="form-check me-3">
+                                <input 
+                                type="checkbox" 
+                                class="form-check-input custom-checkbox"
+                                onclick="toggleShippingAddress(this, '{{ address.name }}')"
+                                {% if address.is_shipping_address %} checked {% endif %}>
+                            <label class="form-check-label">
+                                Default Shipping Address
+                            </label>
+                            </div>
+                            <div class="form-check me-3">
+                                <input 
+                                type="checkbox" class="form-check-input custom-checkbox"
+                                onclick="togglePrimaryAddress(this, '{{ address.name }}')"
+                                {% if address.is_primary_address %} checked {% endif %}>
+                            <label class="form-check-label">
+                                Default Billing Address
+                            </label>
+                            
+                            </div>
+                        </div>
+                    
+                        <p><b>{{ address.address_title or '' }}</b></p>
+                        <p>{{ address.address_line1 or '' }}</p>
+                        {% if address.address_line2 %}
+                            <p>{{ address.address_line2 or '' }}</p>
+                        {% endif %}
+                        <p>{{ address.city or '' }}, {{ address.state or '' }}, {{ address.pincode or '' }}</p>
+                        <p>{{ address.country or '' }}</p>
+                        <p>PH: {{ address.phone or '' }}</p>
+                        <p>EMAIL: {{ address.email_id or '' }}</p>
+                    </div>
+                    <div>
+                        <a href="/profileedit?address_id={{ address.name }}" class="">
+                            <i class="fa fa-edit"></i> 
+                        </a>
+                        <button class="btn btn-remove" onclick="deleteAddress('{{ address.name }}')" title="Remove">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>No shipping address found.</p>
+        {% endif %}
+    </div>
+</div>
+<div class="sa-blk-addaddress text-center my-4">
+    <a href="/add_address" class="btn btn-primary btn-lg">
+        <i class="fas fa-plus-circle"></i> Add Address
+    </a>
+</div>
+
+
+                    
+                                <!-- <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+                                        <a href="/" class="btn btn-secondary">Add New Address</a>
+                                    </div>
+                                </div>
+                                 -->
+                            </div>    
+                        </div>
+                    </div>
+                    <!-- card-body -->
+                </div>
+                <!-- card -->
+            </div>
+            <!-- col-12 -->
+            
+            <!-- col-12 end -->
+        </div>
+        {% endif %}
+        <!-- row -->
+    </div>
+    
+</section>
+
+</main>
+<div id="deleteAddressModal" class="custom-modal">
+    <div class="custom-modal-content">
+        <h5>Are you sure you want to delete this address?</h5>
+        <button id="confirmDelete" class="btn btn-danger">Delete</button>
+        <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
+    </div>
+</div>
+<style>
+    .btn-remove {
+    background: none; 
+    border: none; 
+    padding: 0; 
+    color: #030303; 
+    font-size: 1.2rem; 
+    cursor: pointer; 
+    }
+
+.salbtn-blk {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 10px; 
+    align-items: center; 
+}
+
+.btn-edit,
+.btn-remove {
+    background: none; 
+    border: none; 
+    color: black; 
+    font-size: 1.2rem; 
+    cursor: pointer; 
+}
+
+.btn-edit:hover,
+.btn-remove:hover {
+    color: red; 
+}
+.custom-modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.custom-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-modal h3 {
+    color: red;
+}
+
+.custom-modal button {
+    margin: 10px;
+}
+
+.btn-danger {
+    background-color: red;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: gray;
+    color: white;
+}
+
+.custom-checkbox {
+    accent-color: red; 
+    width: 1.2em;
+    height: 1.2em;
+    cursor: pointer;
+}
+
+.custom-checkbox:checked {
+    accent-color: red;
+}
+.custom-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 9999;
+    width: 300px;
+}
+
+.custom-popup .popup-content {
+    text-align: center;
+}
+
+.custom-popup h2 {
+    color: #28a745; 
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.custom-popup p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.custom-popup button {
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-popup button:hover {
+    background-color: #218838;
+}
+
+.error-popup {
+    background-color: #f8d7da; 
+    border-left: 5px solid #dc3545; 
+}
+
+.error-popup .popup-content {
+    text-align: center;
+}
+
+.error-popup h2 {
+    color: #dc3545; 
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.error-popup p {
+    font-size: 16px;
+    color: #721c24; 
+    margin: 10px 0;
+}
+
+.error-popup button {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.error-popup button:hover {
+    background-color: #c82333;
+}
+
+
+</style>
+<div id="custom-success-popup" class="custom-popup">
+    <div class="popup-content">
+        <h2>Success!</h2>
+        <p id="popup-message">Address Added successfully!</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</div>
+
+<div id="custom-error-popup" class="custom-popup error-popup">
+    <div class="popup-content">
+        <h2>Alert</h2>
+        <p id="error-popup-message">Something went wrong!</p>
+        <button onclick="closeErrorPopup()">Close</button>
+    </div>
+</div>
+
+<script>
+
+function showSuccessPopup(message) {
+    document.getElementById("popup-message").textContent = message;
+    document.getElementById("custom-success-popup").style.display = 'block';
+}
+
+function showErrorPopup(message) {
+    document.getElementById("error-popup-message").textContent = message;
+    document.getElementById("custom-error-popup").style.display = 'block';
+}
+
+
+function closePopup() {
+    document.getElementById("custom-success-popup").style.display = 'none';
+}
+
+
+function closeErrorPopup() {
+    document.getElementById("custom-error-popup").style.display = 'none';
+}
+
+function deleteAddress(addressName) {
+    var modal = document.getElementById('deleteAddressModal');
+    modal.style.display = 'flex';
+
+    document.getElementById('confirmDelete').onclick = function() {
+        frappe.call({
+            method: "leftwordlatest.www.address_list.delete_address",
+            args: { address_name: addressName },
+            callback: function(response) {
+                if (response.message.status === "success") {
+                    showSuccessPopup(response.message.message);
+                    location.reload();
+                } else {
+                    showErrorPopup(response.message.message);
+                }
+            },
+            error: function() {
+                showErrorPopup("An error occurred while deleting the address.");
+            }
+        });
+
+        modal.style.display = 'none';
+    };
+
+    document.getElementById('cancelDelete').onclick = function() {
+        modal.style.display = 'none';
+    };
+}
+
+function toggleShippingAddress(checkbox, addressName) {
+    if (checkbox.checked) {
+        frappe.call({
+            method: "leftwordlatest.www.address_list.check_existing_shipping_address",
+            args: {},
+            callback: function(response) {
+                if (response.message.has_shipping_address) {
+                    showErrorPopup("A default shipping address is already set. Please uncheck it first.");
+                    checkbox.checked = false;
+                } else {
+                    frappe.call({
+                        method: "leftwordlatest.www.address_list.set_shipping_address",
+                        args: { address_name: addressName },
+                        callback: function(response) {
+                            if (response.message.status === "success") {
+                                showSuccessPopup(response.message.message);
+                                location.reload();
+                            } else {
+                                showErrorPopup(response.message.message);
+                                checkbox.checked = false;
+                            }
+                        },
+                        error: function() {
+                            showErrorPopup("An error occurred while updating the shipping address.");
+                            checkbox.checked = false;
+                        }
+                    });
+                }
+            },
+            error: function() {
+                showErrorPopup("An error occurred while checking for an existing shipping address.");
+                checkbox.checked = false;
+            }
+        });
+    } else {
+        frappe.call({
+            method: "leftwordlatest.www.address_list.reset_shipping_address",
+            args: { address_name: addressName },
+            callback: function(response) {
+                if (response.message.status === "success") {
+                    showSuccessPopup(response.message.message);
+                } else {
+                    showErrorPopup(response.message.message);
+                    checkbox.checked = true;
+                }
+            },
+            error: function() {
+                showErrorPopup("An error occurred while resetting the shipping address.");
+                checkbox.checked = true;
+            }
+        });
+    }
+}
+
+function togglePrimaryAddress(checkbox, addressName) {
+    if (checkbox.checked) {
+        frappe.call({
+            method: "leftwordlatest.www.address_list.check_existing_primary_address",
+            args: {},
+            callback: function(response) {
+                if (response.message.has_primary_address) {
+                    showErrorPopup("A default Billing address is already set. Please uncheck it first.");
+                    checkbox.checked = false;
+                } else {
+                    frappe.call({
+                        method: "leftwordlatest.www.address_list.set_primary_address",
+                        args: { address_name: addressName },
+                        callback: function(response) {
+                            if (response.message.status === "success") {
+                                showSuccessPopup(response.message.message);
+                                location.reload();
+                            } else {
+                                showErrorPopup(response.message.message);
+                                checkbox.checked = false;
+                            }
+                        },
+                        error: function() {
+                            showErrorPopup("An error occurred while updating the Primary address.");
+                            checkbox.checked = false;
+                        }
+                    });
+                }
+            },
+            error: function() {
+                showErrorPopup("An error occurred while checking for an existing primary address.");
+                checkbox.checked = false;
+            }
+        });
+    } else {
+        frappe.call({
+            method: "leftwordlatest.www.address_list.reset_primary_address",
+            args: { address_name: addressName },
+            callback: function(response) {
+                if (response.message.status === "success") {
+                    showSuccessPopup(response.message.message);
+                } else {
+                    showErrorPopup(response.message.message);
+                    checkbox.checked = true;
+                }
+            },
+            error: function() {
+                showErrorPopup("An error occurred while resetting the primary address.");
+                checkbox.checked = true;
+            }
+        });
+    }
+}
+</script>
+
+{% endblock %}

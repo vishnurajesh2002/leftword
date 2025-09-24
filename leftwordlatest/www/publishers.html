@@ -1,0 +1,130 @@
+{% extends 'templates/subbase.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="le-pagehead">
+                <h3>Publisher</h3>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Books</li>
+                        <li class="breadcrumb-item active" aria-current="page">Publisher</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container publisher_container">
+    <div class="row">
+        <div class="col-md-12">
+                <div id="publisher-section"></div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+/* General Container Styles */
+.publisher_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#publisher-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.publisher-column {
+    flex: 1 1 calc(20% - 20px);
+    background: white;
+    padding: 10px;
+    box-sizing: border-box;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+}
+
+.publisher-column h2 {
+    font-size: 1.5rem;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.publisher-column ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.publisher-column ul li {
+    margin: 5px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.publisher-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.publisher-link:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.browse-wrapper {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.browse-link {
+    color: red;
+    text-decoration: none;
+}
+
+.browse-link:hover {
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .publisher-column {
+        flex: 1 1 calc(33.33% - 20px); 
+    }
+}
+
+@media (max-width: 768px) {
+    .publisher-column {
+        flex: 1 1 calc(50% - 20px); 
+    }
+}
+
+@media (max-width: 576px) {
+    .publisher-column {
+        flex: 1 1 100%; 
+    }
+    
+    .publisher-column h2 {
+        font-size: 1.2rem; 
+    }
+
+    .publisher-item {
+        font-size: 12px;
+}
+}
+</style>
+{% endblock %}

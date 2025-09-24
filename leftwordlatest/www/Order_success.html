@@ -1,0 +1,131 @@
+{% extends "templates/mainbase.html" %}
+{% block content %}
+
+<main>
+<!-- page layout width Start -->
+<section class="lw-shopping-cart">
+    <div class="container-fluid lw-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                  <div class="lw-pghd-text">
+                    <h3>Cart</h3>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container-fluid lw-shopping-cart">
+  <div class="container">
+    <section class="m-50">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="lw-cart-action">
+            <ul class="nav nav-pills mb-3">
+                <li class="nav-item">
+                  <a href="#"  class="nav-link  complete" data-bs-toggle="pill"  type="button">
+                    <span class="breadcrumb-step hide-for-small">1</span>
+                    Shopping cart
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link complete "  data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-checkout" aria-selected="false">
+                    <span class="breadcrumb-step hide-for-small">2</span>
+                    Checkout details
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link no-click  active"  data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-ordertracking" aria-selected="false">
+                    <span class="breadcrumb-step hide-for-small">3</span>
+                    Order complete
+                  </a>
+                </li>
+              </ul>
+        </div>
+        </div>
+      </div>
+    </section>
+    <section class="m-50 checkout-recceived">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8 m-auto">
+                        <div class="card card-border-0 card-shadow card-recceived">
+                            <div class="card-header border-0 card-h-bg-0">
+                                <p>Thank you! 🎉</p>
+                                <h3>Your order has been received</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="cart-item">
+                                            <img src="src/img/slider-2.jpg" class="d-block w-100" alt="...">
+                                            <span class="count">2</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <div class="cart-item">
+                                            <img src="src/img/slider-2.jpg" class="d-block w-100" alt="...">
+                                            <span class="count">2</span>
+                                        </div>
+                                    </div> 
+                                    <div class="col-xl-4">
+                                        <div class="cart-item">
+                                            <img src="src/img/slider-2.jpg" class="d-block w-100" alt="...">
+                                            <span class="count">2</span>
+                                        </div>
+                                    </div>                                                                        
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-8 m-auto">
+                                     
+                                        <table class="table table-b0 cart-item-details">
+                                            <tr>
+                                                <td class="left-head">Order Code:</td>
+                                                <td>{{ order_name  or ""}} </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="left-head">Date:</td>
+                                                <td>{{ date or ""}}</td>
+                                                <!-- <td>October 19, 2023</td> -->
+                                            </tr>
+                                            <tr>
+                                                <td class="left-head">Total:</td>
+                                                <td>
+                                                 {{ total or ""}}
+                                                </td>
+                                                <!-- <td>$1,345.00</td> -->
+                                            </tr>
+                                            <tr>
+                                                <td class="left-head">Payment Method:</td>
+                                                <td>{{ payment or ""}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <button type="button" class="btn btn-secondary  mb-2 w-100 btn-lg purchase-history">Purchase history</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+</div>
+</section>
+    <!-- page layout width End -->
+</main>
+       
+{% endblock %}

@@ -1,0 +1,53 @@
+.card{
+    border:1px solid $border-secondary;
+    &.card-secondary{
+        background-color: #F7F7F7 !important;
+        
+    }
+    &.card-gray{
+        background-color: #F3F5F7;
+    }
+    .card-header{
+
+        font-size:28.46px;
+        line-height: 26px;
+        font-weight:500;
+    }
+    &.card-border-0{
+        border: none;
+    }
+    &.card-shadow{
+        box-shadow: 0px 0px 21px 4px #e5e5e5;
+    } 
+ 
+    .card-h-bg-0{
+        background: none;
+    }
+    .card-h-border{
+        border-bottom: 1px solid #C2C2C2;
+    }
+    .card-h-p-l0{
+        padding-left: 0px;
+    }
+    .card-footer{
+        background-color: $bg-secondary-light;
+        padding: 15px;
+        a{
+            font-size: 15px;
+            &:hover{
+                color: $hover-primary;
+            }
+        }
+
+        &.card-align-center{
+            text-align: center;
+        }
+    }
+
+}
+.list-item{
+    .card{
+        border: none;
+    }
+
+}

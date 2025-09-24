@@ -1,0 +1,123 @@
+{% extends "templates/mainbase.html" %}
+{% block content %}
+<main>
+<!-- page layout width Start -->
+<section class="lw-shopping-my-account">
+    <div class="container-fluid lw-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="lw-pghd-text">
+                        <h3>My Wishlist</h3>
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">My Wishlist</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <section class="m-50">
+                <div class="row">
+                    <div class="col-xl-3">
+                        <div class="card card-gray mb-10">
+                            <div class="left-myaccount">
+                                <div class="profile-holder">
+                                    <div class="profile-avatar">
+                                      <img src="{{ user_image or '' }}" class="img-fluid user-img">
+
+                                        <!-- <img src="src/img/profile-dm.jpg" class="img-fluid"> -->
+                                        <a href="" class="file-upload"><input type="file"></a>
+                                    </div>
+                                    <div class="profile-avatar-cnt">
+                                      <h3>{{ custom_display_name or frappe.session.user }}</h3>
+                                    </div>
+                                </div>
+                                <div class="profile-tabs">
+                                    <nav class="nav flex-column">
+                                      <a class="nav-link" aria-current="page" href="/my_account">Account</a>
+                                      <a class="nav-link" href="/my_address">Address</a>
+                                      <a class="nav-link" href="/my_orders">Orders</a>
+                                      <a class="nav-link active" href="/my_wishlist">Wishlist</a>
+                                      <a class="nav-link logout" href="#">Log Out</a>                                        
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9">
+                          <div class="lw-order-list">
+                            <div class="card">
+                                <div class="card-header card-h-bg-0 border-0 mb-4">
+                                    Your Wishlist
+                                </div>
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="order-item table-responsive">
+                                            <table class="table  align-middle cart-list-table">
+                                                <thead>
+                                                  <tr>
+                                                    <th widh="5%"></th>
+                                                    <th widh="50%">Product</th>
+                                                    <th widh="30%">Price</th>
+                                                    <th widh="15%">Action</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  {% for i in wishlist_items %}
+                                                  <tr id="row-{{i.item_code}}">  
+                                                    <td align="Center">
+                                                        <div class="cart-action">
+                                                          <i class="fa fa-close delete-wishlist" aria-hidden="true" ></i>
+                                                        </div>
+                                                      </td>
+                                                    <td>
+                                                      <div class="cart-itembox">
+                                                        <div class="cart-item-img">
+                                                          <img src="{{i.image}}" class="d-block w-100" alt="...">
+                                                        </div>
+                                                        <div class="cart-item-text">
+                                                          <h3>{{ i.item_name }}</h3>
+                                                          <!-- <p>$200.00</p> -->
+                                                          <span class="item-price currency_inr">INR {{_(i.price_list_rate)}}</span>
+                                                          <span class="item-price currency_usd">USD {{_(i.price_list_rate)}}</span>
+                                                        </div>
+                                                      </div>
+                                                    </td>
+                                                    <td align="Center">
+                                                      <div class="cart-subtotal">
+                                                        <!-- <p>200.00$</p> -->
+                                                        <span class="item-price currency_inr">INR {{_(i.price_list_rate)}}</span>
+                                                        <span class="item-price currency_usd">USD {{_(i.price_list_rate)}}</span>
+                                                      </div>
+                                                    </td>
+                                                    <td align="Center">
+                                                      <div class="cart-action">
+                                                        <button type="button" id="add-to-cart" class="btn btn-secondary  mb-2 w-100 btn-lg wishlist-cart" data-item-code="{{i.item_code}}">Add to cart</button>
+                                                      </div>
+                                                    </td>                                                    
+                                                  </tr>
+                                                  {% endfor %}
+                                                </tbody>
+                                              </table>
+                                        </div>
+                                    </div>                                    
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                    <!-- col-8 -->
+            </section>
+        </div>
+    </div>
+</section>
+<!-- page layout width End -->
+</main>
+{% endblock %}

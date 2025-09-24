@@ -1,0 +1,98 @@
+{% extends 'templates/subbase.html' %}
+{% block content %}
+
+<style>
+    .line {
+        border-top: 1px solid #ccc;
+        margin: 1rem 0;
+    }
+
+    .alphabet-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .alphabet-section a {
+        text-decoration: none;
+        color: #000000;
+        font-weight: 500;
+        padding: 5px 4px;
+        border-radius: 4px;
+        transition: background 0.2s, color 0.2s;
+
+    }
+
+    .alphabet-section a:hover {
+        background: #f0f0f0;
+        color: #000;
+    }
+
+    .alphabet-section a.active {
+        color: #d9534f;
+    }
+
+    .publisher-list {
+        display: flex;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+        list-style: none;
+        padding-left: 0;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .publisher-list li {
+        font-size: 15px;
+    }
+
+    .publisher-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .publisher-link:hover {
+        text-decoration: underline;
+        color: #d9534f;
+        /* Bootstrap red or use your theme color */
+    }
+
+    #loader,
+    #empty {
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+    }
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="le-pagehead">
+                <h3>Publisher</h3>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Books</li>
+                        <li class="breadcrumb-item active" aria-current="page">Publisher</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="line" />
+<div class="container">
+    <div id="alphabet-section" class="alphabet-section"></div>
+    <div id="publisher-list" class="publisher-list"></div>
+
+    <div id="loader" style="display: none; margin-top: 1rem;">Loading...</div>
+    <div id="empty" style="display: none; margin-top: 1rem;">No publishers found.</div>
+</div>
+
+<script src="publisher.js"></script>
+{% endblock %}

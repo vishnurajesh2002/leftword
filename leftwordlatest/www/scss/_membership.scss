@@ -1,0 +1,68 @@
+.lw-membership{
+    margin: 50px 0px;
+    .lwmembership{
+        margin:20px 0px;
+        h2{
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 28px;
+            margin-bottom: 15px;
+        }
+        p{
+            font-size: 15px;
+            line-height: 27px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: $text-light;
+        } 
+    }
+    .row-flex{
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    .lwmembershipImg{
+        margin:20px 0px;
+    }
+}
+
+.lw-registerblk{
+    .lwmembership{
+        text-align: center;
+        margin: 30px 0px;
+    }
+    h2{
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 28px;
+        margin-bottom: 15px;
+    }
+    p{
+        font-size: 15px;
+        line-height: 27px;
+        font-weight: 400;
+        margin-bottom: 15px;
+        color: $text-light;
+    }
+    .lw-error{
+        font-size: 14px;
+        line-height: 27px;
+        font-weight: 400;
+        color: $text-red;
+    }
+    label{
+        font-size: 15px;
+        line-height: 27px;
+        font-weight: 400;
+        color: $text-primary;
+        margin-bottom: 6px;
+        span{
+            color: $text-red;
+        }
+    }
+    .lwauthenticationblk{
+        background-color: $light-bg;
+        padding: 50px;
+        margin: 20px;
+    }
+}

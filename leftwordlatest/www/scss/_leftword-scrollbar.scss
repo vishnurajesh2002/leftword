@@ -1,0 +1,26 @@
+.custom-scrollbar-js,
+.custom-scrollbar-css {
+  max-height: 500px;
+}
+
+.custom-scrollbar-css {
+  overflow-y: scroll;
+}
+
+
+.custom-scrollbar-css::-webkit-scrollbar, .custom-scrollbar-css::-moz-scrollbar {
+  width: 5px;
+}
+
+
+.custom-scrollbar-css::-webkit-scrollbar-track, .custom-scrollbar-css::-moz-scrollbar-track {
+  background: #eee;
+}
+
+.custom-scrollbar-css::-webkit-scrollbar-thumb, .custom-scrollbar-css::-moz-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: $text-light;
+  background-image: $bg-primary;
+//   background-image: linear-gradient(to top, #b9bbaa 0%, #c5d1e2 100%);
+}
+

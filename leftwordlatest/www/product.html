@@ -1,0 +1,322 @@
+{% extends "templates/mainbase.html" %}
+{% block content %}
+<main>
+<!-- page layout width Start -->
+<section class="book-details">
+<div class="container-fluid lw-page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="lw-pghd-text">
+          <h3>Shop</h3>
+          <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid  mt-4">
+  <div class="container">
+<section>
+  <div class="row">
+    <div class="col-lg-5">
+    {% if product_details.get("custom_website_image") %}
+ 
+      <div class="lw-details-carousil">
+        <div class = "product-imgs">
+          <div class = "img-display">
+            <div class = "img-showcase">
+              {% for i in range(4) %}
+              <img src="{{product_details.get('custom_website_image')}}" alt = "">
+              {% endfor %}
+             
+            </div>
+          </div>
+          {% if product_details.get("slideshow_image") %}
+
+          <div class = "img-select">
+          {% for i in range(4) %}
+
+            <div class = "img-item">
+              <a href = "#" data-id = "{{i+1}}">
+                <img src="{{product_details.get('slideshow_image')[i]}}" alt = "">
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <!-- col-lg-5 end -->
+    <div class="col-lg-5">
+      <div class="lw-item-details">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="lw-p-head">
+              <h3>{{product_details.get('web_item_name')}}</h3>
+              <!-- <p>200.00$</p> -->
+              <span class="item-price currency_inr">INR {{ product_details.get('price_list_rate_inr') }}</span>
+              <span class="item-price currency_usd">USD {{ product_details.get('price_list_rate_usd') }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-12 mt-4">
+            <!-- <div class="lw-viewes">
+              <div class="lw-views-icon">
+                32 people are viewing this right now
+              </div>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur.
+              </p>
+            </div> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-12 mt-4">
+            <div class="lw-book-info">
+              <div class="book-type">
+                <span>Paperback</span>
+              </div>
+              <div>
+                <div class="book-type-details">
+                  <div>
+                  {% if product_details.get('custom_isbn')%}
+                  <p>{{product_details.get('custom_isbn') or ''}}</p>
+                  {% endif %}
+                  {% if product_details.get('custom_publisher')%}
+                  <p>{{product_details.get('custom_publisher') or ''}} {{product_details.get('custom_year') or ''}}</p>
+                  {% endif %}
+                  {% if product_details.get('custom_language')%}
+                  <p>Language : {{product_details.get('custom_language') or ''}}</p>
+                  {% endif %}
+                  {% if product_details.get('custom_no_of_pages')%}
+                  <p>{{product_details.get('custom_no_of_pages') or ''}}</p>
+                  {% endif %}
+                  {% if product_details.get('custom_size')%} 
+                  <p>{{product_details.get('custom_size') or ''}} Inches</p>
+                  {% endif %}
+                </div>
+                <div class="div-flex">
+                  <p>Price <span class="item-price currency_inr">INR {{ product_details.get('price_list_rate_inr') }}</span>
+                  <span class="item-price currency_usd">USD {{ product_details.get('price_list_rate_usd') }}</span></p>
+                  <p>Book Club price <span>INR. 20</span></p>
+                </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>        
+        <div class="row">
+          <div class="col-xl-12 mt-4">
+            <div class="lw-progresivebar stock-data" data-stock-value="{{product_details.get('product_info').get('stock_qty')|int}}">
+              <p><span>{{product_details.get('product_info').get('stock_qty')|int}} item(s)</span>left in stock!</p>
+              <div class="progress" style="height: 2px;">
+                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
+                  aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="row mt-4">
+              {% set stock=product_details.get('product_info').get('stock_qty')|int %}
+              {% if stock > 0 %}
+              <div class="col-xl-4 {{hide_element}}">
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                  <button type="button" class="btn btn-outline btn-lg" id="btn-min">
+                    <i class="fa fa-minus" id='sub' aria-hidden="true"></i>
+                  </button>
+                  <button type="button" id="item-count" class="btn btn-outline btn-lg">1</button>
+                  <button type="button" class="btn btn-outline btn-lg" id="btn-add">
+                    <i class="fa fa-plus" id="add" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="col-xl-8">
+                <button type="button" data-item-code="{{product_details.get('item_code')}}" data-cart_status="{{cart_button_class}}" id ="cart-button"  class="btn btn-secondary w-100 btn-lg {{cart_button_class}} {{allow_guest_cart}}">{{button_label}}</button>
+              </div>
+              {% endif %}
+
+            </div>
+          </div>
+          <!-- lw-item-details -->
+        </div>
+        <div class="row">
+          <!-- <div class="col-xl-12 mt-4">
+            <button type="button" class="btn btn-outline w-100 btn-lg">Buy Now</button>
+          </div> -->
+        </div>
+        <div class="row">
+          <div class="col-xl-12 mt-4">
+            <ul class="lw-product-action">
+              <li>
+                <a href="#" class="lw-wishlist" data-item-code="{{product_details.get('item_code')}}">Add to wishlist</a>
+              </li>
+              <!-- <li>
+                <a href="#" class="lw-sharelinks">Share</a>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-6 mt-4">
+            <div class="lw-info">
+              <div class="img">
+                <img src="src/img/lw-icon-shipping.svg">
+              </div>
+              <p>
+                Free worldwide shipping on all orders over $100
+              </p>
+            </div>
+          </div>
+          <div class="col-xl-6 mt-4">
+            <div class="lw-info">
+              <div class="img">
+                <img src="src/img/lw-icon-time.svg">
+              </div>
+              <p>
+                Delivers in: 3-7 Working Days Shipping & Return
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-12 mt-4">
+            <div class="card lw-pay-info">
+              <p>
+                Guaranteed Checkout
+              </p>
+              <div class="img">
+                <img src="src/img/footer-card.png" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lx-12">
+      <div class="lw-product-info mt-4">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-description-tab" data-bs-toggle="pill"
+              data-bs-target="#pills-description" type="button" role="tab" aria-controls="pills-home"
+              aria-selected="true">Description</button>
+          </li>
+          <!-- <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-reviews-tab" data-bs-toggle="pill" data-bs-target="#pills-reviews"
+              type="button" role="tab" aria-controls="pills-reviews" aria-selected="false">Reviews
+              <Span>(0)</Span></button>
+          </li> -->
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-description" role="tabpanel"
+            aria-labelledby="pills-description-tab">
+            {{product_details.get('description')}}
+
+          </div>
+          <div class="tab-pane fade" id="pills-reviews" role="tabpanel" aria-labelledby="pills-reviews-tab">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+            est laborum.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="">
+{% if related_items %}
+  <div class="row">
+    <div class="col-xl-12 m-auto ">
+      <div class="section-head section-center">
+        <h3>Related Books</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+  {% for item in related_items %}
+    <div class="col-xl-2 col-md-6">
+      <div class="list-item">
+        <a href="" class="card">
+          <div class="item-img">
+            <img src="{{item.custom_website_image}}" class="img-fluid">
+          </div>
+        </a>
+        <div class="item-text">
+          <label>{{_(item.web_item_name)}}</label>
+          <!-- <h3>Zmats Kempe</h3> -->
+          <p>
+            <span class="item-price currency_inr">INR {{_(item.price_list_rate_inr)}}</span>
+            <span class="item-price currency_usd">USD {{_(item.price_list_rate_usd)}}</span>
+
+            <!-- <span class="item-price-strick">90.00$</span> -->
+            <!-- <span class="item-price">60.00$</span> -->
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</section>
+<section>
+  <div class="container-fluid lb-padd">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-10 m-auto ">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {% set banner = banners.get("banner_list").get("Banner-2") %}
+              {% if banner.get("banner_images") %}
+                {% for img in banner.get("banner_images") %}
+              <div class="carousel-item active">
+                <img src="{{img}}" class="d-block w-100" alt="...">
+              </div>
+              {% endfor %}
+              {% endif %} 
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- row end -->
+    </div>
+    <!-- container end -->
+  </div>
+</section>
+</div>
+<!-- container -->
+</div>
+<!-- container-fluid -->
+</section>
+    <!-- page layout width End -->
+</main>
+
+{% endblock %}

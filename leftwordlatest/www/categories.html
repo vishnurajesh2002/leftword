@@ -1,0 +1,462 @@
+{% extends "templates/subbase.html" %}
+{% block content %}
+<!------header section end------>
+<!-- banner-section -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="le-pagehead">
+                <h3>Categories</h3>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Books</li>
+                        <li class="breadcrumb-item active" aria-current="page">Category</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- banner section end -->
+
+<div class="container filter-bar">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="lw-pageFilter">
+                <ul>
+                    <li>
+                        <div>Sort by:</div>
+                    </li>
+                    <li>
+                        <select id="sortSelector" class="form-select arrows" aria-label="Sort options">
+                            <option selected="Select an option">Select an option</option>
+                            <option value="alphabetical">Alphabetical Order</option>
+                            <option value="rate_asc">Price: Low to High</option>
+                            <option value="rate_desc">Price: High to Low</option>
+                        </select>
+                        
+                    </li>
+                    
+                    <li>
+                        <div><span>Show:</span></div>
+                    </li>
+                    <li>
+                        <div>
+                            <select id="itemCountSelector" class="form-select arrows" aria-label="Items per page">
+                                <option value="60" selected>60</option>
+                                <option value="50">50</option>
+                                <option value="40">40</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-default" id="clear-filters">Clear</a>
+                    </li>
+                </ul>
+                <ul>
+                    <!-- <li>
+                        {% if items %}
+                        <p>Showing <span class="bold">{{ _(item_count) or 0 }} result</span></p>
+                        {% else %}
+                        <p>Showing 0 - 0 of <span class="bold">0 result</span></p>
+                        {% endif %}
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-4 filter-bar-left">
+            <div class="row">
+                <div class="col mb-4">
+                  <div class="lw-leftFilter-block">
+    <div class="lw-filter">
+        <div class="lw-card card">
+            <div class="card-header">
+                <div class="lw-filter-search">
+                    <form class="d-flex" id="categorySearchForm">
+                        <input id="categorySearchInput" class="form-control" type="search" placeholder="Search Categories" aria-label="Search">
+                        <button class="btn btn-secondary btn-sm" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="card-body custom-scrollbar-css">
+                <div class="filter-checkbox">
+                    {% if categories %}
+                        {% for cat in categories %}
+                            <div class="form-check">
+                                <input class="form-check-input category_filter" type="checkbox" value="{{ cat }}" id="category-{{ loop.index }}" autocomplete="off">
+                                <label class="form-check-label" for="category-{{ loop.index }}">
+                                    {{ cat }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="lw-card card m-20">
+            <div class="filter-tag card-body">
+                <ul id="filterTags"></ul>
+            </div>
+            <div class="card-footer card-align-center">
+                <a href="#" id="clear-all-filters">Clear all</a>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+              <!-- Filter Section End -->
+
+              <div class="col col-sm-12 col-md-12 col-lg-9 col-xl-9">
+                <div class="row row-cols-12 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 mt-4 product_list">
+                    {% if items %}
+                        {% for item in items %}
+                            <div class="col mb-4">
+                                <div class="itembooks card card-item">
+                                    <a href="/productdetailspage?id={{ item.item_code }}" class="card-item-img">
+                                        {% if item.image %}
+                                            <img src="{{ item.image }}" class="img-fluid" alt="{{ item.web_item_name }}"
+                                                 onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+                                        {% elif item.custom_website_image %}
+                                            <img src="{{ item.custom_website_image }}" class="img-fluid" alt="{{ item.web_item_name }}"
+                                                 onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+                                        {% elif item.website_image %}
+                                            <img src="{{ item.website_image }}" class="img-fluid" alt="{{ item.web_item_name }}"
+                                                 onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+                                                 {% elif item.custom_image1 %}
+                                                 <img src="{{ item.custom_image1 }}" class="img-fluid" alt="{{ item.web_item_name }}"
+                                                 onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+                    
+                                                {% elif item.custom_image2 %}
+                                                <img src="{{ item.custom_image2 }}" class="img-fluid" alt="{{ item.web_item_name }}"
+                                                onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+
+                                            
+                                                {% elif item.custom_image3 %}
+                                                <img src="{{ item.custom_image3 }}" class="img-fluid" alt="{{ item.web_item_name }}"
+                                                onerror="this.onerror=null; this.src='/src/img/blankImg.png';">
+
+                                    
+                                        {% else %}
+                                            <img src="/src/img/blankImg.png" class="img-fluid" alt="Default Image">
+                                        {% endif %}
+                                    </a>
+                                    <div class="card-content">
+                                        <div class="itemDetails">
+                                            <a href="/productdetailspage?id={{ item.item_code }}"><h6 class="text-limit2">{{ _(item.web_item_name) }}</h6></a>
+                                            <p>{{ item.publisher or '' }}</p>
+                                        </div>
+                                        <div class="cart-hover-sec">
+                                            <div class="price-amount">
+                                                <div class="price-amount currency_inr">
+                                                    <span>INR</span>{{ _(item.price_list_rate_inr) }}
+                                                </div>
+                                                <div class="price-amount currency_usd">
+                                                    <span>USD</span>{{ _(item.price_list_rate_usd) }}
+                                                </div>
+                                            </div>
+                                            <div class="add-cart-btn">
+                                                {% if frappe.session.user == "Guest" %}
+                                                    <!-- Show Login Modal for Guest Users -->
+                                                    <a href="#" 
+                                                       class="btn-primary btn-style btn-icon-left"
+                                                       data-bs-toggle="modal" 
+                                                       data-bs-target="#lwsignIn">
+                                                       ADD TO CART
+                                                    </a>
+                                                {% else %}
+                                                    <!-- Add to Cart Button for Logged-in Users -->
+                                                    <a href="#"
+                                                       class="btn-primary btn-style btn-icon-left add-to-cart-btn"
+                                                       data-item-code="{{ item.item_code }}"
+                                                       data-qty="1">
+                                                       ADD TO CART
+                                                    </a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            
+     
+     <!-- <div class="row">
+         <div class="col-lg-12">
+             <div class="lw-pagination">
+                 <nav aria-label="Page navigation example">
+                     <ul class="pagination">
+                         <li class="page-item">
+                             <a class="page-link prev-page" href="#" aria-label="Previous">
+                                 <span aria-hidden="true">«</span>
+                             </a>
+                         </li>
+                         <li class="page-item paginate active current-page"><a class="page-link" href="#">1</a></li>
+                         <li class="page-item paginate"><a class="page-link" href="#">2</a></li>
+                         <li class="page-item paginate"><a class="page-link" hre
+     
+     
+
+
+
+ <!-- <div class="row">
+     <div class="col-lg-12">
+         <div class="lw-pagination">
+             <nav aria-label="Page navigation example">
+                 <ul class="pagination">
+                     <li class="page-item">
+                         <a class="page-link prev-page" href="#" aria-label="Previous">
+                             <span aria-hidden="true">«</span>
+                         </a>
+                     </li>
+                     <li class="page-item paginate active current-page"><a class="page-link" href="#">1</a></li>
+                     <li class="page-item paginate"><a class="page-link" href="#">2</a></li>
+                     <li class="page-item paginate"><a class="page-link" href="#">3</a></li>
+                     <li class="page-item">
+                         <a class="page-link next-page" href="#" aria-label="Next">
+                             <span aria-hidden="true">»</span>
+                         </a>
+                     </li>
+                 </ul>
+             </nav>
+         </div>
+     </div> -->
+     <div class="row">
+         <div class="col-lg-12">
+           <div class="lw-pagination">
+             <nav aria-label="Page navigation example">
+               <ul class="pagination" data-item_count="{{item_count}}">
+                 <li class="page-item">
+                   <a class="page-link next-backward" href="#" aria-label="Previous">
+                     <span aria-hidden="true">&laquo;</span>
+                   </a>
+                 </li>
+                 <li class="page-item paginate active current-page"><a class="page-link" id="" value="1" href="">1</a></li>
+                 {% for i in range(2) %}
+                     {% if(i+1|int < page_count|int) %}
+                       <li class="page-item paginate"><a class="page-link" id="" value="{{i+2}}" href="">{{i+2}}</a></li>
+                     {% endif %}
+                 {% endfor %}
+                 <li class="page-item">
+                   <a class="page-link next-forward" href="#" aria-label="Next">
+                     <span aria-hidden="true">&raquo;</span>
+                   </a>
+                 </li>
+               </ul>
+             </nav>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="lwpagehead">
+                <h5>Latest Books</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="owl-carousel owl-theme">
+                {% for i in range(new_release|length) %}
+                <div class="item">
+                    <div class="list-item">
+                        <div class="itembooks card card-item">
+                            <a href="/productdetailspage?id={{ new_release[i].item_code }}" class="card-item-img">
+                                {% if new_release[i].image %}
+                                    <img src="{{ new_release[i].image }}" class="img-fluid">
+                                {% elif new_release[i].custom_website_image %}
+                                    <img src="{{ new_release[i].custom_website_image }}" class="img-fluid">
+                                {% elif new_release[i].website_image %}
+                                    <img src="{{ new_release[i].website_image }}" class="img-fluid">
+                                {% elif new_release[i].custom_image1 %}
+                                    <img src="{{ new_release[i].custom_image1 }}" class="img-fluid">
+                                {% elif new_release[i].custom_image2 %}
+                                    <img src="{{ new_release[i].custom_image2 }}" class="img-fluid">
+                                {% elif new_release[i].custom_image3 %}
+                                    <img src="{{ new_release[i].custom_image3 }}" class="img-fluid">
+                                {% else %}
+                                    <img src="/src/img/blankImg.png" class="img-fluid">
+                                {% endif %}
+                            </a>
+                            
+                            <div class="card-content">
+                                <div class="itemDetails">
+                                    <a href="/productdetailspage?id={{ new_release[i].item_code }}"> <h6 class="text-limit2">{{ new_release[i].web_item_name }}</h6></a>
+                                    <p>{{ new_release[i].publisher or '' }}</p>
+                                </div>
+                                <div class="cart-hover-sec">
+                                    <div class="price-amount">
+                                        <span class="item-price currency_inr">INR {{ _(new_release[i].price_list_rate_inr) }}</span>
+                                        <span class="item-price currency_usd">USD {{ _(new_release[i].price_list_rate_usd) }}</span>
+                                    </div>
+                                    <div class="add-cart-btn">
+                                        {% if frappe.session.user == "Guest" %}
+                                            
+                                            <a href="#" 
+                                               class="btn-primary btn-style btn-icon-left" 
+                                               data-bs-toggle="modal" 
+                                               data-bs-target="#lwsignIn">
+                                                ADD TO CART
+                                            </a>
+                                        {% else %}
+                                            
+                                            <a href="#" 
+                                               class="btn-primary btn-style btn-icon-left add-to-cart-btn"
+                                               data-item-code="{{ new_release[i].item_code }}" 
+                                               data-qty="1">
+                                                ADD TO CART
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <style>
+.card-item-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 175px; 
+    height: 200px; 
+    overflow: hidden;
+    text-align: center;
+    background-color: #ccc; 
+    position: relative;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.card-item-img img {
+    width: 175px; 
+    height: auto; 
+    object-fit: cover; 
+    object-position: center; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+
+.card-item-img img {
+    width: auto;
+    height: 100%;
+    margin: 0 auto; 
+}
+
+@media (max-width: 768px) {
+    .card-item-img {
+        height: 200px;
+    }
+}
+</style> -->
+
+
+
+
+
+<style>
+   
+    #success-message {
+       display: none;
+       position: fixed;
+       top: 20%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       padding: 15px 30px;
+       background-color: #ffffff; 
+       color: #333333; 
+       border-radius: 8px;
+       text-align: center;
+       font-size: 16px;
+       z-index: 1000;
+       box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); 
+       font-family: Arial, sans-serif;
+       min-width: 200px;
+       max-width: 300px;
+   }
+   
+   #success-message span:first-child {
+       font-size: 24px;
+       color: #28a745; 
+   }
+   
+   
+   </style> 
+   
+<script>
+  
+    document.getElementById("categorySearchInput").addEventListener("input", function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        document.querySelectorAll(".filter-checkbox .form-check").forEach(category => {
+            const categoryName = category.querySelector("label").textContent.toLowerCase();
+            category.style.display = categoryName.includes(searchTerm) ? "block" : "none";
+        });
+    });
+
+    document.querySelectorAll(".category_filter").forEach(checkbox => {
+        checkbox.addEventListener("change", function() {
+            let selectedCategories = Array.from(document.querySelectorAll(".category_filter:checked"))
+                .map(cb => cb.value);
+            let url = new URL(window.location.href);
+            if (selectedCategories.length > 0) {
+                url.searchParams.set('filter_args', selectedCategories.join(','));
+            } else {
+                url.searchParams.delete('filter_args');
+            }
+            window.location.href = url.toString();
+        });
+    });
+
+    document.getElementById("clear-all-filters").addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelectorAll(".category_filter").forEach(cb => cb.checked = false);
+        let url = new URL(window.location.href);
+        url.searchParams.delete('filter_args');
+        window.location.href = url.toString();
+    });
+</script>
+ {%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

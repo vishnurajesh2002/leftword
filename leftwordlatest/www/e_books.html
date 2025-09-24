@@ -1,0 +1,252 @@
+
+
+{% extends "templates/subbase.html" %}
+{% block content %}
+<main>
+    <!-- banner-section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="le-pagehead">
+                    <h3>E-Books</h3>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                          <li class="breadcrumb-item" aria-current="page">Books</li>
+                          <li class="breadcrumb-item active" aria-current="page">E-Books</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner section end -->
+<div class="container filter-bar">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="lw-pageFilter">
+                <ul>
+                    <li>
+                        <div>Sort by:</div>
+                    </li>
+                    <li>
+                        <select class="form-select arrows order-select" aria-label="Default select example">
+                            <option class="order-select-options" selected="">Select an option</option>
+                            <option class="order-select-options" value="book_name">Book Name (A-Z)</option>
+                            <option class="order-select-options" value="rate_desc">Price (high - low)</option>
+                            <option class="order-select-options" value="rate_asc">Price (low - high)</option>
+                        </select>
+                    </li>
+                    <li>
+                        <div>
+                            <span>Show:</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <select class="form-select arrows page-select" aria-label="Default select example">
+                                <option class="page-select-options" value="{{ppp}}" selected="">{{_(ppp) or ''}}</option>
+                                <option class="page-select-options" value="20">20</option>
+                                <option class="page-select-options" value="30">30</option>
+                                <option class="page-select-options" value="40">40</option>
+                                <option class="page-select-options" value="50">50</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="btn btn-default">Clear</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="showing_count">
+                        {% if items %}
+                            {% if item_count < ppp %}
+                                <p>Showing 1 - {{_(item_count) or 0}} of <span class="bold">{{ _(item_count) or 0 }} result</span></p>
+                            {% else %}
+                                <p>Showing 1 - {{_(ppp) or 0}} of <span class="bold">{{ _(item_count) or 0 }} result</span></p>
+                            {% endif %}
+                        {% else %}
+                        <p>Showing 0 - 0 of <span class="bold">0 result</span></p>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="product_list row row-cols-12 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mt-4 product_list">
+        {% if items %}
+            {% for item in items %}
+            <div class="col mb-4">
+                <div class="itembooks card card-item">
+                    <a href="/productdetailspage?id={{ item.item_code }}" class="card-item-img">
+                        {% if item.item_group == 'Ebooks' %}
+                        <span class="book-type">EBook</span>
+                        {% endif %}
+                        {% if item.image %}
+                        <img src="{{item.image}}" class="">
+                        {% elif item.custom_website_image %}
+                        <img src="{{item.custom_website_image}}" class="">
+                        {% elif item.website_image %}
+                        <img src="{{item.website_image}}" class="">
+                        {%elif item.custom_image1%}
+                        <img src="{{item.custom_image1}}" class="">
+                        {%elif item.custom_image2%}
+                        <img src="{{item.custom_image2}}" class="">
+                        {%elif item.custom_image3%}
+                        {% else %}
+                        <img src="/src/img/blankImg.png" class="">
+                        {% endif %}
+                    </a>
+                    <div class="card-content">
+                        <div class="itemDetails">
+                            <a href="/productdetailspage?id={{ item.item_code }}"><h6 class="text-limit2">
+                                {{_(item.web_item_name)}}
+                            </h6></a>
+                            <p>{{_(item.brand or '')}}</p>
+                            <!-- <div class="Stars" style="--rating: 3;" aria-label="Rating of this product is 3 out of 5."></div> -->
+                        </div>
+                        <div class="cart-hover-sec">
+                            <div class="price-amount currency_inr">
+                                                   
+                                {% if item.price_list_rate_inr > 0 %}
+                                    <span>INR</span>
+                                    {{ _(item.price_list_rate_inr) }}
+                                {% else %}
+                                    <span style="color: red;">Not Available In INR</span>
+                                {% endif %}
+                            </div>
+                            <!-- Check for USD price -->
+                            <div class="price-amount currency_usd">
+                               
+                                {% if item.price_list_rate_usd > 0 %}
+                                <span>USD</span>
+                                    {{ _(item.price_list_rate_usd) }}
+                                {% else %}
+                                    <span style="color: red;">Not Available In USD</span>
+                                {% endif %}
+                            </div>                            <div class="add-cart-btn">
+                                {% if frappe.session.user == "Guest" %}
+                                    <a href="#"
+                                    class="btn-primary btn-style btn-icon-left add-to-cart-btn allow-guest-cart"
+                                    data-bs-toggle="modal" data-bs-target="#lwsignIn">
+                                    ADD TO CART
+                                    </a>
+                                {% else %}
+                                    <a href="#"
+                                    class="btn-primary btn-style btn-icon-left add-to-cart-btn"
+                                    data-item-code="{{ item.item_code }}" data-qty="1">
+                                    ADD TO CART
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+        
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="lw-pagination">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination" data-item_count="{{item_count}}">
+                    <li class="page-item">
+                      <a class="page-link next-backward" href="#" aria-label="Previous">
+                        <span aria-hidden="true">«</span>
+                      </a>
+                    </li>
+                    <li class="page-item paginate active current-page"><a class="page-link" id="" value="1" href="">1</a></li>
+                    {% for i in range(2) %}
+                        {% if(i+1|int < page_count|int) %}
+                          <li class="page-item paginate"><a class="page-link" id="" value="{{i+2}}" href="">{{i+2}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    <li class="page-item">
+                      <a class="page-link next-forward" href="#" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div id="success-message" style="display: none;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 20px; color: #28a745;">&#10003;</span> 
+            <span>Item added to cart successfully!</span>
+        </div>
+    </div>
+    <style>
+     /* .card-item-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 175px; 
+    height: 200px; 
+    overflow: hidden;
+    text-align: center;
+    background-color: #ccc; 
+    position: relative;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.card-item-img img {
+    width: 175px; 
+    height: auto; 
+    object-fit: cover; 
+    object-position: center; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+
+.card-item-img img {
+    width: auto;
+    height: 100%;
+    margin: 0 auto; 
+}
+
+@media (max-width: 768px) {
+    .card-item-img {
+        height: 200px;
+    }
+} */
+        #success-message {
+           display: none;
+           position: fixed;
+           top: 20%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           padding: 15px 30px;
+           background-color: #ffffff; 
+           color: #333333; 
+           border-radius: 8px;
+           text-align: center;
+           font-size: 16px;
+           z-index: 1000;
+           box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); 
+           font-family: Arial, sans-serif;
+           min-width: 200px;
+           max-width: 300px;
+       }
+       
+       #success-message span:first-child {
+           font-size: 24px;
+           color: #28a745; 
+       }
+       
+       
+       </style> 
+</main>
+
+
+
+{%endblock%}

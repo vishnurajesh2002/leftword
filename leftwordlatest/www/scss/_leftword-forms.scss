@@ -1,0 +1,209 @@
+textarea{
+    border: 1px solid $border-secondary;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $placeholder !important;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $placeholder !important;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: $placeholder !important;
+  }
+  .lw-form-blk{
+    margin: 15px 0px;
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $placeholder !important;
+        opacity: 1; /* Firefox */
+        font-size: 14px;
+      }
+      
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $placeholder !important;
+        font-size: 14px;
+      }
+      
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: $placeholder !important;
+        font-size: 14px;
+      }
+  }
+  .form-label{
+
+    font-size: 15px;
+    line-height: 26px;
+    font-weight: 600;
+    color: $form-label;
+    &.form-capital{
+        text-transform: uppercase;
+    }
+  }
+.form-control {
+    font-family: "Poppins", sans-serif !important;
+    height: 45px;
+    // background: #FFFFFF 0% 0% no-repeat padding-box;
+    -webkit-box-shadow: 0px 4px 8px #2c27380a;
+    box-shadow: 0px 4px 8px #2c27380a;
+    border: 1px solid $border-secondary;
+    opacity: 1;
+    font-size: 14px;
+    border-radius: 0px !important;
+    &.form-border-light{
+        border: 1px solid $border-primary;
+    }
+    &.radius10{
+        border-radius: 10px !important;
+    }
+    &.height50{
+        height: 50px !important;
+    }
+}
+.form-select,
+.form-control {
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
+}
+.typetextarea {
+    height: 150px !important;
+}
+.form-select{
+    background-size: 12px 10px;
+    border-radius: 0px;
+
+    &.select-arrow{
+            background-image: url(../img/down-arrow.svg) !important;
+
+
+    }
+    &.select-arrow-blk{
+        background-image: url(../img/lw-icon-arrowblack.svg) !important;
+        background-size: 15px;
+
+}
+&.form-borderLight{
+    border: 1px solid $border-secondary;
+}
+&.radius10{
+    border-radius: 10px !important;
+}
+&.height50{
+    height: 50px !important;
+}
+}
+
+
+.form-control{
+    &.form-borderLight{
+        border: 1px solid $border-secondary;
+    } 
+}
+
+
+// btn-dection
+.btn-caps{
+    text-transform: uppercase;
+}
+.btn-sm{
+    width: 90px;
+}
+
+
+.btn-primary{
+
+    &:hover{
+        background-color: $btn-primary;
+        color: $bg-primary-hover;
+        border-color: $bg-primary-hover;
+    }
+    &.btn-style{
+        width: 100%;
+        border-radius: 0px;
+        padding: 10px;
+        font-weight: 600;
+        &.btn-icon-left{
+            display: flex;
+            position: relative;
+            padding-left: 50px;
+            &:before{
+                content: url("../src/img/lw-carticon.svg");
+                margin-right: 5px;
+                position: absolute;
+                left: 15px;
+            }
+            &:hover{
+                background-color: $btn-primary;
+                color: $bg-primary-hover;
+                border-color: $bg-primary-hover;
+                transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+                &:before{
+                    content: url("../src/img/lw-carticonh.svg") !important;
+                    margin-right: 5px;
+                    position: absolute;
+                    left: 15px;
+                } 
+            }
+        }
+    }
+
+}
+
+
+.btn-outline{
+    background-color:$btn-outline;
+    border: 1px solid  $border-primary;
+    border-radius: 0px;
+    &:hover{
+        border: 1px solid  $hover-color;
+        color: $hover-primary;
+        background-color: #fdf7f7; 
+    }
+}
+// .btn{
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// pagination
+.lw-pagination{
+    margin: 0 auto;
+    text-align: center;
+    margin: 20px 0px;
+
+        .pagination{
+            display: inline-block !important;
+            .page-item{
+                margin: 0px 6px;
+                list-style: none;
+                display: inline-block;
+                &.active{
+                    .page-link{
+                    color: $text-primary;
+                    background: none;
+                    border: 1px solid $hover-primary;
+                    }
+
+                }
+                .page-link{
+                    border: 1px solid $border-secondary;
+                    color:$text-secondary;
+                    border-radius: 0px;
+                    &:hover{
+                        border: 1px solid $hover-primary;
+                        background-color: $btn-primary;
+                        color: $hover-primary;
+                    }
+                    &.border-none{
+                        border: none;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+}

@@ -1,0 +1,42 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-12-27 16:16:36.676373",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "banner_name",
+  "banner"
+ ],
+ "fields": [
+  {
+   "fieldname": "banner_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Banner Name",
+   "options": "Banner Book",
+   "reqd": 1
+  },
+  {
+   "fieldname": "banner",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Banner",
+   "options": "Banner-1\nBanner-2\nBanner-3\nBanner-4\nBanner-5",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-19 17:17:48.854600",
+ "modified_by": "Administrator",
+ "module": "leftwordlatest",
+ "name": "Website Banners",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

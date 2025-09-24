@@ -1,0 +1,138 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-08-24 11:09:25.982100",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "disabled",
+  "allow_guest_cart",
+  "guest_customer_name",
+  "member_creation_mail",
+  "column_break_77sbh",
+  "notify_on_new_member_creation",
+  "section_break_e1esi",
+  "yearly_memberhsip_item",
+  "column_break_ua4qw",
+  "usd_price_list",
+  "website_home_section",
+  "home_page_silders",
+  "column_break_m1itb",
+  "website_banners",
+  "image"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_guest_cart",
+   "fieldtype": "Check",
+   "label": "Allow Guest Cart"
+  },
+  {
+   "depends_on": "eval:doc.allow_guest_cart===1",
+   "fieldname": "guest_customer_name",
+   "fieldtype": "Link",
+   "label": "Guest Customer Name",
+   "mandatory_depends_on": "eval:doc.allow_guest_cart===1",
+   "options": "Customer"
+  },
+  {
+   "default": "0",
+   "fieldname": "member_creation_mail",
+   "fieldtype": "Check",
+   "label": "Send Email on Member Creation"
+  },
+  {
+   "fieldname": "column_break_77sbh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "notify_on_new_member_creation",
+   "fieldtype": "Check",
+   "label": "Notify On New Member Creation"
+  },
+  {
+   "fieldname": "section_break_e1esi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "yearly_memberhsip_item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Yearly Memberhsip Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ua4qw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "usd_price_list",
+   "fieldtype": "Link",
+   "label": "USD Price List",
+   "options": "Price List",
+   "reqd": 1
+  },
+  {
+   "fieldname": "website_home_section",
+   "fieldtype": "Section Break",
+   "label": "Website Home"
+  },
+  {
+   "fieldname": "home_page_silders",
+   "fieldtype": "Table",
+   "label": "Home Page Silders",
+   "options": "Home Page Slider",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_m1itb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "website_banners",
+   "fieldtype": "Table",
+   "label": "Website Banners",
+   "options": "Website Banners",
+   "reqd": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Login Image"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-08-19 17:17:47.121495",
+ "modified_by": "Administrator",
+ "module": "leftwordlatest",
+ "name": "Leftword Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

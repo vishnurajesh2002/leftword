@@ -1,0 +1,121 @@
+{% extends "templates/subbase.html" %}
+{% block content %}
+<main>
+   <!-- banner-section -->
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12">
+               <div class="le-pagehead">
+                   <h3>Catalogue</h3>
+                   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                       <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                           <li class="breadcrumb-item" aria-current="page">Books</li>
+                           <li class="breadcrumb-item active" aria-current="page">Catalogue</li>
+                       </ol>
+                   </nav>
+               </div>
+           </div>
+       </div>
+   </div>
+   <!-- banner section end -->
+
+
+   <section class="lw-catelog">
+       <div class="container">
+           <div id="catalogue-container" class="row row-cols-12 row-cols-sm-12 row-cols-md-12 row-cols-lg-2 row-cols-xl-2">
+               <!-- Catalogue items will be dynamically inserted here by JavaScript -->
+           </div>
+       </div>
+   </section>
+</main>
+
+
+<script>
+   // Fetch catalogue details from the backend API and render them dynamically
+   fetch('/api/method/leftwordlatest.web_api.items.get_leftword_catalogue')
+       .then(response => response.json())
+       .then(data => {
+           const catalogues = data.message; // Access the message object containing catalogues
+           const container = document.getElementById('catalogue-container');
+      
+           if (catalogues && catalogues.length) {
+               container.innerHTML = ''; // Clear the "No catalogues available." message
+
+
+               catalogues.forEach(catalogue => {
+                   const pdfFile = catalogue.pdf_file ? catalogue.pdf_file : '#'; // Handle null PDF files
+                   const description = catalogue.description || "";
+                   const truncatedDescription = description.length > 100 ? description.substring(0, 100) + "..." : description;
+
+
+                   const catalogueHTML = `
+                       <div class="col-md-6">
+                           <div class="catelogBlk">
+                               <div class="row">
+                                   <div class="col-lg-5">
+                                       <div class="catelogImg card card-item">
+                                        <a href="${catalogue.image}" target="_blank">
+                                               <img src="${catalogue.image}" class="img-fluid" alt="${catalogue.catalogue_title}">
+                                           </a>
+                                       </div>
+                                   </div>
+                                   <div class="col-lg-7">
+                                       <div class="catalogDetails">
+                                           <div class="cataloghead">
+                                               <span>LeftWord</span>
+                                               <h6>${catalogue.catalogue_title}</h6>
+                                           </div>
+                                           <div class="catalogYear">
+                                               <h3>${catalogue.year}</h3>
+                                               ${catalogue.publisher_details ? `<p>${catalogue.publisher_details}</p>` : ''} <!-- Conditional check for publisher -->
+                                           </div>
+                                           <p class="description">
+                                               <span class="short-desc">${truncatedDescription}</span>
+                                               <span class="full-desc" style="display: none;">${description}</span>
+                                               ${description.length > 100 ? '<button class="read-more-btn btn btn-link p-0">Read More</button>' : ''}
+                                           </p>
+                                           <div class="catalogBtn">
+                                               <a href="${pdfFile}" target="_blank" class="btn btn-secondary ">Download PDF</a> <!-- Open PDF in new tab -->
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   `;
+                   container.innerHTML += catalogueHTML;
+               });
+
+
+               // Attach event listeners for "Read More" buttons
+               document.querySelectorAll('.read-more-btn').forEach(button => {
+                   button.addEventListener('click', function () {
+                       const shortDesc = this.previousElementSibling.previousElementSibling;
+                       const fullDesc = this.previousElementSibling;
+                      
+                       if (fullDesc.style.display === "none") {
+                           shortDesc.style.display = "none";
+                           fullDesc.style.display = "inline";
+                           this.textContent = "Read Less";
+                       } else {
+                           shortDesc.style.display = "inline";
+                           fullDesc.style.display = "none";
+                           this.textContent = "Read More";
+                       }
+                   });
+               });
+           } else {
+               container.innerHTML = "<p>No catalogues available.</p>";
+           }
+       })
+       .catch(error => {
+           console.error('Error fetching catalogues:', error);
+           const container = document.getElementById('catalogue-container');
+           container.innerHTML = "<p>Error loading catalogues. Please try again later.</p>";
+       });
+</script>
+
+
+{% endblock %}
+

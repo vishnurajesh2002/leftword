@@ -1,0 +1,351 @@
+
+{% extends "templates/mainbase.html" %}
+{% block content %}
+
+    <!-- banner-section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="le-pagehead">
+                    <h3>My Address</h3>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Home</a></li>
+                          <li class="breadcrumb-item"><a href="javascript:history.back();">Back</a></li>
+
+                          <li class="breadcrumb-item active" aria-current="page">Add Address</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner section end -->
+
+<section class="lw-accounts">
+    <div class="container">
+        <div class="row row-flex row-cols-12 row-cols-sm-12 row-cols-md-2 row-cols-lg-2 row-cols-xl-2">
+            <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+                <div class="card">
+                    <div class="card-header card-flex">
+                        <h3>Account Information</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="lw-accounts-item">
+                            <div class="lw-account-edit">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
+                                        <label for="">First Name <span>*</span></label>
+                                        <input type="email" id="inputEmail" class="form-control" placeholder="First Name" required="" autofocus="">
+                                        <div class="lw-error">Please enter your first name</div>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
+                                        <label for="">Middle Name/Initial</label>
+                                        <input type="email" id="inputEmail" class="form-control" placeholder="Middle Name/Initial" required="" autofocus="">
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
+                                        <label for="">Last Name<span>*</span></label>
+                                        <input type="email" id="inputEmail" class="form-control" placeholder="Middle Name/Initial" required="" autofocus="">
+                                    </div>                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="lw-account-editBtn">
+                                            <button class="btn btn-primary" type="submit" >Cancel</button>
+                                            <button class="btn btn-secondary" type="submit" >Save & Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- col-12 end -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+                <div class="card">
+                    <div class="card-header card-flex">
+                        <h3>Address Book</h3>
+                        <button class="btn btn-danger"><a href="javascript:history.back();" style="font-size: 14px; " 
+                        onmouseover="this.style.color='white'" 
+                        >Back</a></button>
+                     
+
+                    </div>
+                    <div class="card-body">
+                        <div class="lw-accounts-item">
+                            <div class="row">
+                                <div class="lw-account-edit col-12">
+                                    <div class="row">
+                                        <!-- Address Title -->
+                                        <div class="col-12 col-md-6 mb-3">
+                                            <label for="address_title">Name<span>*</span></label>
+                                            <input type="text" id="address_title" class="form-control" placeholder="Enter Name" required autofocus>
+                                        </div>
+            
+                                        <!-- Mobile Number -->
+                                        <div class="col-12 col-md-6 mb-3">
+                                            <label for="address_phone">Mobile Number</label>
+                                            <input type="text" id="address_phone" class="form-control" placeholder="Enter Phone Number" required>
+                                        </div>
+            
+                                        <!-- Email Address -->
+                                        <div class="col-12 col-md-6 mb-3">
+                                            <label for="address_id">Email Address <span>*</span></label>
+                                            <input type="text" id="address_email" class="form-control" placeholder="Enter Email Address" required>
+                                        </div>
+            
+                                        <!-- City -->
+                                        <div class="col-12 col-md-6 mb-3">
+                                            <label for="address_city">City <span>*</span></label>
+                                            <input type="text" id="address_city" class="form-control" placeholder="Enter City" required>
+                                        </div>
+            
+                                        <!-- Pincode -->
+                                        <div class="col-12 col-md-4 mb-3">
+                                            <label for="address_pincode">Pincode <span>*</span></label>
+                                            <input type="text" id="address_pincode" class="form-control" placeholder="Enter Pincode" required>
+                                        </div>
+            
+                                        <!-- State -->
+                                        <div class="col-12 col-md-4 mb-3">
+                                            <label for="address_state">State <span>*</span></label>
+                                            <input type="text" id="address_state" class="form-control" placeholder="Enter State" required>
+                                        </div>
+            
+                                        <!-- Country -->
+                                        <div class="col-12 col-md-4 mb-3">
+                                            <label for="address_country">Country <span>*</span></label>
+                                            <input type="text" id="address_country" class="form-control" placeholder="Enter Country" required>
+                                        </div>
+            
+                                        <!-- Address Line 1 -->
+                                        <div class="col-12 mb-3">
+                                            <label for="address_line1">Address (House No, Building, Street, Area) <span>*</span></label>
+                                            <input type="text" id="address_line1" class="form-control" placeholder="Enter Address" required>
+                                        </div>
+                                    </div>
+            
+                                    <!-- Checkboxes -->
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 mb-3">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="is_shipping_address">
+                                                <label class="form-check-label" for="is_shipping_address">Default Shipping Address</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 mb-3">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="is_primary_address">
+                                                <label class="form-check-label" for="is_primary_address">Default Billing Address</label>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                    <!-- Buttons -->
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <button class="btn btn-primary" type="button" id="cancel_button">Cancel</button>&nbsp;&nbsp;&nbsp;
+                                            <button class="btn btn-secondary ml-2" type="button" id="save_btn_address">Save</button>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            
+                    <!-- card-body -->
+                </div>
+                <!-- card -->
+            </div>
+           
+        </div>
+        <!-- row -->
+    </div>
+    <div id="custom-success-popup" class="custom-popup">
+        <div class="popup-content">
+            <h2>Success!</h2>
+            <p id="popup-message">Address Added successfully!</p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+    <div id="custom-error-popup" class="custom-popup error-popup">
+        <div class="popup-content">
+            <h2>Alert</h2>
+            <p id="error-popup-message">Something went wrong!</p>
+            <button onclick="closeErrorPopup()">Close</button>
+        </div>
+    </div>
+    
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function () {
+    $('#save_btn_address').click(function () {
+        const addressData = {
+            address_title: $("#address_title").val(),
+            phone: $("#address_phone").val(),
+            pincode: $("#address_pincode").val(),
+            state: $("#address_state").val(),
+            country: $("#address_country").val(),
+            address_line1: $("#address_line1").val(),
+            city: $("#address_city").val(),
+            address_email: $("#address_email").val(),
+            type: "Billing",
+            is_shipping_address: $("#is_shipping_address").is(":checked") ? 1 : 0,
+            is_primary_address: $("#is_primary_address").is(":checked") ? 1 : 0
+        };
+
+        if (!addressData.address_title || !addressData.address_email || !addressData.city) {
+            frappe.msgprint("Please fill in all required fields.");
+            return;
+        }
+
+        frappe.call({
+    method: "leftwordlatest.www.add_address.add_address",
+    args: addressData,
+    callback: function (response) {
+    if (response.message.status === "success") {
+        showPopup("Address Added successfully!");
+
+        setTimeout(function() {
+            if (document.referrer.includes("/checkout")) {
+                window.location.href = "/checkout";
+            } else {
+                window.location.href = "/my_addresses";
+            }
+        }, 1500);
+    } else {
+        showErrorPopup(response.message.message);
+    }
+}
+
+});
+
+    });
+
+
+
+
+
+
+    $('#cancel_button').click(function () {
+
+        $('input[type="text"], input[type="tel"], input[type="number"]').val('');
+        $('input[type="checkbox"]').prop('checked', false);
+    });
+});
+function showPopup(message) {
+    document.getElementById('popup-message').innerText = message;
+    document.getElementById('custom-success-popup').style.display = 'block';
+
+
+    setTimeout(function () {
+        closePopup();
+    }, 9000);
+}
+
+function closePopup() {
+    document.getElementById('custom-success-popup').style.display = 'none';
+}
+function showErrorPopup(message) {
+    document.getElementById('error-popup-message').innerText = message;
+    document.getElementById('custom-error-popup').style.display = 'block';
+
+
+    setTimeout(function () {
+        closeErrorPopup();
+    }, 5000);
+}
+
+function closeErrorPopup() {
+    document.getElementById('custom-error-popup').style.display = 'none';
+}
+
+
+</script>
+<style>
+    .custom-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 9999;
+    width: 300px;
+}
+
+.custom-popup .popup-content {
+    text-align: center;
+}
+
+.custom-popup h2 {
+    color: #28a745;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.custom-popup p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.custom-popup button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-popup button:hover {
+    background-color: #218838;
+}
+/* Error Popup Styles */
+.error-popup {
+    background-color: #f8d7da; 
+    border-left: 5px solid #dc3545; /* Red border */
+}
+
+.error-popup .popup-content {
+    text-align: center;
+}
+
+.error-popup h2 {
+    color: #dc3545; /* Red color for error */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.error-popup p {
+    font-size: 16px;
+    color: #721c24; /* Darker red for message */
+    margin: 10px 0;
+}
+
+.error-popup button {
+    background-color: #dc3545; /* Red */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.error-popup button:hover {
+    background-color: #c82333;
+}
+
+
+</style>
+<!-- -----------------------End----------------- -->
+{% endblock %}

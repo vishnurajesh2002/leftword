@@ -1,0 +1,11 @@
+{% extends "templates/subbase.html" %}
+{% block title %}{{ _('Shop by Category') }}{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="/initiate_ccavenue.js"></script>
+{% endblock %}
+{% block content %}
+<div style="text-align: center; padding-top: 10%;">
+    <button id="initiate-ccavenue" class="btn btn-primary initiate-ccavenue">Initiate Payment</button>
+</div>
+{% endblock %}

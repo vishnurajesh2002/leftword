@@ -1,0 +1,194 @@
+{% extends "templates/subbase.html" %}
+{% block content %}
+<main>
+      <!-- banner-section -->
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="le-pagehead">
+                    <h3>Events</h3>
+                  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                        
+                          <li class="breadcrumb-item active" aria-current="page">Events</li>
+                      </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="event-tab">
+        <span class="tab active" onclick="showUpcomingEvent()">Upcoming Events</span>
+        <span class="tab" onclick="showPastEvent()">Past Events</span>
+    </div>
+    
+    <div class="container">
+        <div class="row row-col-12 row-cols-sm-10 row-col-md-12 row-col-lg-12 row-cols-xl-12">
+            <div class="col-xl-12">
+                <div id="upcoming-events" class="event-details upcoming-event">
+                    {% for event in events_data.upcoming_events %}
+                    <div class="event-info {% if loop.index % 2 == 0 %}right-card{% else %}left-card{% endif %}">
+
+                        <div class="event-date-info">
+                            <h3>{{ event.event_date or "" }} @ <a href="{{ event.link }}">{{ event.custom_title or "" }}</a></h3>
+                            <p><strong>Event Date:</strong> {{ event.event_date or ""}}</p>
+                            <p><strong>Venue Details:</strong> {{ event.venue_details or ""}}</p>
+                            <p><strong>Event Details:</strong> {{ event.event_details or "" }}</p>
+                        </div>
+                        <div class="event-image">
+                            <img src="{{ event.image or '/src/img/blankImg.png' }}" alt="Event Image">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+    
+                <div id="past-events" class="event-details past-event" style="display: none;">
+                    {% for event in events_data.past_events %}
+                    <div class="event-info {% if loop.index % 2 == 0 %}right-card{% else %}left-card{% endif %}">
+
+                        <div class="event-date-info">
+                            <h3>{{ event.event_date or "" }} @ <a href="{{ event.link }}">{{ event.custom_title or "" }}</a></h3>
+                            <p><strong>Event Date:</strong> {{ event.event_date or "" }}</p>
+                            <p><strong>Venue Details:</strong> {{ event.venue_details or ""}}</p>
+                            <p><strong>Event Details:</strong> {{ event.event_details or "" }}</p>
+                        </div>
+                        <div class="event-image">
+                            <img src="{{ event.image or '/src/img/blankImg.png' }}" alt="Event Image">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .event-tab {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.event-tab .tab {
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+    color: #666;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.event-tab .tab.active {
+    color: #000;
+    border-bottom: 3px solid #333;
+    font-weight: bold;
+}
+
+.event-tab .tab:hover {
+    color: #000;
+}
+
+
+
+.event-details {
+    width: 100%; 
+    margin: 0 auto;
+}
+
+.event-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.left-card {
+    order: 1; 
+    margin-right: auto; 
+}
+
+
+.right-card {
+    order: 2; 
+    margin-left: auto; 
+}
+
+.event-date-info {
+    flex: 2;
+}
+
+.event-info h3 {
+    font-size: 20px;
+    color: #f44336;
+}
+
+.event-info p {
+    margin: 8px 0;
+}
+
+.event-image {
+    flex: 1;
+    max-width: 300px;
+}
+
+.event-image img {
+    max-width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .event-details, .event-image {
+        max-width: 100%;
+    }
+
+    .event-image {
+        max-width: 100%;
+        margin-top: 15px;
+    }
+
+    .event-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event-image img {
+        max-width: 80%;
+    }
+}
+
+    </style>
+    
+    <script>
+        function showUpcomingEvent() {
+            document.getElementById('upcoming-events').style.display = 'block';
+            document.getElementById('past-events').style.display = 'none';
+            document.querySelector('.tab.active').classList.remove('active');
+            document.querySelectorAll('.tab')[0].classList.add('active');
+        }
+    
+        function showPastEvent() {
+            document.getElementById('upcoming-events').style.display = 'none';
+            document.getElementById('past-events').style.display = 'block';
+            document.querySelector('.tab.active').classList.remove('active');
+            document.querySelectorAll('.tab')[1].classList.add('active');
+        }
+    </script>
+    
+</main>
+{%endblock%}

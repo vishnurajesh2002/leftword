@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-12-29 12:03:50.970288",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "slider_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "slider_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Slider Name",
+   "options": "Related Items"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-19 17:17:47.352755",
+ "modified_by": "Administrator",
+ "module": "leftwordlatest",
+ "name": "Home Page Slider",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

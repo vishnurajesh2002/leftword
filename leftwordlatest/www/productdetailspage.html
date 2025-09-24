@@ -1,0 +1,1034 @@
+{% extends "templates/subbase.html" %}
+{% block content %}
+
+<body>
+    <!-- banner-section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="le-pagehead">
+                    <!-- <h3>Categories</h3>
+                  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Home</a></li>
+                          <li class="breadcrumb-item" aria-current="page">Books</li>
+                          <li class="breadcrumb-item active" aria-current="page">Category</li>
+                      </ol> -->
+                    <!-- </nav> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid section-mr">
+        <div class="container">
+            <div class="row row-col-12 row-cols-sm-10 row-col-md-2 row-col-lg-2 row-cols-xl-2">
+                <!-- <div class="col-xl-5"> -->
+                        <!-- <div class="lw-details-carousel"> -->
+                            <div class="product-image-gallery">
+                                <div id="animated-thumbnails" class="main-image">
+                                    <img id="mainPreviewImage" src="{{product_details.get('image') or  product_details.get('custom_website_image') or product_details.get('website_image') or imageone or imagetwo or imagethree or  '/src/img/blankImg.png' }}"
+                                        alt="Alt">
+                                    <!-- <a href="{{product_details.get('custom_image1')}}" class="item-slick"><img
+                                            src="{{product_details.get('custom_image1')}}" alt="Alt"></a>
+                                    <a href="{{product_details.get('custom_image2')}}" class="item-slick"><img
+                                            src="{{product_details.get('custom_image2')}}" alt="Alt"></a>
+                                    <a href="{{product_details.get('custom_image3')}}" class="item-slick"><img
+                                            src="{{product_details.get('custom_image3')}}" alt="Alt"></a> -->
+    
+                                </div>
+    
+                                <!-- Thumbnails -->
+                                <div class="thumbnail-list">
+                                    <img src="{{product_details.get('image') or  product_details.get('custom_website_image') or product_details.get('website_image') or imageone or imagetwo or imagethree or  '/src/img/blankImg.png' }}"
+                                        alt="Alt">
+
+                                    {% for img in [product_details.get('image'), product_details.get('custom_image1'), product_details.get('custom_image2'), product_details.get('custom_image3')] + (slide_show_imgaes or []) %}
+                                    {% if img %}
+                                    <img class="thumbnail-image" src="{{ img }}" alt="Thumbnail" onclick="setMainImage(this)">
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- Main Image -->
+                        <!-- </div> -->
+                <!-- </div> -->
+
+
+                <div class="col">
+                    <div class="lw-productDetails">
+                        <div class="lw-productDetailshd">
+                            <h3>{{ product_details.get('custom_title') or product_details.get('web_item_name') }}</h3>
+                            <h4>{{ product_details.get('custom_subtitle') or '' }}</h4>
+                            {% if authors %}
+                            <p>
+                                <!-- Author by : -->
+                                {% for author in authors %}
+                                <a href="authordetails?author_name={{ author.get('name') }}">
+                                    <span>{{ author.get('name')}}</a></span>
+                                {% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+
+                            {% if editors %}
+                            <p>
+                                Edited by :
+                                {% for editor in editors %}
+                                <a href="authordetails?author_name={{ editor.get('name') }}">
+                                    <span>{{ editor.get('name')}}</a></span>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+
+                            {% if translators %}
+                            <p>
+                                Translated by :
+                                {% for translator in translators %}
+                                <a href="authordetails?author_name={{ translator.get('name')}}"><span>{{
+                                        translator.get('name')}}
+                                </a></span>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+
+                            {% if introductions %}
+                            <p>
+                                Introduction by :
+                                {% for introduction in introductions %}
+                                <a href="authordetails?author_name={{ introduction.get('name')}}"><span>{{
+                                        introduction.get('name')}}
+                                </a></span>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+
+                            {% if illustrators %}
+                            <p>
+                                Illustrated by :
+                                {% for illustrator in illustrators %}
+                                <a href="authordetails?author_name={{ illustrator.get('name')}}"><span>{{
+                                        illustrator.get('name')}}
+                                </a></span>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+
+                            {% if contributors %}
+                            <p>
+                                Contributors :
+                                {% for contributor in contributors %}
+                                <a href="authordetails?author_name={{ contributor.get('name')}}"><span>{{
+                                        contributor.get('name')}}
+                                </a></span>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+
+                            {% if forewords %}
+                            <p>
+                                Foreword by :
+                                {% for foreword in forewords %}
+                                <a href="authordetails?author_name={{ foreword.get('name')}}"><span>{{
+                                        foreword.get('name')}}
+                                </a></span>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+                            {% if prefaces %}
+                            <p>
+                                Preface by :
+                                {% for preface in prefaces %}
+                                <a href="authordetails?author_name={{ preface.get('name')}}"><span>{{
+                                        preface.get('name')}}
+                                </a></span>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+                            {% if afterwords %}
+                            <p>
+                                Afterword by :
+                                {% for afterword in afterwords %}
+                                <a href="authordetails?author_name={{ afterword.get('name')}}"><span>{{
+                                        afterword.get('name')}}
+                                </a></span>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            {% endif %}
+                        </div>
+                        <div class="lw-productDetailscatagories">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                {% for i in variants %}
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link variant-button" id="home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                        aria-selected="true" data-variant="{{ i.parent }}">
+
+                                        {% if i.attribute_value == 'Paper Back' %}
+                                        Paperback
+                                        {% else %}
+                                        {{ _(i.attribute_value or '') }}
+                                        {% endif %}
+                                    </button>
+                                </li>
+                                {% endfor %}
+                            </ul>
+
+
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active variant-details" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="lw-productDetailscatagItem">
+                                        {% if product_details.get('custom_isbn')%}
+                                        <p>{{product_details.get('custom_isbn') or ''}}</p>
+                                        {% endif %}
+                                        {% if product_details.get('brand') or product_details.get('custom_year') %}
+                                        <div class="brand-div">
+                                            <a href="/publisher_details?brand={{ product_details.get('brand') | urlencode }}"
+                                                class="brand-link">
+                                                {% if product_details.get('brand') %}
+                                                {{ product_details.get('brand') }}
+                                                {% endif %}
+                                                {% if product_details.get('custom_year') %}
+                                                {{ product_details.get('custom_year') }}
+                                                {% endif %}
+                                            </a>
+                                        </div>
+
+                                        {% endif %}
+                                        {% if product_details.get('custom_language')%}
+                                        <p>Language: {{" "}} {{product_details.get('custom_language') or ''}}</p>
+                                        {% endif %}
+                                        {% if product_details.get('custom_no_of_pages')%}
+                                        <p>{{product_details.get('custom_no_of_pages') or ''}} Pages</p>
+                                        {% endif %}
+                                        {% if product_details.get('custom_book_size')%}
+                                        <p>{{product_details.get('custom_book_size') or ''}} Inches</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                  <div class="lw-productDetailscatagItem">
+                                      <p>978-93-92018-97-8</p>
+                                      <p>LeftWord Books, New Delhi, 2023</p>
+                                      <p>Language<span>English</span></p>
+                                      <p>230 pages</p>
+                                      <p>5.5 x 8.5 inches</p>
+                                  </div>
+                              </div> -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12 mt-4">
+                                <div class="lw-progresivebar stock-data"
+                                    data-stock-value="{{ product_details.get('product_info').get('stock_qty')|int }}">
+                                    {% if product_details.get('product_info').get('stock_qty')|int > 0 %}
+                                    <p><span>In Stock!</span></p>
+                                    <div class="progress" style="height: 2px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 25%;"
+                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    {% else %}
+                                    <p><span>Out of Stock!</span></p>
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="row mt-4">
+                                    {% set stock=product_details.get('product_info').get('stock_qty')|int %}
+                                    {% if stock > 0 %}
+                                    <div class="col-xl-4 {{hide_element}}">
+                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                            <button type="button" class="btn btn-outline btn-lg" id="btn-min">
+                                                <i class="fa fa-minus" id='sub' aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" id="item-count"
+                                                class="btn btn-outline btn-lg">1</button>
+                                            <button type="button" class="btn btn-outline btn-lg" id="btn-add">
+                                                <i class="fa fa-plus" id="add" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {% endif %}
+
+                                </div>
+                            </div>
+
+
+                            <div class="discount-section">
+                                <div class="user-discount">
+                                    {% if product_details.get('discount_percentage_inr_valid_days') %}
+                                    <div id="discount-timer-inr"
+                                        data-valid-days="{{ product_details.get('discount_percentage_inr_valid_days') }}"
+                                        style="font-size: 14px; color: #525252; padding-top: 15px; display: none;">
+                                        Offer ends in <span style="color: red; font-size: medium;" id="countdown-inr"></span>
+                                    </div>
+                                    {% endif %}
+    
+                                    {% if product_details.get('discount_percentage_usd_valid_days') %}
+                                    <div id="discount-timer-usd"
+                                        data-valid-days="{{ product_details.get('discount_percentage_usd_valid_days') }}"
+                                        style="font-size: 14px; color: #525252; padding-top: 15px; display: none;">
+                                        Offer ends in: <span style="color: red; font-size: medium;" id="countdown-usd"></span>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="bc-member-discount">
+                                    {% if product_details.get('discount_price_bc_inr_valid_days') %}
+                                    <div id="bc-discount-timer-inr"
+                                        data-valid-days="{{ product_details.get('discount_price_bc_inr_valid_days') }}"
+                                        style="font-size: 14px; color: #525252; padding-top: 15px; display: none;"
+                                    >
+                                        Offer ends for Book Club Member in <span style="color: red; font-size: medium;" id="bc-countdown-inr"></span>
+                                    </div>
+                                    {% endif %}
+                                    {% if product_details.get('discount_price_bc_usd_valid_days') %}
+                                    <div id="bc-discount-timer-usd"
+                                        data-valid-days="{{ product_details.get('discount_price_bc_usd_valid_days') }}"
+                                        style="font-size: 14px; color: #525252; padding-top: 15px; display: none;"
+                                    >
+                                        Offer ends for Book Club Member in <span style="color: red; font-size: medium;" id="bc-countdown-usd"></span>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="lw-productDetailsPrice">
+                                <div class="section left">
+                                    <p style="font-size: 15px;">
+                                        {% if product_details.get('discount_percentage_inr') %}
+                                        <span style="color: #333;" class="item-price currency_inr">
+                                            {% if product_details.get('price_list_rate_inr') %}
+                                            Price INR:
+                                            <span style="text-decoration: line-through; color: #767676; ">
+                                                {{ product_details.get('price_list_rate_inr') }}
+                                            </span>
+                                            {% else %}
+                                            <span style="color: red;">Not Available</span>
+                                            {% endif %}
+                                        </span>
+                                        
+
+                                        <span style="font-size: xx-large;" class="item-price-dis currency_inr">
+                                            {% if product_details.get('discount_percentage_inr') %}
+                                            {{ product_details.get('discount_percentage_inr') }}
+                                            {% endif %}
+                                        </span>
+                                        
+                                        {% else %}
+
+                                        <span class="item-price currency_inr">
+                                            {% if product_details.get('price_list_rate_inr') %}
+                                            Price INR:
+                                            {{ product_details.get('price_list_rate_inr') }}
+                                            {% else %}
+                                            <span style="color: red;">Not Available</span>
+                                            {% endif %}
+                                        </span>
+                                        {% endif %}
+
+                                        {% if product_details.get('discount_percentage_usd') %}
+                                        <span style="color: #333;" class="item-price currency_usd">
+                                            {% if product_details.get('price_list_rate_usd') %}
+                                            Price USD:
+                                            <span style="text-decoration: line-through; color: #767676; "">
+                                                {{ product_details.get('price_list_rate_usd') }}
+                                            </span>
+                                            {% else %}
+                                            <span style="color: red;">Not Available</span>
+                                            {% endif %}
+                                        </span>
+                                        <span style="font-size: xx-large;" class="item-price-dis currency_usd">
+                                            {% if product_details.get('discount_percentage_usd') %}
+                                            {{ product_details.get('discount_percentage_usd') }}
+                                            {% endif %}
+                                        </span>
+                                        {% else %}
+                                        
+                                        <span class="item-price currency_usd">
+                                            {% if product_details.get('price_list_rate_usd') %}
+                                            Price USD:
+                                            {{ product_details.get('price_list_rate_usd') }}
+                                            {% else %}
+                                            <span style="color: red;">Not Available</span>
+                                            {% endif %}
+                                        </span>
+                                        {% endif %}
+                                    </p>
+                                </div>
+
+                                
+
+                                <div class="section middle">
+
+                                    <p style="font-size: 15px;">
+
+                                        <span class="item-price-dis currency_inr">
+
+                                            {% if product_details.get('bc_discount_percentage_inr') %}
+                                            Book Club Price INR
+                                            {{ product_details.get('bc_discount_percentage_inr') }}
+                              
+                                            {% endif %}
+                                        </span>
+
+                                        <span class="item-price-dis currency_usd">
+
+                                            {% if product_details.get('bc_discount_percentage_usd') %}
+                                            Book Club Price USD
+                                            {{ product_details.get('bc_discount_percentage_usd') }}
+               
+                                            {% endif %}
+                                        </span>
+                                    </p>
+
+                                </div>
+                                {% if frappe.session.user != 'Guest' %}
+                                {% if not member %}
+                                <div class="section right">
+                                    <p style="font-size: 14px;">
+                                        <a href="/club_membership_plan" class="joinClub">Join Book Club</a>
+                                    </p>
+                                </div>
+                                {% endif %}
+                                {% else %}
+                                <div class="section right">
+                                    <p style="font-size: 14px;">
+                                        <a href="/club_membership_plan" class="joinClub">Join Book Club</a>
+                                    </p>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                            
+
+
+                        </div>
+                        <div class="lw-productDetailsbtn">
+                            <ul>
+                                {% if stock > 0 %}
+                                <!-- For INR Pricing -->
+                                <span class="item-price currency_inr">
+                                    {% if product_details.get('price_list_rate_inr') > 0 %}
+                                    <li>
+                                        <!-- Add to Cart Button -->
+                                        {% if frappe.session.user == "Guest" %}
+                                        <a href="#" id="cart-button"
+                                            class="btn btn-secondary2 btn-lg add-to-cart-btn allow-guest-cart"
+                                            data-bs-toggle="modal" data-bs-target="#lwsignIn">
+                                            ADD TO CART
+                                        </a>
+                                        {% else %}
+                                        <button type="button" data-item-code="{{ product_details.get('item_code') }}"
+                                            data-cart_status="{{ cart_button_class }}" id="cart-button"
+                                            class="btn btn-secondary2 btn-lg {{ cart_button_class }} {{ allow_guest_cart }}">
+                                            {{ button_label }}
+                                        </button>
+                                        {% endif %}
+                                        <div id="cart-items"></div>
+                                    </li>
+                                    <li>
+                                        <!-- Buy Now Button -->
+                                        {% if frappe.session.user == "Guest" %}
+                                        <a href="#" class="btn btn-primary btn-lg checkout allow-guest-cart"
+                                            data-bs-toggle="modal" data-bs-target="#lwsignIn">
+                                            Buy Now
+                                        </a>
+                                        {% else %}
+                                        <button type="button" id="buy-now" class="btn btn-primary btn-lg checkout"
+                                            data-item-code="{{ product_details.get('item_code') }}">
+                                            Buy Now
+                                        </button>
+                                        {% endif %}
+                                    </li>
+                                    {% endif %}
+                                </span>
+
+                                <!-- For USD Pricing -->
+                                <span class="item-price currency_usd">
+                                    {% if product_details.get('price_list_rate_usd') > 0 %}
+                                    <li>
+                                        <!-- Add to Cart Button -->
+                                        {% if frappe.session.user == "Guest" %}
+                                        <a href="#" id="cart-button-usd"
+                                            class="btn btn-secondary2 btn-lg add-to-cart-btn allow-guest-cart"
+                                            data-bs-toggle="modal" data-bs-target="#lwsignIn">
+                                            ADD TO CART
+                                        </a>
+                                        {% else %}
+                                        <button type="button" data-item-code="{{ product_details.get('item_code') }}"
+                                            data-cart_status="{{ cart_button_class }}" id="cart-button-usd"
+                                            class="btn btn-secondary2 btn-lg {{ cart_button_class }} {{ allow_guest_cart }}">
+                                            {{ button_label }}
+                                        </button>
+                                        {% endif %}
+                                        <div id="cart-items"></div>
+                                    </li>
+                                    <li>
+                                        <!-- Buy Now Button -->
+                                        {% if frappe.session.user == "Guest" %}
+                                        <a href="#" class="btn btn-primary btn-lg checkout allow-guest-cart"
+                                            data-bs-toggle="modal" data-bs-target="#lwsignIn">
+                                            Buy Now
+                                        </a>
+                                        {% else %}
+                                        <button type="button" id="buy-now" class="btn btn-primary btn-lg checkout"
+                                            data-item-code="{{ product_details.get('item_code') }}">
+                                            Buy Now
+                                        </button>
+                                        {% endif %}
+                                    </li>
+                                    {% endif %}
+                                </span>
+                                {% endif %}
+
+
+                                <!-- <li>
+                                        <button type="button" class="lw-wishlist btn btn-primary btn-lg"
+                                            data-item-code="{{product_details.get('item_code')}}">Add to wishlist</button>
+                                        </li>
+                                    <li>
+                                        <a href="/club_membership_plan" class="joinClub">Join BookClub</a>
+                                    </li> -->
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container ">
+        <div class="row row-col-12 row-cols-sm-10 row-col-md-2 row-col-lg-2 row-cols-xl-2">
+            <div class="col-xl-12">
+                <div class="lw-productDetailsreview">
+                    <div class="lwpagehead">
+                        <h5>About the Book</h5>
+                    </div>
+                    <div class="lw-productDetailsreviewItems">
+
+
+                        <p>{{product_details.get('custom_introduction' )or ''}}</p>
+                        <!-- <span>Harsh Mander, The Wire</span> -->
+                    </div>
+                    <!-- <div class="lw-productDetailsreviewItems">
+                            <p>"[Purkayastha writes in] elegant prose of a consummate writer."</p>
+                            <span>John Dayal, The Federal</span>
+                        </div> -->
+                    <div class="lw-productDetailsreviewItems alphabet-section">
+                        <div class="author-section">
+                            {% if authors %}
+                            {% for author in authors %}
+                            <div class="author-item">
+                                <h5>
+                                    <a href="authordetails?author_name={{ author.get('name') }}">{{
+                                        author.get('name') }}</a>
+                                </h5>
+                                <h6>{{ author.get('author_desc') or '' }}</h6>
+                                <p>
+                                    <a href="authordetails?author_name={{ author.get('name') }}">See more by {{
+                                        author.get('name') }}</a>
+                                </p>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+
+
+                            {% if translators %}
+                            {% for translator in translators %}
+                            <div class="author-item">
+                                <h5>
+                                    <a href="authordetails?author_name={{ translator.get('name') }}">{{
+                                        translator.get('name') }}</a>
+                                </h5>
+                                <h6>{{ translator.get('translator_desc') or '' }}</h6>
+                                <p>
+                                    <a href="authordetails?author_name={{ translator.get('name') }}">See more by {{
+                                        translator.get('name') }}</a>
+                                </p>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+
+
+                            {% if editors %}
+                            {% for editor in editors %}
+                            <div class="author-item">
+                                <h5>
+                                    <a href="authordetails?author_name={{ editor.get('name') }}">{{
+                                        editor.get('name') }}</a>
+                                </h5>
+                                <h6>{{ editor.get('editor_desc') or '' }}</h6>
+                                <p>
+                                    <a href="authordetails?author_name={{ editor.get('name') }}">See more by {{
+                                        editor.get('name') }}</a>
+                                </p>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+
+
+                            {% if forewords %}
+                            {% for foreword in forewords %}
+                            <div class="author-item">
+                                <h5>
+                                    <a href="authordetails?author_name={{ foreword.get('name') }}">{{
+                                        foreword.get('name') }}</a>
+                                </h5>
+                                <h6>{{ foreword.get('foreword_desc') or '' }}</h6>
+                                <p>
+                                    <a href="authordetails?author_name={{ foreword.get('name') }}">See more by {{
+                                        foreword.get('name') }}</a>
+                                </p>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+
+
+                            {% if introductions %}
+                            {% for introduction in introductions %}
+                            <div class="author-item">
+                                <h5>
+                                    <a href="authordetails?author_name={{ introduction.get('name') }}">{{
+                                        introduction.get('name') }}</a>
+                                </h5>
+                                <h6>{{ introduction.get('Introduction_desc') or '' }}</h6>
+                                <p>
+                                    <a href="authordetails?author_name={{ introduction.get('name') }}">See more by
+                                        {{ introduction.get('name') }}</a>
+                                </p>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+
+
+                            {% if illustrators %}
+                            {% for illustrator in illustrators %}
+                            <div class="author-item">
+                                <h5>
+                                    <a href="authordetails?author_name={{ illustrator.get('name') }}">{{
+                                        illustrator.get('name') }}</a>
+                                </h5>
+                                <h6>{{ illustrator.get('illustrator_desc') or '' }}</h6>
+                                <p>
+                                    <a href="authordetails?author_name={{ illustrator.get('name') }}">See more by {{
+                                        illustrator.get('name') }}</a>
+                                </p>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+
+
+                            {% if contributors %}
+                            {% for contributor in contributors %}
+                            <div class="author-item">
+                                <h5>
+                                    <a href="authordetails?author_name={{ contributor.get('name') }}">{{
+                                        contributor.get('name') }}</a>
+                                </h5>
+                                <h6>{{ contributor.get('contributor_desc') or '' }}</h6>
+                                <p>
+                                    <a href="authordetails?author_name={{ contributor.get('name') }}">See more by {{
+                                        contributor.get('name') }}</a>
+                                </p>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+
+
+                            {% if prefaces %}
+                            {% for preface in prefaces %}
+                            <div class="author-item">
+                                <h5>
+                                    <a href="authordetails?author_name={{ preface.get('name') }}">{{
+                                        preface.get('name') }}</a>
+                                </h5>
+                                <h6>{{ preface.get('preface_desc') or '' }}</h6>
+                                <p>
+                                    <a href="authordetails?author_name={{ preface.get('name') }}">See more by {{
+                                        preface.get('name') }}</a>
+                                </p>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if reviews %}
+                    <div class="product-reviews">
+                        <h5 style="color: red;">Review</h5>
+                        <p></p>
+                        {% for review in reviews %}
+                        <div class="review">
+
+                            <p>{{ review.review }}</p>
+                            <strong style="color: red;">{{ review.reviewer }}</strong>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+
+                    {% endif %}
+
+
+
+                    <span>
+                        <div>
+                            <p>
+                                {% if child_categories %}
+                                {% for name in child_categories %}
+                                <a href="categories?filter_args= {{ name }}">{{ name }}{% if not
+                                    loop.last %} {{_(" | ")}}{% endif %}</a>
+                                {% endfor %}
+                                {% endif %}
+                        </div>
+                        </p>
+                    </span>
+                </div>
+            </div>
+
+            <!-- <div class="col">
+                    <div class="lw-productDetailsQrts"> -->
+            <!-- <div class="lw-quarts">
+                            <p>‘A timely memoir from an Indian journalist under siege.’</p>
+                            <span>N. Ram</span>
+                        </div>
+                        <div class="lw-quarts">
+                            <p>‘A timely memoir from an Indian journalist under siege.’</p>
+                            <span>N. Ram</span>
+                        </div> -->
+            <!-- <div class="lw-productDetailsDiscription"> -->
+            <!-- <div class="lw-discription lw-quarts">
+                                <p><b>September 25, 1975.</b> The students of Jawaharlal Nehru University in New Delhi had
+                                    called for a strike to protest the expulsion of Ashoklata Jain, an elected councillor of
+                                    the students’ union. Three months before, Prime Minister Indira Gandhi had declared a
+                                    state of Emergency. It was the second day of the strike and the campus was tense. A
+                                    black Ambassador car pulled up near a group of students, a few cops in plainclothes
+                                    got out, and abducted one of them. The student spent the next one year in jail.</p>
+                            </div> -->
+            <!-- <div class="lw-discription">
+                                <p><b>February 9, 2021.</b> Officers from the Enforcement Directorate raided the home of the
+                                    founder of an online news portal. The raid lasted 113 hours,
+                                    over five days. The office of the news portal was also raided</p>
+                            </div> -->
+            <!-- <div class="lw-discription">
+                                <p><b>October 3, 2023.</b> Officers of the Special Cell of Delhi Police remanded the founder
+                                    of the news portal and his
+                                    colleague to custody under the dreaded Unlawful Activities (Prevention) Act (UAPA).</p>
+                            </div> -->
+            <!-- <div class="lw-discription">
+                                <p> Keeping Up the Good Fight is the story of Prabir Purkayastha, incarcerated by two
+                                    authoritarian regimes, half a century apart. It is also the story of a young man’s
+                                    political coming of age, told with wit and humour, and of his engagement with some of
+                                    India’s most pressing social,
+                                    political and economic issues over the decades.</p>
+                            </div> -->
+            <!-- <div class="lw-discription">
+                                <h2>Prabir Purkayastha</h2>
+                                <p>Prabir Purkayastha is an engineer and a science activist in the power, telecom and
+                                    software sectors. He is a founding member of the Delhi Science Forum. He is the author
+                                    of Knowledge as Commons: Towards Inclusive Science and Technology (LeftWord 2023) and
+                                    co-author, along with Vijay Prashad, of Enron Blowout: Corporate Capitalism and Theft of
+                                    the Global Commons (LeftWord 2002), and along with Ninan Koshy, M.K. Bhadrakumar, of
+                                    Uncle Sam’s Nuclear Cabin (LeftWord 2007). He is co-editor with Indranil and Richa
+                                    Chintan of Political Journeys in Health: Essays by and
+                                    for Amit Sengupta (LeftWord 2021). He is the founder of Newsclick.in.</p>
+                            </div> -->
+            <!-- <div class="lw-discription">
+                                <h3>See more books by Prabir Purkayastha</h3>
+                            </div>
+                            <div class="lw-discription">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="">BIOGRAPHY & MEMOIR</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="">POLITICS</a>
+                                    </li>
+                                </ul>
+                            </div> -->
+            <!-- </div> -->
+            <!-- </div>
+                </div> -->
+
+        </div>
+    </div>
+
+    <div class="container">
+        {% if related_items %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="lwpagehead">
+                    <h5>You May Like</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme">
+                    {% for item in related_items %}
+                    <div class="item">
+                        <div class="list-item">
+                            <div class="itembooks card card-item">
+                                <a href="/productdetailspage?id={{item.item_code}}" class="card-item-img">
+                                    <!-- <span class="book-type">EBook</span> -->
+                                    {% if item.image %}
+                                    <img src="{{item.image}}" class="img-fluid">
+                                    {% elif item.custom_website_image%}
+                                    <img src="{{item.custom_website_image}}" class="img-fluid">
+                                    {%elif item.website_image %}
+                                    <img src="{{item.website_image}}" class="img-fluid">
+                                    {%elif item.custom_image1%}
+                                    <img src="{{item.custom_image1}}" class="img-fluid">
+                                    {%elif item.custom_image2%}
+                                    <img src="{{item.custom_image2}}" class="img-fluid">
+                                    {%elif item.custom_image3%}
+                                    <img src="{{item.custom_image3}}" class="img-fluid">
+                                    {%else%}
+                                    <img src="/src/img/blankImg.png" class="img-fluid">
+                                    {%endif%}
+                                </a>
+                                <div class="card-content">
+                                    <div class="itemDetails">
+                                        <h6 class="text-limit2">{{item.web_item_name}}
+                                        </h6>
+                                        <p>{{item.custom_publisher or ''}}</p>
+                                        <!-- <div class="Stars" style="--rating: 3;" aria-label="Rating of this product is 3 out of 5."></div> -->
+                                    </div>
+                                    <div class="cart-hover-sec">
+                                        <div class="price-amount currency_inr"><span>INR</span>{{
+                                            item.price_list_rate_inr or ''}}</div>
+                                        <div class="price-amount currency_usd">
+                                            <span>USD</span>{{item.price_list_rate_usd or ''}}
+                                        </div>
+                                        <div class="add-cart-btn">
+                                            {% if frappe.session.user == "Guest" %}
+                                            <a href="#"
+                                                class="btn-primary btn-style btn-icon-left add-to-cart-btn allow-guest-cart"
+                                                data-bs-toggle="modal" data-bs-target="#lwsignIn">
+                                                ADD TO CART
+                                            </a>
+                                            {% else %}
+                                            <a href="#" class="btn-primary btn-style btn-icon-left add-to-cart-btn"
+                                                data-item-code="{{ item.item_code }}" data-qty="1">
+                                                ADD TO CART
+                                            </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <button class="scrollToTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+    <!-- Bootstrap JavaScript Libraries -->
+
+
+</body>
+<style>
+    .brand-link:hover {
+        color: #e21e34;
+    }
+
+    .brand-div {
+        padding-bottom: 10px;
+    }
+
+    .brand-link {
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 10px;
+    }
+
+    .author-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+    }
+
+    .author-item {
+        padding: 10px;
+    }
+
+
+    @media (max-width: 768px) {
+
+        .lw-productDetailsreviewItems .alphabet-section,
+        .author-section {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+    .author-item h5 a {
+        font-size: 16px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .author-item h5 a:hover {
+        color: red;
+
+    }
+
+    .author-item h6 {
+        font-size: 14px;
+        color: #666;
+    }
+
+
+    .author-item h5 a:hover {
+        color: red;
+
+    }
+
+
+    .author-item p a:hover {
+        color: red;
+
+    }
+
+    .author-item h5 a {
+        color: black;
+        text-decoration: none;
+    }
+
+
+    .author-item p a {
+        color: rgb(24, 22, 22);
+        text-decoration: none;
+    }
+
+    .lw-productDetailsPrice {
+        display: flex;
+        justify-content: space-between;
+        gap: 2px;
+        padding: 3px;
+    }
+
+    .discount-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .section {
+        flex: 1;
+        padding: 0px;
+        text-align: center;
+    }
+
+    .section.left {
+        text-align: left;
+    }
+
+    .section.right {
+        text-align: right;
+    }
+
+    .item-price {
+        color: #333;
+    }
+
+    .joinClub {
+        color: black;
+        text-decoration: underline;
+        font-weight: normal;
+        background: none;
+        padding: 0;
+        border: none;
+    }
+
+    .joinClub:hover {
+        color: red;
+        text-decoration: underline;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .currency_inr,
+    .currency_usd {
+        display: none;
+    }
+
+    .lw-details-carousel {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease-in;
+    }
+
+    .lw-details-carousel.loaded {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .product-image-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .main-image {
+    width: 100%;
+    max-width: 350px; /* You can adjust this */
+    height: 500px;     /* Set fixed height for consistent layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    overflow: hidden;
+    }
+
+    .main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .thumbnail-list {
+        margin-block: 1rem;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .thumbnail-list img {
+        width: 70px;
+        height: 90px;
+        object-fit: cover;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .thumbnail-list img:hover {
+        border-color: #000;
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+    .main-image {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 3/4; /* Keeps image box proportional on mobile */
+    }
+    }
+
+</style>
+
+
+{%endblock%}

@@ -1,0 +1,263 @@
+.section-mr{
+    margin-bottom: 30px;
+}
+
+.lw-details-carousil {
+.slider-for{
+    .slick-list{
+        background-color: $bg-secondary;
+    }
+    .item-slick{
+        width: auto;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: 999;
+        opacity: 1;
+        right: 0px;
+        padding: 30px 80px;
+    }
+
+ }
+
+    .slider-nav {
+        .item-slick {
+            //       padding: 11px;
+            // background-color: #ebebeb;
+        }
+
+        .slick-slide {
+            img {
+                max-height: 179px;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+.lw-productDetails{
+    .lw-productDetailshd{
+        margin-bottom: 15px;
+        h3{
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            padding-right: 15px;
+            color: $text-primary;
+        }
+        h4{
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color:$text-secondary;
+           
+        }
+        p{
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: $text-primary;
+        }
+    }
+    .lw-productDetailsItem{
+        margin-bottom: 15px;
+        p{
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: $text-secondary;
+            span{
+                font-size: 16px;
+                font-weight: 400;
+                margin-bottom: 10px;
+                color: $text-primary;
+                margin-left: 15px;
+            }
+        }
+    }
+    .lw-productDetailscatagories{
+        .nav-tabs{
+            border: none;
+            .nav-item{
+                margin-right: 10px;
+                .nav-link{
+                    border: 1px solid $border-secondary;
+                    background-color: $lwbg-primary;
+                    color: $text-secondary;
+                    border-radius: 0px;
+                   &:hover{
+                    border: 1px solid $lwborder-primary;
+                    background-color: $lwbg-primary;
+                    color: $text-primary;
+                    border-radius: 0px;
+                   } 
+                    &.active{
+                    border: 1px solid $lwborder-primary;
+                    background-color: $lwbg-primary;
+                    color: $text-primary;
+                    border-radius: 0px;
+                }
+                }
+            }
+        }
+        .lw-productDetailscatagItem{
+            padding: 20px;
+            border: 1px solid $border-secondary;
+            margin-top: 15px;
+            p{
+                font-size: 16px;
+                font-weight: 400;
+                margin-bottom: 10px;
+                color: $text-primary;
+                span{
+                    font-size: 16px;
+                    font-weight: 400;
+                    margin-bottom: 10px;
+                    color: $text-secondary;
+                    margin-left: 15px;
+                }
+            } 
+        }
+    }
+    .lw-productDetailsPrice{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 30px 0px;
+        p{
+            font-size: 20px;
+            font-weight: 600;
+            color:$text-primary;
+            span{
+                color: $lw-highlited;
+                margin-left: 5px;
+            }
+        }
+    }
+    .lw-productDetailsqty{
+        margin: 30px 0px;
+        .btn-group{
+            border:1px solid $border-secondary;
+        }
+        .btn{
+            padding: 15px 20px;
+            border: none;
+        }
+    }
+    .lw-productDetailsbtn{
+        ul{
+            margin: 0px;
+            padding: 0px;
+            li{
+                display: inline-block;
+                .btn{
+                    padding: 10px 40px;
+                }
+            }
+        }
+        .joinClub{
+            color: $text-primary;
+            font-size: 16px;
+            text-decoration: underline;
+            font-weight: 500;
+            margin: 0px 15px;
+            &:hover{
+                color: $lwbghover-primary;
+            }
+        }
+    }
+}
+
+.lw-productDetailsreview{
+    .lw-productDetailsreviewItems{
+        margin-bottom: 30px;
+        p{
+            font-size: 15px;
+            font-weight: 400;
+            margin-bottom: 5px;
+            line-height: 28px;  
+        }
+        span{
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 28px;
+            color: $lw-highlited;
+            font-style: italic; 
+        }
+    }
+}
+.lw-productDetailsQrts{
+.lw-quarts{
+    background-color: $light-bg;
+    padding: 30px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    span{
+        text-align: right;
+        display: inline-block;
+        width: 100%;
+    }
+    &:before{
+        position: absolute;
+        left: 5px;
+        top: 0px;
+        content: url("../src/img/qrts.svg");
+        font-family: "FontAwesome";
+        color: $lw-highlited;
+    }
+    p{
+        font-size: 15px;
+        font-weight: 400;
+        margin-bottom: 5px;
+    }
+}
+}
+
+.lw-productDetailsDiscription{
+    border: 1px solid $border-secondary;
+    padding: 20px;
+    .lw-discription{
+        margin-bottom: 20px;
+        p{
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 28px;    
+        }
+        h2{
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            line-height: 28px;
+            text-transform: uppercase;   
+        }
+        h3{
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            line-height: 28px;    
+        }
+        ul{
+            margin: 0px;
+            padding: 0px;
+            li{
+                list-style: none;
+                display: inline-block;
+                padding-left: 5px;
+                &:nth-child(n+2){
+                    border-left: 1px solid #000000;
+                }
+                a{
+                    font-size: 16px;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    color: $text-primary;
+                    &:hover{
+                        color: $lw-highlited;
+                        text-decoration: underline;
+                    }   
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,118 @@
+{% extends "templates/subbase.html" %}
+{% block title %}{{ _('CCAvenue') }}{% endblock %}
+{% block content %}
+<div class="form-container">
+    <form method="" name="responseData" action="/leftword_home">
+        <table>
+            <caption>Payment Receipt</caption>
+            <tr>
+                <th colspan="2">Payment Details</th>
+            </tr>
+            <tr>
+                <td>Order ID</td>
+                <td><input type="text" name="order_id" value="{{order_id}}" /></td>
+            </tr>
+            <tr>
+                <td>Customer</td>
+                {% set username = frappe.db.get_value('User', frappe.session.user, 'full_name') %}
+                <td><input type="text" name="customer" id="customer" value="{{username}}" /></td>
+            </tr>
+            <tr>
+                <td>Order Status</td>
+                <td><input type="text" name="payment_status" value="{{order_status}}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" value="Close" class="btn-primary" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<style>
+    /* Scoping styles to prevent conflicts */
+    .form-container {
+        font-family: Arial, sans-serif;
+        max-width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f9fa;
+        padding: 20px;
+        margin: 0;
+    }
+    .form-container form {
+        width: 100%;
+        max-width: 500px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    .form-container table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .form-container caption {
+        font-size: 24px;
+        color: red;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .form-container th, .form-container td {
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+    }
+    .form-container th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+    }
+    .form-container tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+    .form-container input[type="text"] {
+        width: 95%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .form-container .btn-primary {
+        background-color: red;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+    }
+    .form-container .btn-primary:hover {
+        background-color: darkred;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 768px) {
+        .form-container form {
+            width: 90%;
+        }
+        .form-container input[type="text"] {
+            width: 100%;
+        }
+    }
+    @media (max-width: 480px) {
+        .form-container caption {
+            font-size: 20px;
+        }
+        .form-container th, .form-container td {
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
+</style>
+<script>
+    frappe.session.csrf_token = "{{frappe.session.csrf_token}}";
+</script>
+{% endblock %}

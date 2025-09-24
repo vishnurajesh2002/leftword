@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:item",
+ "creation": "2025-01-21 23:10:21.437821",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "column_break_g2hv2",
+  "reviewer",
+  "enable",
+  "section_break_ijajk",
+  "review"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_g2hv2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reviewer",
+   "fieldtype": "Data",
+   "label": "Reviewer"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable",
+   "fieldtype": "Check",
+   "label": "Enable"
+  },
+  {
+   "fieldname": "section_break_ijajk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "review",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Review",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-19 17:17:47.799808",
+ "modified_by": "Administrator",
+ "module": "leftwordlatest",
+ "name": "Public Review",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

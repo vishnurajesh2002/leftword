@@ -1,0 +1,544 @@
+{% extends "templates/subbase.html" %}
+{% block content %}
+<main>
+   <!-- banner-section -->
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12">
+               <div class="le-pagehead">
+                   <h3>Shipping Details</h3>
+                   <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                       <ol class="breadcrumb">
+                         <li class="breadcrumb-item"><a href="#">Home</a></li>
+                         <li class="breadcrumb-item" aria-current="page">Cart</li>
+                         <li class="breadcrumb-item active" aria-current="page">Shippping</li>
+                       </ol>
+                   </nav>
+               </div>
+           </div>
+       </div>
+   </div>
+   <!-- banner section end -->
+<section class="lwCheckout lwCheckout-shipping">    
+   <div class="container-fluid lw-checkoutHolder"> 
+       <div class="container">
+           <div class="row">
+               <div class="col-md-8 m-auto">
+                   <div class="lw-checkout">
+                       <div class="lw-cart-action">
+                           <ul class="nav nav-pills">
+                               <li class="nav-item">
+                                   <a href="#" class="nav-link active" data-bs-toggle="pill" type="button">
+                                       <span class="breadcrumb-step hide-for-small">
+                                           <svg width="23" height="20" viewBox="0 0 23 20" fill="none"
+                                               xmlns="http://www.w3.org/2000/svg">
+                                               <path
+                                                   d="M6.87355 16.2058C7.75755 16.2058 8.47416 16.8866 8.47416 17.7264C8.47416 18.5661 7.75755 19.247 6.87355 19.247C5.98956 19.247 5.27295 18.5661 5.27295 17.7264C5.27295 16.8866 5.98956 16.2058 6.87355 16.2058Z"
+                                                   stroke="white" stroke-width="1.5" />
+                                               <path
+                                                   d="M16.4773 16.2058C17.3613 16.2058 18.0779 16.8865 18.0779 17.7264C18.0779 18.5661 17.3613 19.247 16.4773 19.247C15.5934 19.247 14.8767 18.5661 14.8767 17.7264C14.8767 16.8865 15.5934 16.2058 16.4773 16.2058Z"
+                                                   stroke="white" stroke-width="1.5" />
+                                               <path d="M9.00293 7.08081L9.56656 10.2415" stroke="white" stroke-width="1.5"
+                                                   stroke-linecap="round" />
+                                               <path d="M15.4403 7.08081L14.8767 10.2415" stroke="white" stroke-width="1.5"
+                                                   stroke-linecap="round" />
+                                               <path
+                                                   d="M1 1L1.27873 1.0931C2.66762 1.55699 3.36207 1.78893 3.75927 2.34113C4.15648 2.89333 4.15648 3.6268 4.15648 5.09375V7.85272C4.15648 10.8347 4.22396 11.8187 5.14847 12.7451C6.07298 13.6715 7.56095 13.6715 10.5369 13.6715H11.6707M16.1955 13.6715C17.8612 13.6715 18.694 13.6715 19.2827 13.2157C19.8715 12.7599 20.0396 11.985 20.3759 10.4352L20.9092 7.97716C21.2796 6.21424 21.4647 5.3328 20.991 4.74779C20.5173 4.1628 18.8988 4.1628 17.1008 4.1628H10.6287M4.15648 4.1628H6.33535"
+                                                   stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                                           </svg>
+                                       </span>
+                                       <span class="item-text">Cart</span>
+                                   </a>
+                               </li>
+                               <li class="nav-item">
+                                   <a href="#" class="nav-link active" data-bs-toggle="pill" type="button" role="tab"
+                                       aria-controls="pills-checkout" aria-selected="true">
+                                       <span class="breadcrumb-step hide-for-small">
+                                           <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                               xmlns="http://www.w3.org/2000/svg">
+                                               <path
+                                                   d="M16.8936 1L3.68969 1C2.20422 1 1 2.20423 1 3.6897V16.8936C1 18.3791 2.20422 19.5833 3.68969 19.5833H16.8936C18.3791 19.5833 19.5833 18.3791 19.5833 16.8936V3.6897C19.5833 2.20423 18.3791 1 16.8936 1Z"
+                                                   stroke="#6E6E6E" stroke-width="1.5" />
+                                               <path
+                                                   d="M19.092 6.37476H1.48669M16.1577 10.0425H4.4209M16.1577 12.9767H4.4209M16.1577 15.9109H4.4209"
+                                                   stroke="#6E6E6E" stroke-width="1.5" stroke-linecap="round" />
+                                           </svg>
+                                       </span>
+                                       <span class="item-text">Shopping</span>
+                                   </a>
+                               </li>
+                               <li class="nav-item">
+                                   <a href="#" class="nav-link" data-bs-toggle="pill" type="button" role="tab"
+                                       aria-controls="pills-ordertracking" aria-selected="false">
+                                       <span class="breadcrumb-step hide-for-small">
+                                           <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+                                               xmlns="http://www.w3.org/2000/svg">
+                                               <path
+                                                   d="M3.64114 20.9143H17.2663C18.2338 20.9143 19.1617 20.5299 19.8458 19.8458C20.5299 19.1617 20.9143 18.2338 20.9143 17.2663V3.64114C20.9125 2.67482 20.5273 1.7487 19.8434 1.06605C19.1595 0.383399 18.2326 -1.70713e-06 17.2663 0H3.64114C3.16298 0 2.6895 0.0941809 2.24774 0.277165C1.80597 0.46015 1.40458 0.728355 1.06647 1.06647C0.728355 1.40458 0.460151 1.80597 0.277167 2.24774C0.0941822 2.6895 0 3.16298 0 3.64114V17.2663C-1.70714e-06 18.2326 0.383399 19.1595 1.06605 19.8434C1.7487 20.5273 2.67482 20.9125 3.64114 20.9143ZM17.2663 1.71429C17.5199 1.71338 17.7712 1.76256 18.0058 1.85899C18.2403 1.95542 18.4536 2.0972 18.6332 2.27622C18.8129 2.45523 18.9554 2.66795 19.0527 2.90218C19.1499 3.1364 19.2 3.38753 19.2 3.64114V17.2663C19.2 17.7791 18.9963 18.271 18.6336 18.6336C18.271 18.9963 17.7791 19.2 17.2663 19.2H3.64114C3.38753 19.2 3.1364 19.1499 2.90218 19.0527C2.66795 18.9554 2.45523 18.8129 2.27622 18.6332C2.0972 18.4536 1.95542 18.2403 1.85899 18.0058C1.76256 17.7712 1.71338 17.5199 1.71429 17.2663V3.64114C1.71429 3.13011 1.91729 2.64 2.27865 2.27865C2.64001 1.91729 3.13011 1.71429 3.64114 1.71429H17.2663Z"
+                                                   fill="#6E6E6E" />
+                                               <path
+                                                   d="M13.1825 11.3143C13.4192 11.3135 13.653 11.262 13.8682 11.1634C14.1692 11.0267 14.424 10.8055 14.6017 10.5268C14.7794 10.248 14.8724 9.92371 14.8693 9.59314V0.857143C14.8693 0.629814 14.779 0.411797 14.6183 0.251051C14.4576 0.0903058 14.2395 0 14.0122 0C13.7849 0 13.5669 0.0903058 13.4061 0.251051C13.2454 0.411797 13.1551 0.629814 13.1551 0.857143V9.59314L11.5436 8.16686C11.2408 7.89649 10.849 7.74706 10.4431 7.74706C10.0371 7.74706 9.64533 7.89649 9.34249 8.16686L7.68992 9.6L7.74477 0.857143C7.74477 0.629814 7.65447 0.411797 7.49372 0.251051C7.33298 0.0903058 7.11496 0 6.88763 0C6.6603 0 6.44229 0.0903058 6.28154 0.251051C6.1208 0.411797 6.03049 0.629814 6.03049 0.857143V9.59314C6.02744 9.92371 6.12042 10.248 6.29813 10.5268C6.47585 10.8055 6.73066 11.0267 7.03163 11.1634C7.32364 11.2977 7.64847 11.3439 7.96635 11.2964C8.28422 11.2489 8.58135 11.1098 8.82135 10.896L10.4533 9.48343L12.0853 10.9029C12.3885 11.1694 12.7788 11.3158 13.1825 11.3143ZM9.42478 16.6766H15.5962C15.8235 16.6766 16.0415 16.5863 16.2023 16.4255C16.363 16.2648 16.4533 16.0468 16.4533 15.8194C16.4533 15.5921 16.363 15.3741 16.2023 15.2133C16.0415 15.0526 15.8235 14.9623 15.5962 14.9623H9.42478C9.19745 14.9623 8.97943 15.0526 8.81868 15.2133C8.65794 15.3741 8.56763 15.5921 8.56763 15.8194C8.56763 16.0468 8.65794 16.2648 8.81868 16.4255C8.97943 16.5863 9.19745 16.6766 9.42478 16.6766Z"
+                                                   fill="#6E6E6E" />
+                                           </svg>
+                                       </span>
+                                       <span class="item-text">Payment Method</span>
+                                   </a>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+
+   <div class="container-fluid lw-checkoutitem">
+       <div class="container">
+           <div class="row row-cols-12 row-cols-sm-12 row-cols-md-12 row-cols-lg-2 row-cols-xl-2">
+               <div class="col-md-8">
+                   <div class="card">
+                       <div class="card-body lwCheckoutForm">
+                           <div class="row">
+                               <div class="col-xl-6">
+                                   <div class="wbForm">
+                                       <label class="form-label">Email Address <span>*</span></label>
+                                       <input id="email-id" type="text" value="{{ email or '' }}"  class="form-control form-borderLight" placeholder="Email Address">
+                                   </div>
+                               </div>
+                               <div class="col-xl-6">
+                                   <div class="wbForm">
+                                       <label class="form-label">First Name <span>*</span></label>
+                                       <input id="first-name" type="text" class="form-control form-borderLight" placeholder="First name"
+                                       value="{% if frappe.session.user == 'Guest' %}{{ guest_first_name or '' }}{% else %}{{ first_name or '' }}{% endif %}">
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- Row col xl- 6 end -->
+                           <div class="row">
+                               <div class="col-xl-6">
+                                   <div class="wbForm">
+                                       <label class="form-label">Middle Name/Initial </label>
+                                       <input type="text" class="form-control form-borderLight" placeholder="Middle Name/Initial">
+                                   </div>
+                               </div>
+                               <div class="col-xl-6">
+                                   <div class="wbForm">
+                                       <label class="form-label">Last Name</label>
+                                       <input id="last-name" type="text" class="form-control form-borderLight" placeholder="Last Name"
+                                       value="{% if frappe.session.user == 'Guest' %}{{ guest_last_name or '' }}{% else %}{{ last_name or '' }}{% endif %}">
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- Row col xl- 6 end -->
+                           <div class="row">
+                               <div class="col-xl-12">
+                                   <div class="wbForm">
+                                       <label class="form-label">Street Address <span>*</span></label>
+                                       <textarea class="form-control" id="street-address" placeholder="Street Address" rows="3">{{ street_address or '' }}</textarea>
+
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- Row col xl- 6 end --> 
+                           <div class="row">
+                               <div class="col-xl-4">
+                                   <div class="wbForm">
+                                       <label class="form-label">Zip Code <span>*</span></label>
+                                       <input id="zip-code" type="text" class="form-control form-borderLight" value="{{ zip_code or '' }}" placeholder="Zip Code">
+                                   </div>
+                               </div>
+                               <div class="col-xl-4">
+                                   <div class="wbForm">
+                                       <label class="form-label">City <span>*</span></label>
+                                       <input id="town" type="text" class="form-control form-borderLight"  value="{{ city or '' }}" placeholder="City">
+                                   </div>
+                               </div>
+                               <div class="col-xl-4">
+                                   <!-- <div class="wbForm">
+                                       <label class="form-label">State <span>*</span></label>
+                                       <select name="" id="" class="form-select form-control form-borderLight">
+                                           <option value="1">India</option>
+                                           <option value="2">America</option>
+                                           <option value="3">Brazil</option>
+                                       </select>
+                                   </div> -->
+                                   <div class="wbForm">
+                                     <label class="form-label">State <span>*</span></label>
+                                     <input id="stateInput" type="text" class="form-control form-borderLight"  value="{{ state or '' }}" placeholder="State">
+                                 </div>
+
+
+                               </div>
+                           </div>
+                           <!-- Row col xl- 6 end -->
+                           <div class="row">
+                               <div class="col-xl-6">
+                                   <div class="wbForm">
+                                       <label class="form-label">Country <span>*</span></label>
+                                       <select name="country" id="country" class="form-select form-control form-borderLight">
+                                           <option value="1">India</option>
+                                           <option value="2">America</option>
+                                           <option value="3">Brazil</option>
+                                       </select>
+                                   </div>
+                               </div>
+                               <div class="col-xl-6">
+                                   <div class="wbForm">
+                                       <label class="form-label">Phone Number <span>*</span></label>
+                                       <input  id="phone-no" type="text" class="form-control form-borderLight" value="{{ phone_number or '' }}" placeholder="+91">
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- Row col xl- 6 end -->
+                       </div>
+                   </div>
+               </div>
+           <!-- col-6 end -->
+               <div class="col-md-4">
+                   <div class="checkoutPrice">
+                       <div class="card">
+                           <div class="card-body">
+                               <div class="card-header">
+                                   <h2>Order Summary</h2>
+                               </div>
+                               <div class="cart-pricelist">
+                                   <ul>                 
+                                   <!-- <li>
+                                       <div class="price-ctr coupon-code">
+                                       <p class="coupon-icon">Coupon Discount</p>
+                                       <p class="coupon-text">-$24.00 <a href="#">[Remove]</a></p>
+                                       </div>
+                                   </li>                     -->
+
+                                   <li>
+                                    <div class="price-ctr">
+                                        <!-- <p>Items </p> -->
+                                        <div id="item-names">
+                                            <ul>
+                                                {% for item in cart_items %}
+                                                
+                                                    <li class="cart-item{% if loop.index > 2 %} hidden{% endif %}">
+                                                        <a href="/productdetailspage?id={{ item.item_code }}">{{ item.item_name }}</a>
+                                                        <div style="text-align: right;">
+                                                            <span class="item-price1 currency_inr" id="base-rate-{{ item.item_code }}">INR {{ item.base_rate }}</span>
+                                                            <span class="item-price1 currency_usd" id="rate-{{ item.item_code }}">USD {{ item.rate }}</span>
+                                                        </div>
+                                                        
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                            {% if cart_items|length > 2 %}
+                                            <a href="#" id="show-more">See More</a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Popup See more -->
+                                    <div id="item-popup" class="popup hidden">
+                                        <div class="popup-content">
+                                            <!-- Popup Header -->
+                                            <div class="popup-header">
+                                                <span class="popup-title">Items</span>
+                                                <span id="close-popup" class="close-button">&times;</span>
+                                            </div>
+                                    
+                                            <!-- Popup Body -->
+                                            <ul class="item-list">
+                                                {% for item in cart_items %}
+                                                    <li class="item-row">
+                                                        <a href="/productdetailspage?id={{ item.item_code }}">{{ item.item_name }}</a>
+                                                        <span class="item-price1 currency_inr" id="base-rate-{{ item.item_code }}">INR {{ item.base_rate }}</span>
+                                                        <span class="item-price1 currency_usd" id="rate-{{ item.item_code }}">USD {{ item.rate }}</span>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                </li>
+                                
+                                   <li>
+                                       <div class="price-ctr">
+                                       <p>Total Amount</p>
+                                       <p>
+                                         <span id="base-total-amount" class="item-price currency_inr">INR {{ base_net_total or "" }}</span>
+                                         <span id="total-amount" class="item-price currency_usd">USD {{ net_total or "" }}</span>
+                                     </p>
+                                       </div>
+                                   </li>
+                                   <li>
+                                    <div class="price-ctr">
+                                        <p>
+                                            Shipping <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Know More</a>
+                                        </p>
+                                        <p>
+                                            <span id="shipping-charge" class="item-price currency_inr">INR 0.00</span>
+                                            <span id="shipping-charge-usd" class="item-price currency_usd" style="display: none;">USD 0.00</span>
+                                        </p>
+                                    </div>
+                                </li>
+                                   <!-- <li>
+                                       <div class="price-ctr">
+                                           <div class="input-group">
+                                               <input type="text" class="form-control" placeholder="Apply discount code" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                               <button class="btn btn-outline-secondary" type="button" id="button-addon2">Applay</button>
+                                           </div>
+                                       </div>
+                                   </li>                                                                    -->
+                                   <li>
+                                       <div class="price-ctr cart-total">
+                                       <p>Total</p>
+                                       <p>
+                                         <span id="total-amount-inr" class="item-price currency_inr">INR {{ base_net_total or "0.00" }}</span>
+                                         <span id="total-amount-usd" class="item-price currency_usd">USD {{ net_total or "0.00" }}</span>
+                                     </p>
+                                       </div>
+                                   </li>
+                                   </ul>
+                               </div>
+                               <div>
+                                   <!-- <button href="" class="btn btn-secondary2 btn100">Proceed to Checkout</button> -->
+                                   <button id="place-order" type="button" class="btn btn-secondary2 btn100 {{ checkout_class }} {{ cart_class }} {{ address }}">{{ button_label }}</button>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           <!-- col-6 end -->
+           </div>
+       </div>
+   </div>
+<!-- -----------------MODEL POPUP------STAR----------------- -->
+<div class="modal fadeIn" data-easein="fadeIn" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Shipping Calculation</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+           <div class="table-responsive">
+               <table class="table table-bordered align-middle cart-list-table">
+                   <tr>
+                       <td>1 Book</td>
+                       <td align="right">INR 79</td>
+                   </tr>
+                   <tr>
+                       <td>2 Books</td>
+                       <td align="right">INR 99</td>
+                   </tr>
+                   <tr>
+                       <td>3 Books</td>
+                       <td align="right">INR 119</td>
+                   </tr>
+               </table>
+           </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+<script>
+    async function fetchShippingCharge() {
+        try {
+            const response = await fetch('/api/method/leftwordlatest.web_api.items.get_shipping_charge');
+            const data = await response.json();
+
+            console.log(data); // Debugging: Check the API response
+
+            const baseTotalAmountElement = document.getElementById('base-total-amount');
+            const baseTotalAmount = parseFloat(
+                baseTotalAmountElement.textContent.replace(/INR |USD /, '').replace(/,/g, '')
+            );
+
+            if (data.message && data.message.currency) {
+                const currency = data.message.currency;
+                let shippingCharge;
+
+                // Determine which value to use for the shipping charge
+                if (currency === 'INR') {
+                    shippingCharge = parseFloat(data.message.total_taxes_and_charges);
+                    document.getElementById('shipping-charge').textContent = `INR ${shippingCharge.toFixed(2)}`;
+                    document.getElementById('shipping-charge').style.display = 'inline';
+                    document.getElementById('shipping-charge-usd').style.display = 'none';
+                } else if (currency === 'USD') {
+                    shippingCharge = parseFloat(data.message.total_taxes_and_charges); // USD value
+                    document.getElementById('shipping-charge-usd').textContent = `USD ${shippingCharge.toFixed(2)}`;
+                    document.getElementById('shipping-charge').style.display = 'none';
+                    document.getElementById('shipping-charge-usd').style.display = 'inline';
+                }
+
+                const total = baseTotalAmount + shippingCharge;
+                document.getElementById('total-amount-inr').textContent = `${currency} ${total.toFixed(2)}`;
+            } else {
+                // Default fallback in case shipping charge is missing
+                document.getElementById('shipping-charge').textContent = 'INR 0.00';
+                document.getElementById('shipping-charge-usd').textContent = 'USD 0.00';
+                document.getElementById('total-amount-inr').textContent = `INR ${baseTotalAmount.toFixed(2)}`;
+            }
+        } catch (error) {
+            console.error('Error fetching shipping charge:', error);
+            document.getElementById('shipping-charge').textContent = 'Error fetching shipping charge.';
+            document.getElementById('total-amount-inr').textContent = `INR ${baseTotalAmount.toFixed(2)}`;
+        }
+    }
+
+    // Fetch the shipping charge when the page loads
+    fetchShippingCharge();
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const showMoreLink = document.getElementById("show-more");
+    const popup = document.getElementById("item-popup");
+    const closePopup = document.getElementById("close-popup");
+
+    if (showMoreLink) {
+        showMoreLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            popup.classList.remove("hidden");
+        });
+    }
+
+    closePopup.addEventListener("click", function () {
+        popup.classList.add("hidden");
+    });
+
+
+    window.addEventListener("click", function (e) {
+        if (e.target === popup) {
+            popup.classList.add("hidden");
+        }
+    });
+});
+
+</script>
+
+<style>
+
+
+#item-names p {
+   color: black; /* Ensures text is black */
+   margin: 0;
+   padding: 0;
+   line-height: 1.5; /* Adds spacing between the items */
+}
+
+
+#item-names p a {
+   color: black; /* Ensures the link color is also black */
+   text-decoration: none; /* Optional: Removes underline from links */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Popup styling */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1000;
+    border: 2px solid #ccc; /* Add this line to add a border */
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    border-radius: 10px 10px 0 0; 
+   
+}
+
+.popup-content {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 0;
+    border: 3px solid #faf4f4; 
+}
+
+
+.popup-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.close-button {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: red;
+}
+
+
+.item-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 20px;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-row a {
+    text-decoration: none;
+    color: #000;
+
+}
+
+.item-row a:hover {
+    text-decoration: underline;
+}
+
+
+.item-price1 {
+    font-size: 14px;
+  
+}
+
+
+.currency_inr,
+.currency_usd {
+    margin-left: 10px; 
+}
+#show-more {
+    color: red; 
+    text-decoration: none; 
+    cursor: pointer;
+}
+
+#show-more:hover {
+    text-decoration: underline;
+}
+
+   </style>
+
+<!-- -----------------MODEL POPUP------End----------------- -->
+</main>
+{%endblock%}
+
+
+
+
+

@@ -1,0 +1,563 @@
+@media screen and (max-width: 1400px) {
+    .catagory-sec span {
+        font-size: 11px;
+    }
+    .catagory-sec {
+        width: 177.5px;
+    }
+    .banner-img-carousal {
+        width: 240px;
+    }
+    .gradient-container {
+        min-height: 390px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    // select {
+    //     margin-left: 80px;
+    // }
+    .banner-img-carousal {
+        width: 230px;
+        margin-left: 50px;
+    }
+    .gradient-container {
+        min-height: 370px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .navbar-modify{
+        .navbar-brand{
+            img{
+            max-width: 160px;
+            }
+        }
+        }
+    .arrow-selectbox {
+        display: none;
+    }
+    .input-group-modify {
+        width: 42% !important;
+    }
+    .banner-content-sec h3 {
+        font-size: 23px;
+    }
+    .banner-content-sec h2 {
+        font-size: 26px;
+    }
+    .banner-content-sec p {
+        font-size: 14px;
+    }
+    .gradient-container {
+        min-height: 320px;
+    }
+    .banner-img-carousal {
+        width: 190px;
+    }
+    .carousal-arrow-sec {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+        padding: 10px;
+    }
+    .banner-img-carousal {
+        margin-left: 30px;
+    }
+    .offer-sec p {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+    .offer-sec h3 {
+        font-size: 16px;
+    }
+    .offer-sec button {
+        font-size: 8px;
+        margin-top: 3px;
+    }
+    .new_arrivals_img {
+        width: 77px;
+        height: auto;
+    }
+    .new-arrivals-sec {
+        padding: 18px 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .footer-content-sec,
+    .footer-items-sec,
+    .footer-bottom-sec {
+        text-align: center;
+    }
+    .input-group-modify {
+        width: 100% !important;
+    }
+    .navbar-modify {
+        border-bottom: 1px solid #d5d5d5;
+    }
+    .form-control-modify {
+        height: 47px;
+    }
+    .input-group-text-modify {
+        height: 46px;
+        padding: 0px 22px;
+    }
+    .input-group-mediaquery-md {
+        display: flex;
+    }
+    .input-group-mediaquery-sm,
+    .navbar-nav-modified {
+        display: none;
+    }
+
+    .bg-light {
+        background-color: transparent !important;
+    }
+    .gradient-container {
+        min-height: 280px;
+    }
+    .banner-content-sec h3 {
+        font-size: 18px;
+    }
+    .banner-content-sec h2 {
+        font-size: 18px;
+    }
+    .banner-content-sec p {
+        font-size: 13px;
+    }
+    .banner-content-btn {
+        margin-top: 5px;
+        padding: 8px 25px;
+        font-size: 10px;
+    }
+    .banner-img-carousal {
+        width: 140px;
+    }
+    .catagory-sec span {
+        font-size: 11px;
+    }
+    .catagory-sec {
+        width: 180px;
+    }
+    .banner-img-carousal {
+        margin-left: 20px;
+    }
+    .navbar-modify{
+        .navbar-brand{
+            img{
+            max-width: 100px;
+            }
+        }
+        }
+}
+
+@media screen and (max-width: 576px) {
+    .newsinputbox {
+        font-size: 12px;
+    }
+    .newsletter-btn {
+        font-size: 12px;
+    }
+    .newsletter-sec h3 {
+        font-size: 24px;
+    }
+    .newsletter-sec p {
+        font-size: 12px;
+    }
+    .newsletter-img {
+        width: 50px;
+        height: auto;
+    }
+    .container-modify-sm {
+        margin: 0 30px;
+    }
+    .gradient-container {
+        min-height: 230px;
+    }
+    .banner-content-sec h3 {
+        font-size: 16px;
+    }
+    .banner-content-sec h2 {
+        font-size: 16px;
+    }
+    .banner-content-sec p {
+        font-size: 12px;
+    }
+    .banner-content-btn {
+        margin-top: 3px;
+        padding: 8px 25px;
+        font-size: 8px;
+    }
+    .carousal-arrow-sec {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+        padding: 10px;
+    }
+    .catagory-sec {
+        width: 170px;
+    }
+    .catagory-sec {
+        padding: 8px 14px;
+    }
+    .banner-img-carousal {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .username,
+    .cart-text {
+        display: none;
+    }
+    .profile-container {
+        margin-right: 14px;
+    }
+    .banner-img-carousal {
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .footer-bottom-sec p {
+        font-size: 12px;
+    }
+    .dropdown-content {
+        left: -190px;
+    }
+    .carousel-indicators {
+        margin-bottom: 0.5rem;
+    }
+    .gradient-container {
+        min-height: 180px;
+    }
+    .banner-content-sec h3 {
+        font-size: 12px;
+    }
+    .banner-content-sec h2 {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    .banner-content-sec p {
+        font-size: 10px;
+        margin-bottom: 10px !important;
+    }
+    .banner-content-btn {
+        margin-top: 0px;
+        padding: 6px 20px;
+        font-size: 7px;
+    }
+    .carousal-arrow-sec {
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+        padding: 8px;
+    }
+    .banner-img-carousal {
+        width: 90px;
+    }
+    .catagory-sec {
+        width: 150px;
+    }
+    .catagory-sec span {
+        font-size: 10px;
+    }
+    .books-head-sec p {
+        width: 35px;
+        height: 3px;
+    }
+    .books-head-sec h5 {
+        font-size: 13px;
+    }
+    .all-books-sec span,
+    i {
+        font-size: 10px;
+    }
+    .book-percentage {
+        width: 25px;
+        height: 25px;
+        font-size: 8px;
+        top: -13px;
+    }
+    .book-new {
+        width: 40px;
+        height: 20px;
+        font-size: 8px;
+    }
+    .card-modify {
+        padding: 8px 12px !important;
+    }
+    .cart-wrapper:hover .card-hover-content {
+        padding-top: 5px;
+    }
+    .cart-wrapper:hover .card-hover-content {
+        bottom: 36px;
+    }
+    .add-cart-sec {
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .carousel-indicators {
+        margin-bottom: 0rem;
+    }
+    .gradient-container {
+        min-height: 150px;
+    }
+    .banner-content-sec h3 {
+        font-size: 10px;
+        margin-bottom: 0px !important;
+    }
+    .banner-content-sec h2 {
+        font-size: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .banner-content-sec p {
+        font-size: 8px;
+        margin-bottom: 3px !important;
+    }
+    .banner-content-btn {
+        margin-top: 0px;
+        padding: 4px 15px;
+        font-size: 6px;
+    }
+    .banner-img-carousal {
+        width: 80px;
+    }
+    .card-img {
+        width: 90px;
+    }
+    .card-content h6 {
+        font-size: 8px;
+    }
+    .card-content p {
+        font-size: 9px;
+        margin-bottom: 5px;
+    }
+    .carousel-control-next,
+    .carousel-control-prev {
+        width: 11%;
+    }
+    .offer-sec p {
+        font-size: 8px;
+        margin-bottom: 6px;
+    }
+    .offer-sec h3 {
+        font-size: 14px;
+    }
+    .offer-sec button {
+        font-size: 6px;
+        margin-top: 0px;
+    }
+    .offer-sec {
+        padding: 20px 20px;
+    }
+    .price-amount {
+        font-size: 10px;
+    }
+    .price-offer {
+        font-size: 10px;
+    }
+    .add-cart-text {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 345px) {
+    .gradient-container {
+        min-height: 125px;
+    }
+    .banner-img-carousal {
+        width: 70px;
+    }
+    .banner-content-sec h3 {
+        font-size: 9px;
+    }
+    .banner-content-sec h2 {
+        font-size: 9px;
+    }
+    .banner-content-sec p {
+        font-size: 7px;
+    }
+    .banner-content-btn {
+        font-size: 5px;
+    }
+    .price-amount {
+        font-size: 9px;
+    }
+    .price-offer {
+        font-size: 9px;
+    }
+    .add-cart-text {
+        font-size: 9px;
+    }
+}
+
+// end 
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+    /* CSS */
+    
+  }
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    
+    /* CSS */
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    
+    /* CSS */
+    .filter-bar-left{
+        display: none;
+    }
+    .filter-bar{
+        display: none;
+    }
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    /* CSS */
+    .filter-bar-left{
+        display: none;
+    }
+    .filter-bar{
+        display: none;
+    }
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    /* CSS */
+    .filter-bar-left{
+        display: none;
+    }
+    .filter-bar{
+        display: none;
+    }
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    .filter-bar-left{
+        display: none;
+    }
+    .filter-bar{
+        display: none;
+    }
+    /* CSS */
+    
+  }
+
+
+  @media screen and (min-width: 992px){
+
+
+}
+@media screen and (min-width: 742px){
+    .sm-banner-holder {
+        margin-top: -200px;
+      }
+    .banner-center{
+        align-items: center;
+    }
+    .sm-banner-1{
+        img{
+            max-height: 194px;
+        }
+    
+    }
+    .sm-banner-2{ 
+    img {
+        max-height: 194px;
+      }}
+
+}
+.sm-banner-1{
+    img{
+        margin: 15px 0px;
+    }
+
+}
+.sm-banner-2{
+    img{
+        margin: 15px 0px;
+    }
+
+}
+.banner-bg {
+    background-color: #ffebeb;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 150px 0px;
+  }
+  .mob-view{
+    display: none;
+  }
+  @media (min-width: 320px) and (max-width: 768px) {
+  .mob-view{
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // .mob-search{
+    //     .famobile{
+    //         color: #242424;
+    //         width: 35px;
+    //         height: 35px;
+    //         display: flex;
+    //         background-color: #f8f9fa;
+    //         align-items: center;
+    //         justify-content: center;
+    //         font-size: 15px;
+    //     }
+    // }
+    .menu-currency{
+        .form-select{
+            background-position: right 3px center;
+            padding: 5px 15px 5px 6px;
+            background-size: 10px 10px;
+            border: none;
+    
+        }
+    }
+
+  }
+}

@@ -1,0 +1,71 @@
+{% extends "templates/subbase.html" %}
+{% block content %}
+
+    <!-- banner-section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="le-pagehead">
+                    <h3>My Membership</h3>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">My Membership</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner section end -->
+
+<section class="lw-accounts lwmyOrder">
+    {% if frappe.session.user != 'Guest' %}
+    <div class="container">
+        <div class="row row-flex row-cols-12 row-cols-sm-12 row-cols-md-2 row-cols-lg-2 row-cols-xl-2">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+                <div class="table-responsive table-seperate">
+                    <table class="table table-bordered tableBlod" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                 Member               <th>#</th>
+                                <th>Member</th>
+                                <th>Plan</th>
+                                {% if member %}
+                                <th>Expiry</th>
+                                {% else %}
+                                <th>RATE</th>
+                                {% endif %}
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td id="customer-name">{{_(customer_id)}}</td>
+                                <td id="customer-id" style="display: none;">{{ _(customer_id) }}</td>
+                                <td>One Year</td>
+                                {% if member %}
+                                <td>{{ expiry_date}}</td>
+                                {% else %}
+                                <td class="currency_inr">INR {{_(amount)}}</td>
+                                <td class="currency_usd">USD{{_(amount_usd)}}</td>
+                                {% endif %}
+                                <td align="right">
+                                    <a id="btnMembership" class="btn  btn-secondary2 {{ member_button_class }}">{{ button_label }}</a>
+                                </td>
+                            </tr>                               
+                          </tbody>
+
+                      </table>
+                    </div>
+            </div>
+            <!-- col-12 end -->
+        </div>
+        <!-- row -->
+    </div>
+    {% endif %}
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "templates/mainbase.html" %}
+{% block content %}
+
+<main>
+<!-- page layout width Start -->
+<section class="lw-shopping-cart">
+    <div class="container-fluid lw-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                  <div class="lw-pghd-text">
+                    <h3>Cart</h3>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container-fluid lw-shopping-cart">
+  <div class="container">
+    <section class="m-50">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="lw-cart-action">
+            <ul class="nav nav-pills mb-3">
+                <li class="nav-item">
+                  <a href="#"  class="nav-link active" data-bs-toggle="pill"  type="button">
+                    <span class="breadcrumb-step hide-for-small">1</span>
+                    Shopping cart
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link"  data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-checkout" aria-selected="false">
+                    <span class="breadcrumb-step hide-for-small">2</span>
+                    Checkout details
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link no-click  "  data-bs-toggle="pill" type="button" role="tab" aria-controls="pills-ordertracking" aria-selected="false">
+                    <span class="breadcrumb-step hide-for-small">3</span>
+                    Order complete
+                  </a>
+                </li>
+              </ul>
+        </div>
+        </div>
+      </div>
+    </section>
+    <section class="m-50 checkout-recceived">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 m-auto">
+                        <div class="card">
+                            <div class="card-body">
+
+                                        <div class="cart-empty">
+                                            <img src="src/img/cart-emty.png" class="img-fluid" alt="...">
+                                        </div>
+                                           <div class="cart-emty-text">
+                                            <h3>Empty Cart</h3>
+                                            <p>Go find the products you like.</p>
+                                           </div> 
+
+                            </div>
+                        </div>
+                        
+                            <div class="mb-4">
+                              <a href="/all_products" id="continue-shopping" class="btn btn-red  mb-2  btn-lg w-100">Continue shopping</a>
+                                <!-- <button type="button" id="continue-shopping" class="btn btn-red  mb-2  btn-lg w-100">Continue shopping</button> -->
+                            </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+</div>
+</section>
+    <!-- page layout width End -->
+</main>
+  
+{% endblock %}

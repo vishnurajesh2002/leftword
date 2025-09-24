@@ -1,0 +1,191 @@
+{% extends "templates/mainbase.html" %}
+{% block content %}
+
+<!-- banner-section -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="le-pagehead">
+                <h3>My Profile</h3>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                      <li class="breadcrumb-item"><a href="javascript:history.back();">Back</a></li>
+
+                      <li class="breadcrumb-item active" aria-current="page">Edit Address</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- banner section end -->
+
+<section class="lw-accounts">
+    <div class="container">
+        <div class="row row-flex row-cols-12 row-cols-sm-12 row-cols-md-2 row-cols-lg-2 row-cols-xl-2">
+            
+            <!-- Account Information Card -->
+            <!-- Account Information Card -->
+<!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+    <div class="card">
+        <div class="card-header card-flex">
+            <h3>Account Information</h3>
+        </div>
+        <div class="card-body">
+            <div class="lw-accounts-item">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
+                        <label for="first_name">First Name <span>*</span></label>
+                        <input type="text" class="form-control" id="first_name" value="{{ user_data.first_name or '' }}" placeholder="First Name" required>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
+                        <label for="middle_name">Middle Name/Initial</label>
+                        <input type="text" class="form-control" id="middle_name" value="{{ user_data.middle_name or '' }}" placeholder="Middle Name/Initial">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
+                        <label for="last_name">Last Name<span>*</span></label>
+                        <input type="text" class="form-control" id="last_name" value="{{ user_data.last_name or '' }}" placeholder="Last Name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="lw-account-editBtn">
+                         
+                            <button class="btn btn-secondary" type="button" id="save_btn">Save & Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- Address Book Card -->
+<!-- Address Book Card -->
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+    <div class="card">
+        <div class="card-header card-flex">
+            <h3>Address Book</h3>
+            <button class="btn btn-danger"><a href="javascript:history.back();" style="font-size: 14px; " 
+                onmouseover="this.style.color='white'" 
+                >Back</a></button>
+             
+        </div>
+        
+        <div class="card-body">
+            <div class="lw-accounts-item">
+                
+ 
+                <div class="row address-item" data-address-id="{{ address.name }}">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
+                        <label for="address_title">Name<span>*</span></label>
+                        <input type="text" class="form-control address_title" value="{{ address.address_title or '' }}" placeholder="Enter Name" required>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
+                        <label for="phone">Mobile Number</label>
+                        <input type="text" class="form-control address_phone" value="{{ address.phone or '' }}" placeholder="Enter Phone Number">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
+                        <label for="email_id">Email Address</label>
+                        <input type="text" class="form-control address_email" value="{{ address.email_id or '' }}" placeholder="Enter Phone Number">
+                    </div>
+                </div>
+                <div class="row address-item" data-address-id="{{ address.name }}">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
+                        <label for="pincode">Pincode<span>*</span></label>
+                        <input type="text" class="form-control address_pincode" value="{{ address.pincode or '' }}" placeholder="Enter Pincode" required>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
+                        <label for="city">City/ District<span>*</span></label>
+                        <input type="text" class="form-control address_city" value="{{ address.city or '' }}" placeholder="Enter City" required>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
+                        <label for="state">State<span>*</span></label>
+                        <input type="text" class="form-control address_state" value="{{ address.state or '' }}" placeholder="Enter State" required>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3">
+                        <label for="country">Country<span>*</span></label>
+                        <input type="text" class="form-control address_country" value="{{ address.country or '' }}" placeholder="Enter Country" required>
+                    </div>
+                </div>
+                <div class="row address-item" data-address-id="{{ address.name }}">
+                    <div class="col-xl-12 mb-3">
+                        <label for="address_line1">Address (House No, Building, Street, Area)<span>*</span></label>
+                        <input type="text" class="form-control address_line1" value="{{ address.address_line1 or '' }}" placeholder="Enter Address" required>
+                    </div>
+                </div>
+
+                <!-- Default Address Checkboxes -->
+                
+
+                <!-- Button row aligned to the right -->
+                <div class="row">
+                    <div class="col-xl-12 text-end">
+                        <div class="lw-account-editBtn">
+                            <button class="btn btn-secondary" type="button" id="save_btn_address">Update</button>
+                        </div>
+                    </div>
+                </div>
+       
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Address Book Card end -->
+
+
+            <!-- Address Book Card end -->
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function () {
+    $('#save_btn_address').click(function () {
+        // Collect the values from the input fields
+        var address_id = $('.address-item').data('address-id'); // Get address_id from data-attribute
+        var address_title = $('.address_title').val();
+        var phone = $('.address_phone').val();
+        var email_id = $('.address_email').val();
+        var pincode = $('.address_pincode').val();
+        var city = $('.address_city').val();
+        var state = $('.address_state').val();
+        var country = $('.address_country').val();
+        var address_line1 = $('.address_line1').val();
+       
+        // Call the server-side function to update the address in the database
+        frappe.call({
+            method: "leftwordlatest.www.profileedit.update_address", // Server-side method
+            args: {
+                address_id: address_id,
+                address_title: address_title,
+                phone: phone,
+                email_id: email_id,
+                pincode: pincode,
+                city: city,
+                state: state,
+                country: country,
+                address_line1: address_line1,
+            
+            },
+            callback: function (response) {
+    if (response.message === 'success') {
+        // Redirect to the previous page
+        window.location.href = document.referrer;  // This will navigate to the previous page
+    } else {
+        window.location.href = document.referrer;  // If there's an error, it will also go to the previous page
+    }
+}
+
+        });
+    });
+});
+
+
+</script>
+
+{% endblock %}

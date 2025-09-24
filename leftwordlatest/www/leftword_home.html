@@ -1,0 +1,916 @@
+
+
+{% extends "templates/mainbase.html" %}
+{% block content %}
+<main>
+    {% if disabled %}
+    <section class="m-50 checkout-recceived">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 m-auto">
+                        <div class="card">
+                            <div class="card-body">
+                            <div class="cart-empty">
+                                <img src="src/img/cart-emty.png" class="img-fluid" alt="...">
+                            </div>
+                            <div class="cart-emty-text">
+                              <!-- <h3>Empty Cart</h3> -->
+                              <p>We will be back soon...</p>
+                            </div> 
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% else %}
+    <div class="container-fluid banner-bg">
+        <div class="container">
+          <div class="row justify-content-center banner-center">
+      
+            <!-- Left Small Banners -->
+            <div class="col-2 sm-banner-holder">
+              <div class="row">
+                <div class="col-12 sm-banner-1">
+                  <a href="{{ banners.get('Banner-1').get('banner_url')[1] if banners.get('Banner-1').get('banner_url')[1] else '#' }}"   >
+                    <img src="{{ banners.get('Banner-1').get('banner_images')[1] or '/src/img/blankImg.png' }}" class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-12 sm-banner-1">
+                  <a href="{{ banners.get('Banner-1').get('banner_url')[2] if banners.get('Banner-1').get('banner_url')[2] else '#' }}"   >
+                    <img src="{{ banners.get('Banner-1').get('banner_images')[2] or '/src/img/blankImg.png' }}" class="img-fluid">
+                  </a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Middle Small Banners -->
+            <div class="col-2">
+              <div class="row">
+                <div class="col-12 banner-item-2"></div>
+                <div class="col-12 sm-banner-2">
+                  <a href="{{ banners.get('Banner-1').get('banner_url')[3] if banners.get('Banner-1').get('banner_url')[3] else '#' }}"   >
+                    <img src="{{ banners.get('Banner-1').get('banner_images')[3] or '/src/img/blankImg.png' }}" class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-12 sm-banner-2">
+                  <a href="{{ banners.get('Banner-1').get('banner_url')[4] if banners.get('Banner-1').get('banner_url')[4] else '#'  }}"   >
+                    <img src="{{ banners.get('Banner-1').get('banner_images')[4] or '/src/img/blankImg.png' }}" class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-12 banner-item-2"></div>
+              </div>
+            </div>
+      
+            <!-- Center Main Banner -->
+            <div class="col-4">
+              <a href="{{ banners.get('Banner-1').get('banner_url') [0] if banners.get('Banner-1').get('banner_url')[0] else '#' }}"   >
+                <img src="{{ banners.get('Banner-1').get('banner_images')[0] or '/src/img/blankImg.png' }}" class="img-fluid">
+              </a>
+            </div>
+      
+            <!-- Right Small Banners -->
+            <div class="col-2">
+              <div class="row">
+                <div class="col-12 banner-item-2"></div>
+                <div class="col-12 sm-banner-2">
+                  <a href="{{ banners.get('Banner-1').get('banner_url')[5] if banners.get('Banner-1').get('banner_url')[5] else '#' }}"   >
+                    <img src="{{ banners.get('Banner-1').get('banner_images')[5] or '/src/img/blankImg.png' }}" class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-12 sm-banner-2">
+                  <a href="{{ banners.get('Banner-1').get('banner_url')[6] if banners.get('Banner-1').get('banner_url')[6] else '#' }}"   >
+                    <img src="{{ banners.get('Banner-1').get('banner_images')[6] or '/src/img/blankImg.png' }}" class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-12 banner-item-2"></div>
+              </div>
+            </div>
+      
+            <!-- Rightmost Small Banners -->
+            <div class="col-2 sm-banner-holder">
+              <div class="row">
+                <div class="col-12 sm-banner-1">
+                  <a href="{{banners.get('Banner-1').get('banner_url')[7] if banners.get('Banner-1').get('banner_url')[7] else '#' }}"   >
+                    <img src="{{ banners.get('Banner-1').get('banner_images')[7] or '/src/img/blankImg.png' }}" class="img-fluid">
+                  </a>
+                </div>
+                <div class="col-12 sm-banner-1">
+                  <a href="{{ banners.get('Banner-1').get('banner_url')[8] if banners.get('Banner-1').get('banner_url')[8] else '#' }}"   >
+                    <img src="{{ banners.get('Banner-1').get('banner_images')[8] or '/src/img/blankImg.png' }}" class="img-fluid">
+                  </a>
+                </div>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+      
+        
+     <!-- banner section -->   
+     <div class="container lw-homeBanner">
+     
+        <div class="row">
+            <div class="col-md-12">
+                <div id="carouselExampleFade" class="lw-mr-section carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% if banners.get("Banner-2") %}
+                        {% set banner = banners.get("Banner-2") %}
+                        {% if banner.get('banner_images') %}
+                            {% for index in range(banner['banner_images']|length) %}
+                                <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+                                    <a href="{{ banner['banner_url'][index] }}">
+                                        <img src="{{ banner['banner_images'][index] }}" class="d-block w-100" alt="...">
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    
+                        
+                                                <!-- <div class="carousel-item">
+                            <img src="src/img/lw-bannerimg-1.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="src/img/lw-bannerimg-1.jpg" class="d-block w-100" alt="...">
+                        </div> -->
+
+                    </div>
+                    
+                    <!-- Carousel controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- banner section end -->
+     
+  
+    {% if sliders.get("Books From Leftword") %}
+    {% set bfl = sliders.get("Books From Leftword") %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="lw-head mb-4 mt-4">
+                    {% if bfl.website_title %}
+                    <h5>{{ _(bfl.website_title) }}</h5>
+                    {% else %}
+                    <h5>{{ _("Books From Leftword") }}</h5>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+      
+        <div class="product_list row position-relative">
+            <div class="col-md-12">
+                {% if bfl.items %}
+                <div class="owl-carousel owl-theme" id="books-slider">
+                    {% for item in bfl.get("items") %}
+                    <div class="item">
+                        <div class="list-item">
+                            <div class="itembooks card card-item">
+                                <a href="/productdetailspage?id={{item.item_code}}" class="card-item-img">
+                                    {% if item.image %}
+                                    <img src="{{item.image}}" class="small-img">
+                                    {% elif item.custom_website_image %}
+                                    <img src="{{item.custom_website_image}}" class="small-img">
+                                    {% elif item.website_image %}
+                                    <img src="{{item.website_image}}" class="small-img">
+                                    {% elif item.custom_image1 %}
+                                    <img src="{{item.custom_image1}}" class="small-img">
+                                    {% elif item.custom_image2 %}
+                                    <img src="{{item.custom_image2}}" class="small-img">
+                                    {% elif item.custom_image3 %}
+                                    <img src="{{item.custom_image3}}" class="small-img">
+                                    {% else %}
+                                    <img src="/src/img/blankImg.png" class="small-img">
+                                    {% endif %}
+                                </a>
+                                <div class="card-content">
+                                    <div class="itemDetails">
+                                        <a href="/productdetailspage?id={{item.item_code}}"><h6 class="text-limit2">{{ _(item.web_item_name) }}</h6></a>
+                                        <p>{{ item.brand or '' }}</p>
+                                    </div>
+                                    <div class="cart-hover-sec">
+                                        <div class="price-amount">
+                                            <span class="item-price currency_inr">INR {{ _(item.price_list_rate_inr) }}</span>
+                                            <span class="item-price currency_usd">USD {{ _(item.price_list_rate_usd) }}</span>
+                                        </div>
+                                        <div class="add-cart-btn">
+                                            {% if frappe.session.user == "Guest" %}
+                                            <a href="#"
+                                            class="btn-primary btn-style btn-icon-left add-to-cart-btn allow-guest-cart"
+                                            data-bs-toggle="modal" data-bs-target="#lwsignIn">
+                                            ADD TO CART
+                                            </a>
+                                        {% else %}
+                                            <a href="#"
+                                            class="btn-primary btn-style btn-icon-left add-to-cart-btn"
+                                            data-item-code="{{ item.item_code }}" data-qty="1">
+                                            ADD TO CART
+                                            </a>
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    {% endfor %}
+                </div>
+               
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if sliders.get("Hindi Books") %}
+    {% set hb = sliders.get("Hindi Books") %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="lw-head mb-4 mt-4">
+                    {% if hb.website_title %}
+                    <h5>{{_(hb.website_title)}}</h5>
+                  {% else %}
+                    <h5>{{_("Hindi Books")}}</h5>
+                  {% endif %}
+                    <!-- <h5>Hindi Books</h5> -->
+                </div>
+            </div>
+        </div>
+        <div class="product_list row">
+            <div class="col-md-12">
+                {% if hb.items %}
+                <div class="owl-carousel owl-theme">
+                    {% for item in hb.get("items") %}
+                    <div class="item">
+                        <div class="list-item">
+                            <div class="itembooks card card-item">
+                                <a href="/productdetailspage?id={{item.item_code}}" class="card-item-img">
+                                    <!-- <span class="book-type">EBook</span> -->
+                                   
+                                    {% if item.image %}
+                                    <img src="{{item.image}}" class="small-img">
+                                    {%elif item.custom_website_image %}
+                                    <img src="{{item.custom_website_image}}" class="small-img">
+                        {%elif item.website_image %}
+                        <img src="{{item.website_image}}" class="small-img">
+                        {%elif item.custom_image1%}
+                        <img src="{{item.custom_image1}}" class="small-img">
+                        {%elif item.custom_image2%}
+                        <img src="{{item.custom_image2}}" class="small-img">
+                        {%elif item.custom_image3%}
+                        <img src="{{item.custom_image3}}" class="small-img">
+                        {%else%}
+                        <img src="/src/img/blankImg.png" class="small-img">
+                        {%endif%}
+                    
+                                </a>
+                                <div class="card-content">
+                                    <div class="itemDetails">
+                                        <a href="/productdetailspage?id={{item.item_code}}"><h6 class="text-limit2">{{_(item.web_item_name)}}
+                                        </h6></a>
+                                        <!-- <p>{{_(item.custom_publisher or "")}}</p> -->
+                                        <p>{{item.brand or ''}}</p>
+                                        <!-- <div class="Stars" style="--rating: 3;" aria-label="Rating of this product is 3 out of 5."></div> -->
+                                    </div>
+                                    <div class="cart-hover-sec">
+                                        <div class="price-amount">                        <span class="item-price currency_inr">INR {{_(item.price_list_rate_inr)}}</span>
+                                            <span class="item-price currency_usd">USD {{_(item.price_list_rate_usd)}}</span></div>
+                                            <div class="add-cart-btn">
+                                                {% if frappe.session.user == "Guest" %}
+                                            <a href="#"
+                                            class="btn-primary btn-style btn-icon-left add-to-cart-btn allow-guest-cart"
+                                            data-bs-toggle="modal" data-bs-target="#lwsignIn">
+                                            ADD TO CART
+                                            </a>
+                                        {% else %}
+                                            <a href="#"
+                                            class="btn-primary btn-style btn-icon-left add-to-cart-btn"
+                                            data-item-code="{{ item.item_code }}" data-qty="1">
+                                            ADD TO CART
+                                            </a>
+                                        {% endif %}
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                    {% endfor %}
+            
+                </div>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+    
+    {% endif %}
+    
+    {% if sliders.get("And from the Indie Presses") %}
+      {% set afip = sliders.get("And from the Indie Presses") %}
+    <div class="product_list container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="lw-head mb-4 mt-4">
+                    {% if afip.website_title %}
+                    <h5>{{_(afip.website_title)}}</h5>
+                  {% else %}
+                    <h5>{{_("And from the Indie Presses")}}</h5>
+                  {% endif %}
+                    <!-- <h5>And from the Indie Presses</h5> -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% if afip.items %}
+                <div class="owl-carousel owl-theme">
+                    {% for item in afip.get("items") %}
+                    
+                    <div class="item">
+                        <div class="list-item">
+                            <div class="itembooks card card-item">
+                                <a href="/productdetailspage?id={{item.item_code}}" class="card-item-img">
+                                    <!-- <span class="book-type">EBook</span> -->
+                                    {% if item.image %}
+                                    <img src="{{item.image}}" class="small-img">
+                                    {%elif item.custom_website_image %}
+                                    <img src="{{item.custom_website_image}}" class="small-img">
+                        {%elif item.website_image %}
+                        <img src="{{item.website_image}}" class="small-img">
+                        {%elif item.custom_image1%}
+                        <img src="{{item.custom_image1}}" class="small-img">
+                        {%elif item.custom_image2%}
+                        <img src="{{item.custom_image2}}" class="small-img">
+                        {%elif item.custom_image3%}
+                        <img src="{{item.custom_image3}}" class="small-img">
+                        {%else%}
+                        <img src="/src/img/blankImg.png" class="small-img">
+                        {%endif%}
+                    
+                                </a>
+                                <div class="card-content">
+                                    <div class="itemDetails">
+                                        <a href="/productdetailspage?id={{item.item_code}}"><h6 class="text-limit2">{{_(item.web_item_name)}}
+                                        </h6></a>
+                                        <!-- <p>{{_(item.custom_publisher or "")}}</p> -->
+                                         <p>{{item.brand or ''}}</p>
+                                        <!-- <div class="Stars" style="--rating: 3;" aria-label="Rating of this product is 3 out of 5."></div> -->
+                                    </div>
+                                    <div class="cart-hover-sec">
+                                        <div class="price-amount">                        <span class="item-price currency_inr">INR {{_(item.price_list_rate_inr)}}</span>
+                                            <span class="item-price currency_usd">USD {{_(item.price_list_rate_usd)}}</span></div>
+                                            <div class="add-cart-btn">
+                                                {% if frappe.session.user == "Guest" %}
+                                            <a href="#"
+                                            class="btn-primary btn-style btn-icon-left add-to-cart-btn allow-guest-cart"
+                                            data-bs-toggle="modal" data-bs-target="#lwsignIn">
+                                            ADD TO CART
+                                            </a>
+                                        {% else %}
+                                            <a href="#"
+                                            class="btn-primary btn-style btn-icon-left add-to-cart-btn"
+                                            data-item-code="{{ item.item_code }}" data-qty="1">
+                                            ADD TO CART
+                                            </a>
+                                        {% endif %}
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- -----------------------End----------------- -->
+    <!-- -------------------new release------------------ -->
+    <div class="container-fluid lb-padd">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="d-flex justify-content-between mt-4 mb-4">
+                        <div class="lw-head">
+                            <h3>New Releases</h3>
+                        </div>
+                        <!-- <ul class="nav nav-tabs-custom nav-right" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="history-tab" data-bs-toggle="tab"
+                                    data-bs-target="#history" type="button" role="tab" aria-controls="home"
+                                    aria-selected="true">History</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="science-tab" data-bs-toggle="tab" data-bs-target="#science"
+                                    type="button" role="tab" aria-controls="Science" aria-selected="false">Science &
+                                    Math</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="romance-tab" data-bs-toggle="tab" data-bs-target="#romance"
+                                    type="button" role="tab" aria-controls="Romance"
+                                    aria-selected="false">Romance</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="travel-tab" data-bs-toggle="tab" data-bs-target="#travel"
+                                    type="button" role="tab" aria-controls="Travel"
+                                    aria-selected="false">Travel</button>
+                            </li>
+                        </ul> -->
+                    </div>
+                    <div class="leftword-Releases">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="history" role="tabpanel"
+                                aria-labelledby="history-tab">
+                                <section>
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div class="row">
+                                                {%if banners.get("Banner-3") %}
+                          {%if banners.get("Banner-3").get("banner_images") %}
+                                                <div class="col-xl-5 bg-color-light">
+                                                    <div class="new-releases-block">
+                                                        <div class="new-releases-img">
+                                                            <a href="{{ banners.get('Banner-3').get('banner_url')[0] if banners.get('Banner-3').get('banner_url')[0] else '#' }}"   >
+                                                                <img src="{{ banners.get('Banner-3').get('banner_images')[0] or '/src/img/blankImg.png' }}" class="img-fluid">
+                                                              </a>
+                                                        </div>
+                                                        <div class="new-releases-cnt">
+                                                            <!-- <h3>Get Extra</h3>
+                                                            <h2>Sale -25%</h2>
+                                                            <p>ON ORDER OVER $100</p> -->
+                                                            <!-- <a href="" class="btn btn-primary">
+                                                                View More
+                                                            </a> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                                {% endif %}
+                                                <div class="col-xl-7">
+                                                    <div class="row">
+                                                        {% for i in banners.get('Banner-3').get('items') %}
+                                                        
+                                                        
+                                                        <div class="col-xl-4 col-md-6">
+                                                            <div class="itembooks card card-item">
+                                                                <a href="/productdetailspage?id={{i.item_code}}" class="card-item-img">
+                                                                    {% if i.image %}
+                                                                    <img src="{{i.image}}" class="">
+                                                                    {%elif i.custom_website_image %}
+                                                                    <img src="{{i.custom_website_image}}" class="">
+                                                                    {%elif i.website_image %}
+                                                                    <img src="{{i.website_image}}" class="">
+                                                                    {%elif i.custom_image1%}
+                                                                    <img src="{{i.custom_image1}}" class="">
+                                                                    {%elif i.custom_image2%}
+                                                                    <img src="{{i.custom_image2}}" class="">
+                                                                    {%elif i.custom_image3%}
+                                                                    <img src="{{i.custom_image3}}" class="">
+                                                                    {%else%}
+                                                                    <img src="/src/img/blankImg.png" class="">
+                                                                    {%endif%}
+                                                                
+                                            
+                                                                </a>
+                                                                <div class="card-content">
+                                                                    <div class="itemDetails">
+                                                                        <a href="/productdetailspage?id={{i.item_code}}"><h6 class="text-limit2">{{_(i.web_item_name)}}
+                                                                        </h6></a>
+                                                                        <!-- <p>{{_(i.custom_publisher or "")}}</p> -->
+                                                                         <p>{{i.brand or ''}}</p>
+                                                                        <!-- <div class="Stars" style="--rating: 3;" aria-label="Rating of this product is 3 out of 5."></div> -->
+                                                                    </div>
+                                                                    <div class="cart-hover-sec">
+                                                                        <div class="price-amount">
+                                                                            <span class="item-price currency_inr">INR {{_(i.price_list_rate_inr)}}</span>
+                                                                            <span class="item-price currency_usd">USD {{_(i.price_list_rate_usd)}}</span>
+                                                                          
+                                                                            
+                                                                        </div>
+                                                                        <div class="add-cart-btn">
+                                                                            <!-- <a href="" class="btn-primary btn-style btn-icon-left">ADD TO CART</a> -->
+                                                                            <!-- <span class="heart-icon"><i class="fa fa-heart fa-regular cart-heart"></i></span> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- row end -->
+        </div>
+        <!-- container end -->
+    </div>
+    <!-- ---------------------Blog--Star----------------- -->
+    <div class="lw-blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="lw-head mb-4 mt-4">
+                        <h5>Latest Blog</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+               
+                    {% for blog in blog %}
+                       
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="ldblog-holder">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <h3>{{ blog.title }}</h3>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        {% if blog.content_image %}
+                                        <img src="{{  blog.content_image or '/src/img/blankImg.png' }}" class="img-fluid fixed-size">
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <p>{{ blog.blog_intro }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="mb-3 mt-3">
+                                           
+                                            <p class="published-on mb-3 mt-3">Blogger: <span>{{ blog.blogger }}</span></p>
+                                        <p>Published on <span>{{ blog.published_on.strftime('%d %B %Y') or '' }}</span></p>
+                                            
+                                            <a href="javascript:void(0)" onclick="showBlogDetails('{{ blog.name }}')" class="lw-readmore arrow-icon">Read More</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     
+                    {% endfor %}
+             
+            </div>
+            <div class="lw-blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="lw-head mb-4 mt-4">
+                                <h5>Latest Event</h5>
+                            </div>
+                        </div>
+                    </div>
+            <div class="row">
+               
+                {% for event in event %}
+
+                   
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="ldblog-holder">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <h6 style="color: red;">
+                                            {{ event.event_date or '' }} 
+                                            @ 
+                                            <a href="{{ event.link or '' }}" style="color: red;">
+                                                {{ event.custom_title or '' }}
+                                            </a>
+                                        </h6>
+                                        
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="row">
+                               
+                                <div class="col-lg-7">
+                                    <p>{{ event.description or ''  }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="mb-3 mt-3">
+                                       
+                                     
+                                        <a href="/event"  class="lw-readmore arrow-icon">Read More</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                 
+                {% endfor %}
+         
+        </div>
+        </div>
+    </div>
+    <div class="modal fade" id="blogDetailsModal" tabindex="-1" role="dialog" aria-labelledby="blogDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="blogDetailsModalLabel">Blog Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    
+                </div>
+                <div class="modal-body">
+                    <h3 id="blogShortName"></h3>
+                   
+                    <p id="blogBio"></p>
+                    <p style="display: inline;">Blogger:</p>
+<p id="blogBlogger" style="display: inline;"></p>
+
+                    <p><em id="blogCreation"></em></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <div id="success-message" style="display: none;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 20px; color: #28a745;">&#10003;</span> 
+            <span>Item added to cart successfully!</span>
+        </div>
+    </div> -->
+<style>
+/* 
+.card-item-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 175px;
+    height: 200px; 
+    overflow: hidden;
+    text-align: center;
+    background-color: #f0f0f0; 
+    position: relative;
+    border: 1px solid #ddd; 
+    border-radius: 4px;
+}
+
+.card-item-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+    object-position: center;
+    border-radius: 4px;
+    background-color: #fff; 
+}
+
+.card-item-img img[src="/src/img/blankImg.png"] {
+    object-fit: contain; 
+    background-color: #f0f0f0; 
+}
+
+@media (max-width: 768px) {
+    .card-item-img {
+        width: 150px;
+        height: 175px; 
+    }
+
+    .card-item-img img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+
+
+    .fixed-size {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px;
+} */
+ #success-message {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    background-color: #ffffff; 
+    color: #333333; 
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    z-index: 1000;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); 
+    font-family: Arial, sans-serif;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.lw-readmore {
+    color: inherit;
+    text-decoration: none;
+}
+
+.lw-readmore:hover {
+    color: inherit;
+}
+
+
+#blogDetailsModal .modal-dialog {
+    max-width: 80%; 
+    width: auto;
+}
+.lw-readmore {
+    color: inherit; 
+    text-decoration: none; 
+}
+.lw-readmore:hover {
+    color: inherit;
+}
+#blogDetailsModal .modal-dialog {
+    max-width: 80%; 
+    width: auto;    
+}
+</style>    
+   
+    {%endif%}
+  </main>
+ 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function stripHTML(html) {
+            if (!html) return ''; 
+            var doc = new DOMParser().parseFromString(html, 'text/html');
+            var decodedHtml = doc.body.textContent || doc.body.innerText;
+            return decodedHtml.replace(/<[^>]+>/g, '');
+        }
+        
+        function showBlogDetails(blogId) {
+            frappe.call({
+                method: "leftwordlatest.www.leftword_home.get_blog_details",
+                args: { blog_id: blogId },
+                callback: function (r) {
+                    if (r.message) {
+                        const blog = r.message;
+                        document.getElementById("blogShortName").textContent = blog.title || "No Title Available";
+                        document.getElementById("blogBio").textContent = stripHTML(blog.content);
+                        document.getElementById("blogBlogger").textContent = blog.blogger || "Unknown Blogger";
+                        document.getElementById("blogCreation").textContent = `Published on ${blog.published_on}`;
+                        $('#blogDetailsModal').modal('show'); 
+                    } else {
+                        frappe.msgprint("Unable to fetch blog details.");
+                    }
+                },
+                error: function () {
+                    frappe.msgprint("An error occurred while fetching blog details.");
+                }
+            });
+        }
+        
+        function closeModal() {
+            $('#blogDetailsModal').modal('hide'); // Close the modal 
+        }
+        
+        
+        $('.product_list').on('click', '.add-to-cart-btn', function(e) {
+            e.preventDefault(); // Prevent the default anchor behavior
+            const $this = $(this);             
+            $this.prop('disabled', true);      
+        
+            const itemCode = $this.data('item-code'); 
+            const qty = $this.data('qty');
+            const currency = sessionStorage.getItem('selectedCurrency') || 'INR'; 
+            frappe.call({
+                method: 'leftwordlatest.web_api.cart.make_cart',
+                args: {
+                    item_code: itemCode,
+                    qty: qty,
+                    currency: currency
+                },
+                callback: function(response) {
+                    if (response.message) {
+                        const cartId = response.message[0]; // Get the cart ID if needed
+                        const totalQty = response.message[1]; // Get the total quantity
+                        const netTotal = response.message[2]; // Get the total net amount
+        
+                        $('#cart-count').text(totalQty); // Update cart count on the page
+                
+                        // Change the button text and style
+                        const $cartButton = $('#cart-button');
+                        $cartButton.text("Go to Cart");
+                        $cartButton.removeClass('add-to-cart').addClass('in-cart');
+                        // Store the cart ID in a cookie
+                        document.cookie = `cart_id=${cartId}`;
+                        showSuccessMessage('Item added to cart successfully!');
+                    } else {
+                        $this.prop('disabled', false); 
+                        frappe.msgprint("Failed to add item to cart.");
+                    }
+                },
+                error: function() {
+                    $this.prop('disabled', false); 
+                    frappe.msgprint("An error occurred while adding to cart.");
+                }
+            });
+        });
+        
+        function showSuccessMessage(message) {
+            const messageDiv = $('<div class="success-message"></div>').text(message);
+            $('body').append(messageDiv);
+            messageDiv.css({
+                'position': 'fixed',
+                'top': '20px',
+                'right': '20px',
+                'background-color': '#28a745',
+                'color': '#fff',
+                'padding': '10px 20px',
+                'border-radius': '5px',
+                'z-index': '1000'
+            });
+        
+            setTimeout(() => {
+                messageDiv.fadeOut(300, () => {
+                    messageDiv.remove();
+                });
+            }, 3000);
+        }
+        
+        $('#cart-button').on('click', function(e) {
+            // Check if the button is in 'add-to-cart' state
+            if ($('#cart-button').hasClass('add-to-cart')) {
+                if (!$('#cart-button').hasClass('allow-guest-cart') && frappe.session.user === "Guest") {
+                    window.location.href = '/leftword_login';
+                    return;
+                }
+                
+                const item_code = $('#cart-button').data('item-code');
+                const count = parseInt($('#item-count').text().trim());
+                $('#cart-button').text("Adding To Cart...");
+                const cartCurrency = sessionStorage.getItem('selectedCurrency') || 'INR'; // Get the selected currency
+                // Call the backend to add to cart
+                frappe.call({
+                    method: 'leftwordlatest.web_api.cart.make_cart',
+                    args: {
+                        item_code: item_code,
+                        qty: count,
+                        currency: cartCurrency
+                    },
+                    callback: function(r) {
+                        $('#cart-count').text(r.message[1]); // Update cart count on the page
+                        if (r.message) {
+                            document.cookie = `cart_id=${r.message[0]}`;
+                        }
+                        $('#cart-button').prop('disabled', false);
+                        $('#cart-button').text("Go to Cart");
+                    }
+                });
+                // Update button state
+                $('#cart-button').removeClass('add-to-cart');
+                $('#cart-button').addClass('in-cart');
+            } else if ($('#cart-button').hasClass('in-cart')) {
+                // Redirect to shopping cart page
+                window.location.href = '/shopping_cart';
+            }
+        });
+    </script>
+    
+  {%endblock%}

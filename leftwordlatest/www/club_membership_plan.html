@@ -1,0 +1,115 @@
+
+{% extends "templates/mainbase.html" %}
+
+{% block content %}
+
+<main>
+    <!-- banner-section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="le-pagehead">
+                    <h3>Club Membership</h3>
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Club Membership Plan</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner section end -->
+
+<section class="lw-membership">
+    <div class="container">
+        <div class="row row-flex row-cols-12 row-cols-sm-12 row-cols-md-2 row-cols-lg-2 row-cols-xl-2 mt-4">
+            <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                <div class="lwmembershipImg">
+                    <img src="/src/img/membership.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 mb-4">
+                <div class="lwmembership">
+                  <h2>join Our Book Club</h2>
+                  <p>Become a member of the LeftWord Book Club, and get fabulous discounts on books listed on this site. Membership fees: INR 199.00 per year.</p>
+                  {% if frappe.session.user == 'Guest' %}
+                    <button class="btn btn-secondary" type="submit"  data-bs-toggle="modal" data-bs-target="#lwsignIn">Become a book club member</button>
+                {% else %}
+                    <a href="/my_membership"><button class="btn btn-secondary" type="submit">Become a book club member</button></a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- -----------------MODEL POPUP------STAR----------------- -->
+<div class="modal fadeIn" data-easein="fadeIn" id="lwsignInmembership" tabindex="-1" aria-labelledby="lwsignInLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg lwAuthentication ">
+      <div class="row modal-content">
+        <div class="modal-body1">
+            <div class="row">
+                <div class="col-xl-5 log-left"><div></div></div>
+                <div class="col-xl-7 log-right">
+<!-- Sign In Section start -->
+                    <div class="row mb-3">
+                        <div class="col-xl-12 mb-3">
+                            <div class="modal-header log-head mb-3">
+                                <h1></h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 mb-3">
+                            <div class="lwmodelheader mb-2">
+                                <h1>Registered Users</h1>
+                                <p>If you have an account, login with your email address.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-xl-12 mb-3">
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Enter Email" required="" autofocus=""> 
+                        </div>
+                        <div class="col-xl-12 mb-3">
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Enter Password" required="" autofocus=""> 
+                        </div>
+                        <div class="col-xl-12 mb-3">
+                            <div class="lwforgotLink">
+                                <a href="#">forgot password</a>
+                            </div> 
+                        </div>                    
+                    </div>
+                    <div class="row mb-5">
+                        <div class="col-xl-12">
+                            <div class="or-loging">
+                                <p>Or</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                    <div class="col-xl-12 mb-3">
+                        <button class="btn btn-lg btn-primary btn-block btn-100" type="submit">Sign In with OTP</button>
+                    </div>
+                    <div class="col-xl-12 mb-3">
+                        <button class="btn btn-lg btn-secondary btn-block btn-100" type="submit">Sing In</button>
+                    </div>                  
+                    </div>
+                    <div class="text-center">
+                    <p class="lw-tearmsLink">Don ’t you have an account? <a href="#">Sign Up</a></p>
+                    </div>
+
+<!-- Sign In Section End -->
+
+                </div>
+                <!-- col-xl-7 end -->
+              </div>
+            <!-- row end -->
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- -----------------MODEL POPUP------End----------------- -->
+<!-- -----------------------End----------------- -->
+</main>
+{% endblock %}

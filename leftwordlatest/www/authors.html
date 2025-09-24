@@ -1,0 +1,150 @@
+{% extends 'templates/subbase.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="le-pagehead">
+                <h3>Author</h3>
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Books</li>
+                        <li class="breadcrumb-item active" aria-current="page">Author</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container author_container">
+    <div class="row">
+        <div class="col-md-12">
+            {% if authors %}
+            <div class="alphabet-section">
+                {% for letter, authors_list in authors.items() %}
+                <div class="alphabet-column">
+                    <h2>{{ letter }}</h2>
+                    <ul>
+                        {% for author in authors_list %}
+                        <a href="authordetails?author_name={{ author }}" class="author-link">
+                            <li class="author-item">{{ author }}</li>
+                        </a>
+                        {% endfor %}
+                    </ul>
+                    <u class="underline">
+                        <a href="browse_author?letter={{ letter }}" class="browse-link">Browse all {{ letter }}</a>
+                    </u>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p>No authors found.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+/* General Container Styles */
+.author_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.alphabet-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.alphabet-column {
+    flex: 1 1 calc(20% - 20px);
+    background: white;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.alphabet-column h2 {
+    font-size: 1.5rem;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.alphabet-column ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alphabet-column ul li {
+    margin: 5px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.author-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.author-link:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.browse-wrapper {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.browse-link {
+    color: red;
+    text-decoration: none;
+}
+
+.browse-link:hover {
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .alphabet-column {
+        flex: 1 1 calc(33.33% - 20px); 
+    }
+}
+
+@media (max-width: 768px) {
+    .alphabet-column {
+        flex: 1 1 calc(50% - 20px); 
+    }
+}
+
+@media (max-width: 576px) {
+    .alphabet-column {
+        flex: 1 1 100%; 
+    }
+    
+    .alphabet-column h2 {
+        font-size: 1.2rem; 
+    }
+
+    .author-item {
+        font-size: 12px;
+}
+</style>
+
+
+{% endblock %}

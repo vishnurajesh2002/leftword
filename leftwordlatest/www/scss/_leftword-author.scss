@@ -1,0 +1,142 @@
+
+
+.lw-author{
+    // .card-item{
+
+    // .card-item-img {
+    //     min-height: 200px;
+    //     min-width: 240px;
+    //     img {
+    //         min-width: 160px !important;
+    //         min-height: 160px !important;
+    //         object-fit: cover;
+    //     }
+    //     &.itemblankimg{
+    //     &.booksblnk {
+    //         min-height: 200px !important;
+    //         min-height: 200px !important;
+    //     }}
+    // }}
+.itemauthor{
+    .card-header{
+        h2{
+            margin-bottom: 0px;
+            font-size: 25px;
+            font-weight: 500;
+            color: $text-primary;
+        }
+    }
+    .author-list{
+        background-color: $light-bg;
+        padding: 15px;
+        p{
+            margin: 5px 0px;
+            padding: 0px;
+            color: $text-light;
+            color: $text-primary;
+            font-size: 15px;
+            &:hover{
+                
+               
+            }
+            a{
+                &:hover{
+                    color: $hover-color;
+                    transition: 0.15s all ease;
+                    
+                }
+            }
+        }
+    }
+    .card-footer{
+        background-color: $light-bg;
+        a{
+            justify-content: space-between;
+        }
+    }
+}
+
+
+.btn-secondary{
+    margin-left: 5px;
+    &.btn-icon{
+        position: relative;
+        &:before{
+            position: absolute;
+            left: 12px;
+        }
+        &.btn-icon-left{
+            padding-left: 40px;
+        }
+        &.btn-icon-book{
+            &:before{
+                content: url("../src/img/lw-bookicon.svg");
+            }
+        }
+ 
+    }
+
+}
+.autherCard-Details{
+
+}
+&.lw-authordetails{
+    .card-item{
+        .card-item-img{
+            img{
+                max-width: 100%;
+            }
+        }
+    }
+    .itemDetailshead{
+        border:1px solid $border-secondary;
+        padding: 20px;
+        h6 {
+            font-size: 24px;
+            color: $text-primary;
+            font-weight: 500;
+            line-height: 22px;
+
+        }
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: $text-secondary;
+            line-height: 28px;
+        }
+    }
+}
+}
+
+.alphabeticlist{
+    background-color: #f9f9f9;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+        margin: 0px;
+        padding: 0px;
+        li {
+            list-style: none;
+            display: inline-block;
+            margin-right: 5px;
+            font-size: 15px;
+        }
+    }
+}
+
+.authorListitem{
+    .row{
+        .col{
+            margin-bottom: 15px;
+            a{
+                &:hover{
+                    color: $hover-color;
+                }
+            }
+        }
+    }
+}

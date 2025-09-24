@@ -1,0 +1,889 @@
+{% extends "templates/mainbase.html" %}
+{% block content %}
+<main>
+<!-- page layout width Start -->
+<section class="lw-shop">
+  <div class="container-fluid lw-page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="lw-pghd-text">
+            <h3>Shop</h3>
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="bnnr-img">
+            <img src="src/img/shop-banner.jpg" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid ">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3">
+          <div class="lw-filter">
+            <div class="lw-filter-search">
+              <form class="d-flex">
+                <input class="form-control" type="search" placeholder="Search products…" aria-label="Search">
+                <button class="btn btn-secondary btn-sm" type="submit"><img src="src/img/search-cd-icon.svg"></button>
+              </form>
+            </div>
+            <div class="lw-card card">
+              <div class="filteritem-head">
+                <h3>Product categories</h3>
+              </div>
+              <div class="filter-checkbox">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Default checkbox
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                  <label class="form-check-label" for="flexCheckDefault1">
+                    Default checkbox
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                  <label class="form-check-label" for="flexCheckDefault2">
+                    Default checkbox
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                  <label class="form-check-label" for="flexCheckDefault3">
+                    Default checkbox
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                  <label class="form-check-label" for="flexCheckDefault4">
+                    Default checkbox
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+                  <label class="form-check-label" for="flexCheckDefault5">
+                    Default checkbox
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+                  <label class="form-check-label" for="flexCheckDefault6">
+                    Default checkbox
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7">
+                  <label class="form-check-label" for="flexCheckDefault7">
+                    Default checkbox
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="lw-card card">
+              <div class="filteritem-head">
+                <h3>Filter by</h3>
+                <h3>Price</h3>
+              </div>
+              <div class="filter-range">
+                <input type="range" class="form-range custome-range" step="10">
+                <label for="customRange2" class="form-label">Price:<span> $60</span>-<span>$1,000</span></label>
+              </div>
+            </div>
+            <div class="lw-card card">
+              <div class="filteritem-head">
+                <h3>Product tags</h3>
+              </div>
+              <div class="filter-tag">
+                <ul>
+                  <li>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">Fiter1
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                          class="fa fa-close" aria-hidden="true"></i></button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">Fiter1
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                          class="fa fa-close" aria-hidden="true"></i></button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">Fiter1
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                          class="fa fa-close" aria-hidden="true"></i></button>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">Fiter1
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i
+                          class="fa fa-close" aria-hidden="true"></i></button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-9">
+          <div class="row">
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="list-item">
+                <a href="" class="card">
+                  <div class="item-img">
+                    <img src="src/img/product-1.jpg" class="img-fluid">
+                  </div>
+                </a>
+                <div class="item-text">
+                  <label>Gunvor Hofmo</label>
+                  <h3>Zmats Kempe</h3>
+                  <p>
+                    <span class="item-price-strick">90.00$</span>
+                    <span class="item-price">60.00$</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="lw-pagination">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="container-fluid lb-padd">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="section-head section-left">
+              <h3>New Releases</h3>
+            </div>
+            <div class="leftword-Releases">
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="history" role="tabpanel" aria-labelledby="history-tab">
+                  <section>
+                    <div class="row">
+                      <div class="col-xl-5">
+                        <a href="" class="">
+                          <div class="item-img">
+                            <img src="src/img/sales-off.jpg" class="img-fluid">
+                          </div>
+                        </a>
+                      </div>
+                      <div class="col-xl-7">
+                        <div class="row">
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="tab-pane fade" id="science" role="tabpanel" aria-labelledby="science-tab">
+                  <section>
+                    <div class="row">
+                      <div class="col-xl-5">
+                        <a href="" class="">
+                          <div class="item-img">
+                            <img src="src/img/sales-off.jpg" class="img-fluid">
+                          </div>
+                        </a>
+                      </div>
+                      <div class="col-xl-7">
+                        <div class="row">
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="tab-pane fade" id="romance" role="tabpanel" aria-labelledby="romance-tab">
+                  <section>
+                    <div class="row">
+                      <div class="col-xl-5">
+                        <a href="" class="">
+                          <div class="item-img">
+                            <img src="src/img/sales-off.jpg" class="img-fluid">
+                          </div>
+                        </a>
+                      </div>
+                      <div class="col-xl-7">
+                        <div class="row">
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="tab-pane fade" id="travel" role="tabpanel" aria-labelledby="travel-tab">
+                  <section>
+                    <div class="row">
+                      <div class="col-xl-5">
+                        <a href="" class="">
+                          <div class="item-img">
+                            <img src="src/img/sales-off.jpg" class="img-fluid">
+                          </div>
+                        </a>
+                      </div>
+                      <div class="col-xl-7">
+                        <div class="row">
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-md-6">
+                            <div class="list-item">
+                              <a href="" class="card">
+                                <div class="item-img">
+                                  <img src="src/img/product-1.jpg" class="img-fluid">
+                                </div>
+                              </a>
+                              <div class="item-text">
+                                <label>Gunvor Hofmo</label>
+                                <h3>Zmats Kempe</h3>
+                                <p>
+                                  <span class="item-price-strick">90.00$</span>
+                                  <span class="item-price">60.00$</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- row end -->
+      </div>
+      <!-- container end -->
+    </div>
+  </section>
+</section>
+    <!-- page layout width End -->
+</main>
+{% endblock %}

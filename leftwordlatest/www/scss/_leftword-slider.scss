@@ -1,0 +1,47 @@
+.owl-carousel {
+    &.owl-theme {
+        .owl-nav {
+            .owl-prev {
+                left: 0px;
+                top: 45%;
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background-color: $bg-primary;
+                span{
+                    color: $text-secondary1;
+                }
+            }
+            .owl-next {
+                right: 0px;
+                top: 45%;
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background-color: $bg-primary;
+                span{
+                    color: $text-secondary1;
+                }
+            }
+        }
+    }
+}
+// -----------------------carousil--end-----------------
+
+.nav-tabs-custom{
+    padding: 20px 0px;
+    ul{
+        margin: 0px;
+        padding: 0px;
+    }
+    button{
+        border: none;
+        font-size: 18px;
+        font-weight: 600;
+        color: $text-primary;
+        background: none;
+        &:hover{
+            color: $hover-primary;
+        }
+    }
+}

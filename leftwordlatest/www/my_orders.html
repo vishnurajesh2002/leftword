@@ -1,0 +1,98 @@
+{% extends "templates/mainbase.html" %}
+{% block content %}
+<main>
+<!-- page layout width Start -->
+<section class="lw-shopping-my-account">
+    <div class="container-fluid lw-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="lw-pghd-text">
+                        <h3>Order</h3>
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/leftword_home">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Order</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <section class="m-50">
+                <div class="row">
+                    <div class="col-xl-3">
+                        <div class="card card-gray mb-10">
+                            <div class="left-myaccount">
+                                <div class="profile-holder">
+                                    <div class="profile-avatar">
+                                        <img src="{{ user_image or '' }}" class="img-fluid user-img">
+                                        <input class="file-upload" type="file" id="imageUpload" name="file" accept="image/png, image/jpg, image/jpeg">
+
+                                    </div>
+                                    <div class="profile-avatar-cnt">
+                                        <h3>{{ custom_display_name or frappe.session.user }}</h3>
+                                    </div>
+                                </div>
+                                <div class="profile-tabs">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link" aria-current="page" href="/my_account">Account</a>
+                                        <!-- <a class="nav-link" href="/my_address">Address</a> -->
+                                        <a class="nav-link active" href="/my_orders">Orders</a>
+                                        <!-- <a class="nav-link" href="/my_wishlist">Wishlist</a> -->
+                                        <a class="nav-link logout" href="#">Log Out</a>                                        
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9">
+                          <div class="lw-order-list">
+                            <div class="card">
+                                <div class="card-header card-h-bg-0 border-0 mb-4">
+                                    Order History
+                                </div>
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="order-item table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col">Number ID</th>
+                                                    <th scope="col">Dates</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Price</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  {% for i in orders%}
+                                                  <tr>
+                                                    <td>{{i.name or ""}}</td>
+                                                    <td>{{i.transaction_date or ""}}</td>
+                                                    <td>{{i.status or ""}}</td>
+                                                    <!-- <td>$1234.00</td> -->
+                                                    <td>{{ i.currency }} {{_(i.grand_total)}}
+                                                   </td>
+                                                  </tr>
+                                                {% endfor %}  
+                                                </tbody>
+                                              </table>
+                                        </div>
+                                    </div>                                    
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                    <!-- col-8 -->
+            </section>
+        </div>
+    </div>
+</section>
+<!-- page layout width End -->
+</main>
+{% endblock %}

@@ -1,0 +1,36 @@
+.lw-leftFilter-block{
+    .form-check{
+        margin: 15px 0px;
+        .form-check-label{
+            font-size: 14px;
+            color: $text-primary;
+            font-weight: 400;
+        }
+    }
+.form-check-input {
+        width: 1.1em;
+        height: 1.1em;
+        margin-top: 3px;
+    }
+    .card-header{
+        background-color: $bg-secondary-light;
+    }
+    .filter-tag{
+        ul{
+            margin: 0px;
+            padding: 0px;
+            li{
+                list-style: none;
+                display: inline-block;
+            }
+        }
+    }
+    .lw-filter-search{
+        .form-control{
+            text-transform: uppercase;
+        }
+        .btn{
+            width: 53px;
+        }
+    }
+}
